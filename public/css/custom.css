@@ -1,0 +1,291 @@
+.content-center{
+    text-align: center;
+}
+
+.interval-about{
+    padding-left: 20px;
+}
+
+.interval-top-about{
+    margin-top: 60px;
+}
+
+.colorwhite {
+    text-align: left;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
+.text-color-black {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+}
+
+.right {
+    text-align: right;
+    font-family: 'Prompt', sans-serif;
+}
+.letter-white {
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
+.topic {
+    text-align: left;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+    font-size: 60px;
+}
+.topic2 {
+    text-align: left;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+    font-size: 35px;
+}
+.topic3 {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 60px;
+}
+
+.topic4 {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 25px;
+}
+
+.topic5 {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 40px;
+}
+.topic-red {
+    text-align: left;
+    color: red;
+    font-family: 'Prompt', sans-serif;
+    font-size: 25px;
+}
+.topic-black {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 22px;
+}
+.topic-black-20 {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 20px;
+}
+
+.topic-black-size60 {
+    text-align: left;
+    color: black;
+    font-family: 'Prompt', sans-serif;
+    font-size: 60px;
+}
+
+.topic-white-size15 {
+    text-align: left;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+    font-size: 15px;
+}
+
+.topic-gray {
+    text-align: left;
+    color: gray;
+    font-family: 'Prompt', sans-serif;
+    font-size: 20px;
+}
+.topic-white {
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
+.text-white-th {
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
+/* Frontend Service-Charge
+
+ */
+.text-white-25 {
+    color: white;
+    font-family: 'Prompt', sans-serif;
+    font-size: 35px;
+}
+.img-resize {
+    width: 60%;
+    height: 5%;
+    overflow: hidden;
+    /*text-align: center;*/
+}
+
+
+/* End Frontend Service-Charge
+
+ */
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.topic-white {
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
+
+.login {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 20px;
+}
+.button {
+    transition: none;
+    font-size: 40px;
+}
+.center{
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+
+.bg-info {
+    background-color: #36b9cc;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #36b9cc), to(#36b9cc));
+    background-image: linear-gradient(180deg, #36b9cc 10%, #36b9cc 100%);
+    background-size: cover;
+}
+.bg-blue {
+    background-color: blue;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #36b9cc), to(#36b9cc));
+    background-image: linear-gradient(180deg, #36b9cc 10%, #36b9cc 100%);
+    background-size: cover;
+}
+
+.card-admin {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.15rem;
+    max-width: 500px;
+}
+
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.inner_position_right {
+    position:absolute;
+    background-color:#FFFF99;
+    height:100%;
+    width:50px;
+    top:0px;
+    z-index:999;
+}
+
+.card-articles {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5rem;
+}
+
+.btn-category {
+    padding: 0px 10px;
+    background: #eee;
+    color: #0000ff;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 0; }
+.btn-category:hover, .btn-category:focus, .btn-category.active {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background: -webkit-gradient(linear, right top, left top, from(#0000ff), to(#36f3ff));
+    background: -webkit-linear-gradient(right, #0000ff 0%, #36f3ff 100%);
+    background: -o-linear-gradient(right, #0000ff 0%, #36f3ff 100%);
+    background: linear-gradient(to left, #0000ff 0%, #36f3ff 100%);
+    color: white; }
+
+.category-menu {
+    margin-top: 25px;
+}
+
+.category-menu .dropdown-menu {
+    border-radius: 10px;
+    border: 1px solid #dee2e6 !important;
+    -webkit-box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.25);
+    border-color: transparent;
+    left: unset !important;
+    right: 0;
+}
+
+.category-menu .dropdown-menu a {
+    background-color: transparent;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    font-weight: 300;
+}
+
+.category-menu .dropdown-menu a:hover, .category-menu .dropdown-menu a:focus, .category-menu .dropdown-menu a.active {
+    color: #2bc0ff;
+}
+
+/* Article
+--------------------------------*/
+
+.article {
+    margin-top: 120px;
+    margin-right: 10px;
+}
+
+/* end article
+--------------------------------*/
+
+.btn-readmore {
+    background: #0000ff;
+    border-radius: 20px;
+    color: white !important;
+    border: 0;
+    -webkit-transition: background 0.3s linear;
+    -o-transition: background 0.3s linear;
+    transition: background 0.3s linear;
+}
+
+
+.btn-readmore:hover, .btn-readmore:focus {
+    background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 255, 0.9)), to(rgb(54, 243, 255)));
+    background: -webkit-linear-gradient(left, rgba(0, 0, 255, 0.9) 0%, rgba(54, 243, 255, 0.9) 100%);
+    background: -o-linear-gradient(left, rgba(0, 0, 255, 0.9) 0%, rgba(54, 243, 255, 0.9) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 255, 0.9) 0%, rgba(54, 243, 255, 0.9) 100%);
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
