@@ -38,7 +38,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('admin.login');
+        return view('admin.admin-login');
     }
 
     protected function validateLogin(Request $request)

@@ -111,8 +111,6 @@
 @endsection
 @push('script')
     <script type="text/javascript">
-        <script type="text/javascript">
-
             function readProduct(input) {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();

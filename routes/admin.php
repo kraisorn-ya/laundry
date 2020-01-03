@@ -102,6 +102,13 @@ Route::group([
         Route::post('{id}/service-type/update', 'Backend\ServiceTypeController@update')->name('update');
         Route::delete('{id}/service-type/delete', 'Backend\ServiceTypeController@destroy')->name('delete');
     });
+
+    Route::group([
+        'prefix' => 'order',
+        'as' => 'order.'
+    ], function (){
+        Route::get('index', 'Backend\OrderController@index')->name('index');
+    });
 });
 
 

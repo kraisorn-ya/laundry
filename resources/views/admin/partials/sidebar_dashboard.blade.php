@@ -85,20 +85,20 @@
     @endif
 
     @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
-    <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-three" aria-expanded="true"
-           aria-controls="collapse-three">
-            <i class="fas fa-calendar-alt"></i>
-            <span>บริการลูกค้า</span>
-        </a>
-        <div id="collapse-three" class="collapse" aria-labelledby="heading-three" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">รายการใช้บริการของลูกค้า</a>
-                {{--<a class="collapse-item" href="{{ route('admin.users.index') }}">Index</a>--}}
-                {{--<a class="collapse-item" href="{{ route('admin.users.create') }}">Create</a>--}}
+        <li class="nav-item {{ Route::currentRouteName() == 'admin.order.index' ? 'active' : null }} ">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-three" aria-expanded="true"
+               aria-controls="collapse-three">
+                <i class="fas fa-calendar-alt"></i>
+                <span>บริการลูกค้า</span>
+            </a>
+            <div id="collapse-three" class="collapse {{ Route::currentRouteName() == 'admin.order.index' ? 'show' : null }}" aria-labelledby="heading-three" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item {{ Route::currentRouteName() == 'admin.order.index' ? 'active' : null }}" href="{{ route('admin.order.index') }}">บริการของลูกค้า</a>
+                    {{--<a class="collapse-item" href="{{ route('admin.users.index') }}">Index</a>--}}
+                    {{--<a class="collapse-item" href="{{ route('admin.users.create') }}">Create</a>--}}
+                </div>
             </div>
-        </div>
-    </li>
+        </li>
     @endif
 
     @if(auth()->user()->role_id == 1 )
