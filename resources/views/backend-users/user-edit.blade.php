@@ -46,7 +46,7 @@
                                     <div class="form-group row">
                                         <label for="first_name"
                                                class="col-form-label text-md-right"
-                                               style="margin-left: 20%">{{ __('ชื่อ :') }}</label>
+                                               style="margin-left: 16%">{{ __('ชื่อ :') }}</label>
                                         <div class="col-md-8">
                                             <input id="first_name" type="text"
                                                    class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}"
@@ -62,7 +62,7 @@
                                     <div class="form-group row">
                                         <label for="last_name"
                                                class="col-form-label text-md-right"
-                                               style="margin-left: 8%">{{ __('นามสกุล:') }}</label>
+                                               style="margin-left: 7%">{{ __('นามสกุล:') }}</label>
                                         <div class="col-md-8">
                                             <input id="last_name" type="text"
                                                    class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}"
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="address" class="col-form-label" style="margin-left: 5%">ที่อยู่
+                                    <label for="address" class="col-form-label" style="margin-left: 4%">ที่อยู่
                                         :</label>
                                     <div class="col-md-8">
                                         <input id="address" type="text"
@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="email" class="col-form-label text-md-right" style="margin-left: 4%">อีเมล
+                                    <label for="email" class="col-form-label text-md-right" style="margin-left: 3%">อีเมล
                                         :</label>
                                     <div class="col-md-8">
                                         <input id="email" type="email"
@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="tel" class="col-form-label text-md-right">เบอร์โทร :</label>
+                                    <label for="tel" class="col-form-label text-md-right" style="margin-left: -1%">เบอร์โทร :</label>
                                     <div class="col-md-8">
                                         <input id="tel" type="text"
                                                class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}"
@@ -160,43 +160,45 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="username"
-                                       class="col-form-label text-md-right">{{ __('Username :') }}</label>
+                        <div class="card-footer">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="username"
+                                           class="col-form-label text-md-right">{{ __('Username :') }}</label>
 
-                                <input id="username" type="text"
-                                       class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
-                                       name="username" value="{{ $data->username }}" required autofocus>
+                                    <input id="username" type="text"
+                                           class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                                           name="username" value="{{ $data->username }}" required autofocus>
 
-                                @if ($errors->has('username'))
-                                    <span class="invalid-feedback" role="alert">
+                                    @if ($errors->has('username'))
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('username') }}</strong>
                                     </span>
-                                @endif
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-3">
-                                <label for="password"
-                                       class="col-form-label text-md-right">{{ __('รหัสผ่าน :') }}</label>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="password"
+                                           class="col-form-label text-md-right">{{ __('รหัสผ่าน :') }}</label>
 
-                                <input id="password" type="password"
-                                       class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                       name="password" autofocus>
+                                    <input id="password" type="password"
+                                           class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                           name="password" autofocus>
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
+                                    @if ($errors->has('password'))
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="password-confirm"
-                                       class="col-form-label text-md-right">{{ __('ยืนยันรหัสผ่าน :') }}</label>
+                                    @endif
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="password-confirm"
+                                           class="col-form-label text-md-right">{{ __('ยืนยันรหัสผ่าน :') }}</label>
 
-                                <input id="password-confirm" type="password" class="form-control"
-                                       name="password_confirmation">
+                                    <input id="password-confirm" type="password" class="form-control"
+                                           name="password_confirmation">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row mb-0">

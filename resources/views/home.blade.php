@@ -22,8 +22,8 @@
                             </div>
                         @endif
 
-                        <img src="{{ asset('storage/'.Auth::user()->image) }}">
-                        {{ Auth::user()->image }}
+{{--                        <img src="{{ asset('storage/'.Auth::user()->image) }}">--}}
+{{--                        {{ Auth::user()->image }}--}}
                     </div>
                 </div>
             </div>

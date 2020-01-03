@@ -61,6 +61,7 @@ Route::group([
         'as' => 'service-charge.'
     ], function (){
         Route::get('/', 'Frontend\ServiceChargeController@index')->name('index');
+        Route::get('/index2', 'Frontend\ServiceChargeController@index2')->name('index2');
     });
 
 //    Route::group([
