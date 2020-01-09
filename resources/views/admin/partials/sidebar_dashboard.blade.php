@@ -84,6 +84,17 @@
     </li>
     @endif
 
+    @if(auth()->user()->role_id == 1 )
+        <li class="nav-item {{ Route::currentRouteName() == 'admin.package.index' || Route::currentRouteName() == 'admin.package.create' ||
+      Route::currentRouteName() == 'admin.package.edit' ? 'active' : null }}">
+            <a class="nav-link" href=" {{ route('admin.package.index') }}" data-toggle="collapse show" data-target="#collapse21" aria-expanded="true"
+               aria-controls="collapse21">
+                <i class="fas fa-dumpster"></i>
+                <span>แพ็คเกจ</span>
+            </a>
+        </li>
+    @endif
+
     @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
         <li class="nav-item {{ Route::currentRouteName() == 'admin.order.index' ? 'active' : null }} ">
             <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-three" aria-expanded="true"

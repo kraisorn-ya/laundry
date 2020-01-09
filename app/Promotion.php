@@ -27,4 +27,5 @@ class Promotion extends Model
 //    {
 //        return $this->belongsTo(ArticlesCategory::class);
 //    }
+
 }

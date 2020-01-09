@@ -10,6 +10,11 @@ use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $service_types = ServiceType::all();

@@ -109,6 +109,18 @@ Route::group([
     ], function (){
         Route::get('index', 'Backend\OrderController@index')->name('index');
     });
+
+    Route::group([
+        'prefix' => 'package',
+        'as' => 'package.'
+    ], function (){
+        Route::get('/index', 'Backend\PackageController@index')->name('index');
+        Route::get('/create', 'Backend\PackageController@create')->name('create');
+        Route::post('/create', 'Backend\PackageController@store')->name('store');
+        Route::get('{id}/package/edit', 'Backend\PackageController@edit')->name('edit');
+        Route::put('{id}/package/update', 'Backend\PackageController@update')->name('update');
+        Route::delete('{id}/package/delete', 'Backend\PackageController@destroy')->name('delete');
+    });
 });
 
 

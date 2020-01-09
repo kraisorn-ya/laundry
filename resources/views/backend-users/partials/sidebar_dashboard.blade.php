@@ -32,11 +32,19 @@
             <i class="fas fa-id-card"></i>
             <span>โปรไฟล์</span></a>
     </li>
+
     <li class="nav-item {{ Route::currentRouteName() == 'users.edit' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.edit') }}">
             <i class="fas fa-edit"></i>
             <span>แก้ไขข้อมูลส่วนตัว</span></a>
     </li>
+
+    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">
+        <a class="nav-link" href="{{ route('users.package.index') }}">
+            <i class="fas fa-shopping-cart"></i>
+            <span>แพ็คเกจ</span></a>
+    </li>
+
     <li class="nav-item ">
         <a class="nav-link" href="#">
             <i class="fas fa-bell"></i>

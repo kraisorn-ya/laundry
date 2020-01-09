@@ -87,6 +87,13 @@ Route::group([
     ], function (){
         Route::get('/', 'BackendUser\OrderController@index')->name('index');
     });
+
+    Route::group([
+        'prefix' => 'package',
+        'as' => 'package.'
+    ], function (){
+        Route::get('/', 'BackendUser\PackageController@index')->name('index');
+    });
 });
 
 
