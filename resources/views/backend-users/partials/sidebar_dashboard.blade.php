@@ -27,6 +27,22 @@
         Interface
     </div>
 
+    <hr class="sidebar-divider my-0">
+    @if(auth()->user()->status_id == 1)
+    <li class="nav-item {{ Route::currentRouteName() == 'users.service.index' ? 'active' : null }}">
+        <a class="nav-link" href="{{ route('users.service.index') }}">
+            <i class="fas fa-shopping-cart"></i>
+            <span>ใช้บริการ</span></a>
+    </li>
+    @endif
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">
+        <a class="nav-link" href="{{ route('users.package.index') }}">
+            <i class="fas fa-shopping-cart"></i>
+            <span>แพ็คเกจ</span></a>
+    </li>
+    <hr class="sidebar-divider">
+
     <li class="nav-item {{ Route::currentRouteName() == 'users.profile' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.profile') }}">
             <i class="fas fa-id-card"></i>

@@ -18,4 +18,9 @@ class ServiceType extends Model
         return $this->hasMany(Clothes::class);
     }
 
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+
 }

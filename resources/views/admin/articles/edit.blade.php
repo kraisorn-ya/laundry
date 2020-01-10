@@ -68,7 +68,7 @@
                                         <a id="linkProduct"
                                            href="{{ ($data->image == 'NULL') ? '' : asset('storage/'.$data->image) }}"
                                            target="blank">
-                                            <img class="rounded-circle" id="previewProduct"
+                                            <img class="img-thumbnail" id="previewProduct"
                                                  style="width: 160px;height: 160px"
                                                  src="{{ ($data->image == 'NULL') ? 'https://via.placeholder.com/180x120.png?text=No%20Image'
                                      : asset('storage/'.$data->image) }}">

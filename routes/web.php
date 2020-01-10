@@ -93,6 +93,17 @@ Route::group([
         'as' => 'package.'
     ], function (){
         Route::get('/', 'BackendUser\PackageController@index')->name('index');
+        Route::post('/package', 'BackendUser\PackageController@buy')->name('buy');
+
+    });
+
+    Route::group([
+        'prefix' => 'service',
+        'as' => 'service.'
+    ], function (){
+        Route::get('/', 'BackendUser\ServiceController@index')->name('index');
+        Route::post('/service', 'BackendUser\ServiceController@post')->name('post');
+
     });
 });
 

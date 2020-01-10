@@ -16,4 +16,9 @@ class Package extends Model
             'number',
             'price',
         ];
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

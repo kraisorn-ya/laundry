@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Grpc\Server;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -60,6 +61,11 @@ class Admin extends Authenticatable
     {
         return $this->hasMany(Promotion::class);
     }
+    public function services()
+    {
+        return $this->hasMany(Server::class);
+    }
+
 
     /**
      * The attributes that should be cast to native types.

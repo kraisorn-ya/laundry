@@ -108,6 +108,8 @@ Route::group([
         'as' => 'order.'
     ], function (){
         Route::get('index', 'Backend\OrderController@index')->name('index');
+        Route::get('{id}/order/create', 'Backend\OrderController@create')->name('create');
+        Route::delete('{id}/order/delete', 'Backend\OrderController@destroy')->name('delete');
     });
 
     Route::group([
@@ -120,6 +122,18 @@ Route::group([
         Route::get('{id}/package/edit', 'Backend\PackageController@edit')->name('edit');
         Route::put('{id}/package/update', 'Backend\PackageController@update')->name('update');
         Route::delete('{id}/package/delete', 'Backend\PackageController@destroy')->name('delete');
+    });
+
+    Route::group([
+        'prefix' => 'confirm-package',
+        'as' => 'confirm-package.'
+    ], function (){
+        Route::get('/index', 'Backend\ConfirmPackage\ConfirmPackageController@index')->name('index');
+//        Route::get('/create', 'Backend\PackageController@create')->name('create');
+//        Route::post('/create', 'Backend\PackageController@store')->name('store');
+//        Route::get('{id}/package/edit', 'Backend\PackageController@edit')->name('edit');
+//        Route::put('{id}/package/update', 'Backend\PackageController@update')->name('update');
+//        Route::delete('{id}/package/delete', 'Backend\PackageController@destroy')->name('delete');
     });
 });
 

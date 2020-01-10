@@ -31,6 +31,8 @@ class User extends Authenticatable
         'address',
         'image',
         'status_id',
+        'package_id',
+        'confirm_package',
     ];
 
     /**
@@ -46,6 +48,18 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Status::class);
     }
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+
+
 
     /**
      * The attributes that should be cast to native types.

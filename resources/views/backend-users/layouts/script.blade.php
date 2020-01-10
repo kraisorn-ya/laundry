@@ -19,3 +19,9 @@
 <script src="{{ asset('cleave.js/dist/cleave.min.js') }}"></script>
 <script src="{{ asset('cleave.js/dist/addons/cleave-phone.th.js') }}"></script>
 <script src="{{ asset('js/jquery-3.3.1.js') }}"></script>
+
+<!-- Editor -->
+<script src="{{ asset('ckeditor/adapters/jquery.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('ckeditor/js/sample.js') }}"></script>
+<!-- END Editor -->

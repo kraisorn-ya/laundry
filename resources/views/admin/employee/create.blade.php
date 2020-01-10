@@ -14,7 +14,7 @@
                                 <label >รูปโปรไฟล์</label>
                                 <div class="form-group">
                                     <div id="divShowImg">
-                                        <img class="rounded-circle" id="previewProduct" style="width: 160px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
+                                        <img class="img-thumbnail" id="previewProduct" style="width: 160px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
                                     </div>
 
                                     @if ($errors->has('image'))
@@ -24,7 +24,7 @@
                                     @endif
 
                                 </div>
-                                <input type="file" accept="image/jpeg, image/png"  onchange="readProduct(this);" id="fileProduct"
+                                <input  type="file" accept="image/jpeg, image/png"  onchange="readProduct(this);" id="fileProduct"
                                        name="image" value="{{ old('image') }}">
                                 <p class="help-block">
                                     ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>

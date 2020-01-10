@@ -54,6 +54,17 @@
     </li>
     @endif
 
+    @if(auth()->user()->role_id == 1 )
+        <li class="nav-item {{ Route::currentRouteName() == 'admin.confirm-package.index' || Route::currentRouteName() == 'admin.confirm-package.create' ||
+      Route::currentRouteName() == 'admin.confirm-package.edit' ? 'active' : null }}">
+            <a class="nav-link" href=" {{ route('admin.confirm-package.index') }}" data-toggle="collapse show" data-target="#collapse25" aria-expanded="true"
+               aria-controls="collapse25">
+                <i class="fas fa-dumpster"></i>
+                <span>ยืนยันการซื้อแพ็คเกจ</span>
+            </a>
+        </li>
+    @endif
+
     @if(auth()->user()->role_id == 1)
         <li class="nav-item {{ Route::currentRouteName() == 'admin.service-type.index' || Route::currentRouteName() == 'admin.service-type.create' ||
       Route::currentRouteName() == 'admin.service-type.edit' ? 'active' : null }}">
@@ -96,15 +107,18 @@
     @endif
 
     @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
-        <li class="nav-item {{ Route::currentRouteName() == 'admin.order.index' ? 'active' : null }} ">
+        <li class="nav-item {{ Route::currentRouteName() == 'admin.order.index' || Route::currentRouteName() == 'admin.order.create' ||
+        Route::currentRouteName() == 'admin.order.delete' ? 'active' : null }} ">
             <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-three" aria-expanded="true"
                aria-controls="collapse-three">
                 <i class="fas fa-calendar-alt"></i>
                 <span>บริการลูกค้า</span>
             </a>
-            <div id="collapse-three" class="collapse {{ Route::currentRouteName() == 'admin.order.index' ? 'show' : null }}" aria-labelledby="heading-three" data-parent="#accordionSidebar">
+            <div id="collapse-three" class="collapse {{ Route::currentRouteName() == 'admin.order.index' || Route::currentRouteName() == 'admin.order.create' ||
+            Route::currentRouteName() == 'admin.order.delete' ? 'show' : null }}" aria-labelledby="heading-three" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item {{ Route::currentRouteName() == 'admin.order.index' ? 'active' : null }}" href="{{ route('admin.order.index') }}">บริการของลูกค้า</a>
+                    <a class="collapse-item {{ Route::currentRouteName() == 'admin.order.index' || Route::currentRouteName() == 'admin.order.create' ||
+                    Route::currentRouteName() == 'admin.order.delete' ? 'active' : null }}" href="{{ route('admin.order.index') }}">บริการของลูกค้า</a>
                     {{--<a class="collapse-item" href="{{ route('admin.users.index') }}">Index</a>--}}
                     {{--<a class="collapse-item" href="{{ route('admin.users.create') }}">Create</a>--}}
                 </div>
