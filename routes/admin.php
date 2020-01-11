@@ -109,6 +109,7 @@ Route::group([
     ], function (){
         Route::get('index', 'Backend\OrderController@index')->name('index');
         Route::get('{id}/order/create', 'Backend\OrderController@create')->name('create');
+        Route::post('/confirm', 'Backend\OrderController@confirm')->name('confirm');
         Route::delete('{id}/order/delete', 'Backend\OrderController@destroy')->name('delete');
     });
 
