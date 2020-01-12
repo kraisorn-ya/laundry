@@ -56,27 +56,32 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">ชื่อ</th>
-                            <th scope="col">ประเภทใช้บริการ</th>
                             <th scope="col">ที่อยู่</th>
                             <th scope="col">เบอร์โทรศัพท์</th>
                             <th scope="col">action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($services as $service)
+                        @foreach($orders as $order)
                             <tr>
-                                <td scope="row">{{ $service->id }}</td>
-                                <td>{{ $service->users->first_name." ".$service->users->last_name }}</td>
-                                <td>{{ $service->service_type->name }}</td>
-                                <td>{{ $service->address }}</td>
-                                <td>{{ $service->users->tel }}</td>
-{{--                                <td>{{ $service->users->first_name }}</td>--}}
+                                <td scope="row">{{ $order->id }}</td>
+                                <td>{{ $order->users->first_name." ".$order->users->last_name }}</td>
+                                <td>{{ $order->address }}</td>
+                                <td>{{ $order->users->tel }}</td>
                                 <td class="row">
-                                    <form method="post" action="{{ route('admin.order.delete', $service->id) }}">
+                                    <form method="post" action="{{ route('admin.order.create', $order->id) }}">
                                         @csrf
-                                        <a class="btn btn-outline-info" href="{{ route('admin.order.create', $service->id) }}">
-                                            <i class="fas fa-user-edit">ยืนยันการใช้บริการ</i>
-                                        </a>
+                                        <input type="hidden" name="user_id" value="{{$order->user_id}}">
+                                        <button type="submit" class="btn btn-outline-info">
+                                            <i class="fa fa-shopping-cart">ยืนยันการใช้บริการ</i>
+                                        </button>
+
+                                    </form>
+                                    <form method="post" action="{{ route('admin.order.delete', $order->id) }}">
+                                        @csrf
+{{--                                        <a class="btn btn-outline-info" href="{{ route('admin.order.create', $order->user_id) }}">--}}
+{{--                                            <i class="fas fa-user-edit">ยืนยันการใช้บริการ</i>--}}
+{{--                                        </a>--}}
                                         <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
@@ -111,7 +116,7 @@
                 </div>
             </div>
             <div class="flex-center" style="margin-top: 0.3%">
-                {{ $services->links() }}
+                {{ $orders->links() }}
             </div>
         </div>
     </div>

@@ -20,4 +20,9 @@ class Clothes extends Model
     {
         return $this->belongsTo(ServiceType::class);
     }
+
+    public function order_details()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
 }

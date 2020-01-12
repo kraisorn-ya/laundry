@@ -13,7 +13,7 @@
                             <div class="form-group">
                                 <label>ประเภทบริการ </label>
                                 <select class="form-control col-md-3" name="service_type_id">
-                                    <option selected disabled>กรุณาเลือกประเภทข่าวสาร</option>
+                                    <option selected disabled>กรุณาเลือกประเภทบริการ</option>
                                     @foreach ($service_types as $service_type)
                                         <option
                                                 {{ (old("service_type_id") == $service_type->id ? "selected":"") }} value="{{ $service_type->id }}">{{ $service_type->name }}</option>

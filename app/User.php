@@ -59,7 +59,15 @@ class User extends Authenticatable
         return $this->hasMany(Service::class);
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 
+    public function order_details()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
 
     /**
      * The attributes that should be cast to native types.

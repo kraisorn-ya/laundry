@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('users.order.index') }}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('users.service.index') }}">
         <div class="sidebar-brand-icon rotate-n-15">
 {{--            <i class="fas fa-laugh-wink"></i>--}}
             <i class="fas fa-calendar"></i>
@@ -29,8 +29,8 @@
 
     <hr class="sidebar-divider my-0">
     @if(auth()->user()->status_id == 1)
-    <li class="nav-item {{ Route::currentRouteName() == 'users.service.index' ? 'active' : null }}">
-        <a class="nav-link" href="{{ route('users.service.index') }}">
+    <li class="nav-item {{ Route::currentRouteName() == 'users.order.index' ? 'active' : null }}">
+        <a class="nav-link" href="{{ route('users.order.index') }}">
             <i class="fas fa-shopping-cart"></i>
             <span>ใช้บริการ</span></a>
     </li>

@@ -289,3 +289,12 @@
     display: flex;
     justify-content: center;
 }
+/* font table order confirm
+----------------------*/
+.font-order {
+    color: black;
+    font-family: 'Prompt', sans-serif;
+}
+
+/*END font table order confirm
+----------------------*/

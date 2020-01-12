@@ -4,9 +4,15 @@ namespace App\Http\Controllers\BackendUser;
 
 use App\Articles;
 use App\Clothes;
+use App\Http\Requests\OrderUser\OrderRequest;
+use App\Http\Requests\Service\ServiceRequest;
+use App\Order;
+use App\Service;
 use App\ServiceType;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -18,26 +24,24 @@ class OrderController extends Controller
     public function index()
     {
         $service_types = ServiceType::all();
-//        $clothes = Clothes::query()
-//            ->where('service_type_id',$service_types->id)
-//            ->get();
-//        foreach ($service_types as $service_type)
-//        {
-//            $service_type->id;
-//            echo $service_type->name." <br>";
-//            $clothes = Clothes::query()
-//                ->where('service_type_id',$service_type->id)
-//            ->get();
-//            foreach ($clothes as $clothe)
-//            {
-//                echo $clothe->name."<br>";
-//            }
-//            echo "<hr>";
-//        }
-//        $service_type1 = ServiceType::query()
-//            ->where('id','1')
-//            ->get();
-
-        return view('backend-users.order.index',compact('service_types'));
+        $users = User::all();
+        return view('backend-users.order.index', compact('service_types','users'));
     }
+
+    public function post(OrderRequest $request)
+    {
+        $orders = new Order;
+        $orders->user_id = Auth::user()->id;
+        $orders->address = $request->address;
+        $orders->pay = $request->pay;
+        $orders->order_status = 0;
+        if ($request->image != null)
+        {
+            $orders->image = $request['image']->store('uploads','public');
+        }
+//        dd($orders);
+        $orders->save();
+        return redirect()->route('home')->with('success','เรียกใช้บริการแล้ว');
+    }
+
 }

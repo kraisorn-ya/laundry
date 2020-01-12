@@ -1,5 +1,5 @@
-@extends('backend-users.layouts.main_dashboard')
-@section('title', 'ใช้บริการ')
+@extends('admin.layouts.main_dashboard')
+@section('title', 'detail')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -8,32 +8,43 @@
                     <div class="card-header">{{ __('ใช้บริการ') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('users.order.post') }}" style="padding: 40px" enctype="multipart/form-data">
+{{--                        <form method="POST" action="{{ route('users.service.post') }}" style="padding: 40px" enctype="multipart/form-data">--}}
                             @csrf
-{{--                            <div class="form-group">--}}
-{{--                                <label>ประเภทการใช้บริการ <span style="color:red">*</span></label>--}}
-{{--                                <select class="form-control" name="service_type_id">--}}
-{{--                                    <option selected disabled>กรุณาเลือกประเภทข่าวสาร</option>--}}
-{{--                                    @foreach ($service_types as $service_type)--}}
-{{--                                        <option--}}
-{{--                                                {{ (old("service_type_id") == $service_type->id ? "selected":"") }} value="{{ $service_type->id }}">{{ $service_type->name }}</option>--}}
-{{--                                    @endforeach--}}
-{{--                                </select>--}}
-{{--                                @if ($errors->has('service_type_id'))--}}
-{{--                                    <span style="color: rgba(226,20,17,0.77);font-size: 13px">--}}
-{{--                                            <strong>{{ $errors->first('service_type_id') }}</strong>--}}
-{{--                                        </span>--}}
-{{--                                @endif--}}
-{{--                            </div>--}}
+                            <div class="form-group">
+                                <label>ประเภทการใช้บริการ <span style="color:red">*</span></label>
+                                <select class="form-control" name="service_type_id">
+                                    <option selected disabled>กรุณาเลือกประเภทข่าวสาร</option>
+                                    @foreach ($service_types as $service_type)
+                                        <option
+                                                {{ (old("service_type_id") == $service_type->id ? "selected":"") }} value="{{ $service_type->id }}">{{ $service_type->name }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('service_type_id'))
+                                    <span style="color: rgba(226,20,17,0.77);font-size: 13px">
+                                            <strong>{{ $errors->first('service_type_id') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
                             <div class="box-body">
                                 <div class="form-group">
                                     <label>ที่อยู่ <span style="color:red">*</span></label>
                                     <textarea class="form-control"  name="address"
-                                              placeholder="กรอกที่อยู่"
-                                              rows="4">{{ Auth::user()->address }}</textarea>
+                                              placeholder="Short Description"
+                                              rows="4">{{ array_get($users,'0.address') }}</textarea>
                                     @if ($errors->has('address'))
                                         <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                                             <strong>{{ $errors->first('address') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label>รายละเอียด <span style="color:red">*</span></label>
+                                    <textarea class="form-control ckeditor" id="editor" name="description"
+                                              placeholder="Short Description"
+                                              rows="4">{{ old('description') }}</textarea>
+                                    @if ($errors->has('description'))
+                                        <span style="color: rgba(226,20,17,0.77);font-size: 13px">
+                                            <strong>{{ $errors->first('description') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -73,10 +84,10 @@
                                     <button type="submit" class="btn btn-primary">
                                         ใช้บริการ
                                     </button>
-                                    <a class="btn btn-danger" href="{{ route('home') }}">ยกเลิก</a>
+                                    <a class="btn btn-danger" href="{{ route('admin.order.index') }}">ยกเลิก</a>
                                 </div>
                             </div>
-                        </form>
+{{--                        </form>--}}
                     </div>
                 </div>
             </div>
@@ -97,5 +108,4 @@
         }
 
     </script>
-
 @endpush

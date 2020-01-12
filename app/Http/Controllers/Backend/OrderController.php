@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Clothes;
+use App\Order;
+use App\OrderDetail;
 use App\Service;
 use App\ServiceType;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -18,27 +21,25 @@ class OrderController extends Controller
 
     public function index()
     {
-        $services = Service::query()
+        $orders = Order::query()
+            ->where('order_status',0)
         ->paginate(6);
-        return view('admin.order.index', compact('services'));
-//        $serviceTypes = ServiceType::all();
-//        return view('admin.order.index', compact('serviceTypes'));
+        return view('admin.order.index', compact('orders'));
     }
 
-    public function create()
+    public function create(Request $request, $id)
     {
-//        $admin_roles = Service::find($id);
-//        $admin_roles->admin_id = Auth::user()->id;
-//
-//        $admin_roles->update();
-
+        $order = Order::find($id);
+        $user = User::find($request->user_id);
         $serviceTypes = ServiceType::all();
-        return view('admin.order.create', compact('serviceTypes'));
+        return view('admin.order.create', compact('serviceTypes','user','order'));
     }
 
-    public function confirm(Request $request)
+
+    public function confirm(Request $request, $id)
     {
-//        dd($request->all());
+        $order_id = $request->order_id;
+        $user = User::find($id);
         $orders = $request->all();
         $service_types = ServiceType::all();
         $order_details = [];
@@ -80,19 +81,56 @@ class OrderController extends Controller
             $sum_qty+= $order_detail['clothe_qty'];
             $sum_price+= $order_detail['clothe_total_price'];
         }
-      dd($order_details);
+//        dd($order_details);
+        return view('admin.order.confirm',compact('sum_qty','sum_price','order_details','user','order_id'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $sum_qty = 0;
+        $sum_price = 0;
+        $orders = $request->all();
+
+        array_shift($orders);
+//        print_r($orders);
+        foreach($orders as $data)
+        {
+            $sum_qty+= $data['clothe_qty'];
+            $sum_price+= $data['clothe_total_price'];
+        }
+        $order->admin_id = Auth::user()->id;
+        $order->total_price = $sum_price;
+        $order->total_qty = $sum_qty;
+        $order->order_status = 1;
+        $order->update();
+
+
+
+        foreach ($orders as $order_detail)
+        {
+            $order_details = new OrderDetail;
+
+            $order_details->order_id = $order->id;
+            $order_details->clothes_id = $order_detail['clothe_id'];
+            $order_details->clothes_qty = $order_detail['clothe_qty'];
+            $order_details->service_type_id = $order_detail['service_type_id'];
+            $order_details->clothes_total_price = $order_detail['clothe_total_price'];
+            $order->order_details()->save($order_details);
+        }
+        return redirect()->route('admin.order.index')->with('success','บันทึกรายการเรียบร้อย');
     }
 
     public function destroy($id)
     {
-        $service = Service::find($id);
-        if ($service->image != null)
+        $orders = Order::find($id);
+        if ($orders->image == null)
         {
-            Storage::delete('public/'.$service->image);
+            Storage::delete('public/'.$orders->image);
         }
-        $service->delete();
+        $orders->delete();
 
 
-        return redirect()->route('admin.order.index')->with('deleted','ลบพนักงานเรียบร้อย');
+        return redirect()->route('admin.order.index')->with('deleted','ลบข้อมูลเรียกใช้บริการเรียบร้อย');
     }
 }

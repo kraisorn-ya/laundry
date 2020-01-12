@@ -16,28 +16,29 @@ class ServiceController extends Controller
     {
         $this->middleware('auth');
     }
-
     public function index()
     {
         $service_types = ServiceType::all();
-        $users = User::all();
-        return view('backend-users.service.index', compact('service_types','users'));
-    }
+//        $clothes = Clothes::query()
+//            ->where('service_type_id',$service_types->id)
+//            ->get();
+//        foreach ($service_types as $service_type)
+//        {
+//            $service_type->id;
+//            echo $service_type->name." <br>";
+//            $clothes = Clothes::query()
+//                ->where('service_type_id',$service_type->id)
+//            ->get();
+//            foreach ($clothes as $clothe)
+//            {
+//                echo $clothe->name."<br>";
+//            }
+//            echo "<hr>";
+//        }
+//        $service_type1 = ServiceType::query()
+//            ->where('id','1')
+//            ->get();
 
-    public function post(ServiceRequest $request)
-    {
-        $services = new Service;
-        $services->user_id = Auth::user()->id;
-        $services->service_type_id = $request->service_type_id;
-        $services->description = $request->description;
-        $services->address = $request->address;
-        $services->pay = $request->pay;
-        if ($request->image != null)
-        {
-            $services->image = $request['image']->store('uploads','public');
-        }
-//        dd($services);
-        $services->save();
-        return redirect()->route('home')->with('success','เรียกใช้บริการแล้ว');
+        return view('backend-users.service.index',compact('service_types'));
     }
 }

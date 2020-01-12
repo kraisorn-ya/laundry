@@ -82,10 +82,10 @@ Route::group([
     Route::post('{id}/update', 'BackendUser\BackendUserController@update')->name('update');
 
     Route::group([
-        'prefix' => 'order',
-        'as' => 'order.'
+        'prefix' => 'service',
+        'as' => 'service.'
     ], function (){
-        Route::get('/', 'BackendUser\OrderController@index')->name('index');
+        Route::get('/', 'BackendUser\ServiceController@index')->name('index');
     });
 
     Route::group([
@@ -98,11 +98,11 @@ Route::group([
     });
 
     Route::group([
-        'prefix' => 'service',
-        'as' => 'service.'
+        'prefix' => 'order',
+        'as' => 'order.'
     ], function (){
-        Route::get('/', 'BackendUser\ServiceController@index')->name('index');
-        Route::post('/service', 'BackendUser\ServiceController@post')->name('post');
+        Route::get('/', 'BackendUser\OrderController@index')->name('index');
+        Route::post('/order', 'BackendUser\OrderController@post')->name('post');
 
     });
 });

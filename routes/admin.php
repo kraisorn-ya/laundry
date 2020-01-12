@@ -108,8 +108,9 @@ Route::group([
         'as' => 'order.'
     ], function (){
         Route::get('index', 'Backend\OrderController@index')->name('index');
-        Route::get('{id}/order/create', 'Backend\OrderController@create')->name('create');
-        Route::post('/confirm', 'Backend\OrderController@confirm')->name('confirm');
+        Route::post('{id}/order/create', 'Backend\OrderController@create')->name('create');
+        Route::post('{id}/confirm', 'Backend\OrderController@confirm')->name('confirm');
+        Route::post('{id}/confirm/update', 'Backend\OrderController@update')->name('update');
         Route::delete('{id}/order/delete', 'Backend\OrderController@destroy')->name('delete');
     });
 
