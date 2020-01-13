@@ -108,10 +108,29 @@ Route::group([
         'as' => 'order.'
     ], function (){
         Route::get('index', 'Backend\OrderController@index')->name('index');
+        Route::any('/search', 'Backend\OrderController@search')->name('search');
         Route::post('{id}/order/create', 'Backend\OrderController@create')->name('create');
         Route::post('{id}/confirm', 'Backend\OrderController@confirm')->name('confirm');
         Route::post('{id}/confirm/update', 'Backend\OrderController@update')->name('update');
         Route::delete('{id}/order/delete', 'Backend\OrderController@destroy')->name('delete');
+    });
+
+    Route::group([
+        'prefix' => 'order-details',
+        'as' => 'order-details.'
+    ], function (){
+        Route::get('/index', 'Backend\OrderDetailsController@index')->name('index');
+        Route::any('/search', 'Backend\OrderDetailsController@search')->name('search');
+        Route::post('{id}/details', 'Backend\OrderDetailsController@details')->name('details');
+    });
+
+    Route::group([
+        'prefix' => 'order-details-daily',
+        'as' => 'order-details-daily.'
+    ], function (){
+        Route::get('/index', 'Backend\OrderDetailsDailyController@index')->name('index');
+        Route::any('/search', 'Backend\OrderDetailsDailyController@search')->name('search');
+        Route::get('{id}/details', 'Backend\OrderDetailsDailyController@details')->name('details');
     });
 
     Route::group([

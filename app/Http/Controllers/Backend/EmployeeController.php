@@ -49,7 +49,6 @@ class EmployeeController extends Controller
             $admins = Admin::query()
                 ->where('id', '!=', 1)
                 ->where('first_name','LIKE','%'.$search.'%')
-//                ->where('last_name','LIKE','%'.$search.'%')
                 ->paginate(6);
             $admins->appends($request->only('search'));
             return view('admin.employee.index',compact('admins','search'));

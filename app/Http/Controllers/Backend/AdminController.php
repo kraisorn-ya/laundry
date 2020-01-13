@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Admin;
 use App\Http\Requests\EmployeeEditRequest;
+use App\Order;
 use App\Role;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +23,16 @@ class AdminController extends Controller
 
     public function index()
     {
+        $now = Carbon::now()->format('Y-m-d');
+        $sumtodays = Order::where('created_at', '>=', $now.' 00:00:00')
+            ->where('created_at', '<=', $now.' 23:59:59')
+            ->orderBy('created_at','desc')
+            ->get();
+        $sum = Order::query()
+            ->orderBy('created_at','desc')
+            ->get();
         $users = User::all();
-        return view('admin.home', compact('users'));
+        return view('admin.home', compact('users','sumtodays','sum'));
     }
 
     public function profile()

@@ -105,6 +105,23 @@ Route::group([
         Route::post('/order', 'BackendUser\OrderController@post')->name('post');
 
     });
+
+    Route::group([
+        'prefix' => 'order-details',
+        'as' => 'order-details.'
+    ], function (){
+        Route::get('/index', 'BackendUser\OrderDetailsController@index')->name('index');
+        Route::get('{id}/details', 'BackendUser\OrderDetailsController@details')->name('details');
+
+    });
+    Route::group([
+        'prefix' => 'all-order-details',
+        'as' => 'all-order-details.'
+    ], function (){
+        Route::get('/index', 'BackendUser\AllOrderDetailsController@index')->name('index');
+        Route::get('{id}/details', 'BackendUser\AllOrderDetailsController@details')->name('details');
+
+    });
 });
 
 

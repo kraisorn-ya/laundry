@@ -43,6 +43,18 @@
     </li>
     <hr class="sidebar-divider">
 
+    <li class="nav-item {{ Route::currentRouteName() == 'users.order-details.index' || Route::currentRouteName() == 'users.order-details.details' ? 'active' : null }}">
+        <a class="nav-link" href="{{ route('users.order-details.index') }}">
+            <i class="fas fa-id-card"></i>
+            <span>รายการเสื้อผ้า</span></a>
+    </li>
+
+    <li class="nav-item {{ Route::currentRouteName() == 'users.all-order-details.index' || Route::currentRouteName() == 'users.all-order-details.details' ? 'active' : null }}">
+        <a class="nav-link" href="{{ route('users.all-order-details.index') }}">
+            <i class="fas fa-id-card"></i>
+            <span>รายการใช้บิรการทั้งหมด</span></a>
+    </li>
+
     <li class="nav-item {{ Route::currentRouteName() == 'users.profile' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.profile') }}">
             <i class="fas fa-id-card"></i>

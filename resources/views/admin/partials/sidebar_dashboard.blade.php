@@ -65,7 +65,7 @@
         </li>
     @endif
 
-    @if(auth()->user()->role_id == 1)
+    @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
         <li class="nav-item {{ Route::currentRouteName() == 'admin.service-type.index' || Route::currentRouteName() == 'admin.service-type.create' ||
       Route::currentRouteName() == 'admin.service-type.edit' ? 'active' : null }}">
             <a class="nav-link" href=" {{ route('admin.service-type.index') }}" data-toggle="collapse show" data-target="#collapse-two" aria-expanded="true"
@@ -83,15 +83,7 @@
            aria-controls="collapseTwo">
             <i class="fas fa-dumpster"></i>
             <span>กลุ่มเสื้อผ้า</span>
-{{--            <a href="{{ route('admin.clothes.index') }}"></a>--}}
         </a>
-        {{--<div id="collapsetwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">--}}
-            {{--<div class="bg-white py-2 collapse-inner rounded">--}}
-                {{--<a class="collapse-item" href="#">ประเภทเสื้อ</a>--}}
-                {{--<a class="collapse-item" href="{{ route('admin.users.index') }}">Index</a>--}}
-                {{--<a class="collapse-item" href="{{ route('admin.users.create') }}">Create</a>--}}
-            {{--</div>--}}
-        {{--</div>--}}
     </li>
     @endif
 
@@ -106,63 +98,59 @@
         </li>
     @endif
 
-    @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
+    @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2 || auth()->user()->role_id == 3)
         <li class="nav-item {{ Route::currentRouteName() == 'admin.order.index' || Route::currentRouteName() == 'admin.order.create' ||
-        Route::currentRouteName() == 'admin.order.delete' ? 'active' : null }} ">
+        Route::currentRouteName() == 'admin.order.delete' || Route::currentRouteName() == 'admin.order.confirm' ? 'active' : null }} ">
             <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-three" aria-expanded="true"
                aria-controls="collapse-three">
                 <i class="fas fa-calendar-alt"></i>
                 <span>บริการลูกค้า</span>
             </a>
             <div id="collapse-three" class="collapse {{ Route::currentRouteName() == 'admin.order.index' || Route::currentRouteName() == 'admin.order.create' ||
-            Route::currentRouteName() == 'admin.order.delete' ? 'show' : null }}" aria-labelledby="heading-three" data-parent="#accordionSidebar">
+            Route::currentRouteName() == 'admin.order.delete' || Route::currentRouteName() == 'admin.order.confirm' ? 'show' : null }}" aria-labelledby="heading-three" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item {{ Route::currentRouteName() == 'admin.order.index' || Route::currentRouteName() == 'admin.order.create' ||
-                    Route::currentRouteName() == 'admin.order.delete' ? 'active' : null }}" href="{{ route('admin.order.index') }}">บริการของลูกค้า</a>
-                    {{--<a class="collapse-item" href="{{ route('admin.users.index') }}">Index</a>--}}
-                    {{--<a class="collapse-item" href="{{ route('admin.users.create') }}">Create</a>--}}
+                    Route::currentRouteName() == 'admin.order.delete' || Route::currentRouteName() == 'admin.order.confirm' ? 'active' : null }}" href="{{ route('admin.order.index') }}">บริการของลูกค้า</a>
                 </div>
             </div>
         </li>
     @endif
 
-    @if(auth()->user()->role_id == 1 )
-    <li class="nav-item">
+    @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
+    <li class="nav-item {{ Route::currentRouteName() == 'admin.order-details.index' || Route::currentRouteName() == 'admin.order-details.details' ||
+    Route::currentRouteName() == 'admin.order-details-daily.index' || Route::currentRouteName() == 'admin.order-details-daily.details' ? 'active' : null }}">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-four" aria-expanded="true"
            aria-controls="collapse-four">
             <i class="fas fa-file-alt"></i>
             <span>รายงานการใช้บริการ</span>
         </a>
-        <div id="collapse-four" class="collapse" aria-labelledby="heading-four" data-parent="#accordionSidebar">
+        <div id="collapse-four" class="collapse {{ Route::currentRouteName() == 'admin.order-details.index' || Route::currentRouteName() == 'admin.order-details.details'
+        || Route::currentRouteName() == 'admin.order-details-daily.index' || Route::currentRouteName() == 'admin.order-details-daily.details' ? 'show' : null }}" aria-labelledby="heading-four" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">รายงานการใช้บริการรายวัน</a>
-                <a class="collapse-item" href="#">รายงานการใช้บริการรายเดือน</a>
+                <a class="collapse-item {{ Route::currentRouteName() == 'admin.order-details-daily.index' || Route::currentRouteName() == 'admin.order-details-daily.details'? 'active' : null }}" href="{{ route('admin.order-details-daily.index') }}">รายงานการใช้บริการรายวัน</a>
+                <a class="collapse-item {{ Route::currentRouteName() == 'admin.order-details.index' || Route::currentRouteName() == 'admin.order-details.details'? 'active' : null }}" href="{{ route('admin.order-details.index') }}">รายงานทั้งหมด</a>
             </div>
         </div>
     </li>
     @endif
 
+{{--    @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)--}}
+{{--    <li class="nav-item">--}}
+{{--        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-five" aria-expanded="true"--}}
+{{--           aria-controls="collapse-five">--}}
+{{--            <i class="fas fa-bell"></i>--}}
+{{--            <span>การแจ้งเตือน</span>--}}
+{{--        </a>--}}
+{{--    </li>--}}
+{{--    @endif--}}
     @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
-    <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse-five" aria-expanded="true"
-           aria-controls="collapse-five">
-            <i class="fas fa-bell"></i>
-            <span>การแจ้งเตือน</span>
-        </a>
-        {{--<div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionSidebar">--}}
-            {{--<div class="bg-white py-2 collapse-inner rounded">--}}
-                {{--<a class="collapse-item" href="#">แจ้งเตือนจากลูกค้า</a>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    </li>
-    @endif
-
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
-        <p class="topic-white-size15">หน้าบ้าน</p>
+        <p class="topic-white-size15">หน้าเว็บ</p>
     </div>
+    @endif
 
-    @if(auth()->user()->role_id == 1 )
+    @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
         <li class="nav-item {{ Route::currentRouteName() == 'admin.article-category.index' || Route::currentRouteName() == 'admin.article-category.create' ||
       Route::currentRouteName() == 'admin.article-category.edit' ? 'active' : null }}">
             <a class="nav-link" href=" {{ route('admin.article-category.index') }}" data-toggle="collapse show" data-target="#collapse4" aria-expanded="true"
@@ -173,7 +161,7 @@
         </li>
     @endif
 
-    @if(auth()->user()->role_id == 1 )
+    @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
         <li class="nav-item {{ Route::currentRouteName() == 'admin.articles.index' || Route::currentRouteName() == 'admin.articles.create' ||
       Route::currentRouteName() == 'admin.articles.edit' ? 'active' : null }}">
             <a class="nav-link" href=" {{ route('admin.articles.index') }}" data-toggle="collapse show" data-target="#collapse7" aria-expanded="true"
@@ -184,7 +172,7 @@
         </li>
     @endif
 
-    @if(auth()->user()->role_id == 1 )
+    @if(auth()->user()->role_id == 1)
         <li class="nav-item {{ Route::currentRouteName() == 'admin.promotion.index' || Route::currentRouteName() == 'admin.promotion.create' ||
       Route::currentRouteName() == 'admin.promotion.edit' ? 'active' : null }}">
             <a class="nav-link" href=" {{ route('admin.promotion.index') }}" data-toggle="collapse show" data-target="#collapse5" aria-expanded="true"
@@ -194,15 +182,4 @@
             </a>
         </li>
     @endif
-
-{{--    @if(auth()->user()->role_id == 1 )--}}
-{{--        <li class="nav-item" {{ Route::currentRouteName() == 'admin.articles.index' || Route::currentRouteName() == 'admin.articles.create' ||--}}
-{{--      Route::currentRouteName() == 'admin.articles.edit' ? 'active' : null }}>--}}
-{{--            <a class="nav-link" href=" {{ route('admin.articles.index') }}" data-toggle="collapse show" data-target="#collapse-seven" aria-expanded="true"--}}
-{{--               aria-controls="collapse-seven">--}}
-{{--                <i class="fas fa-dumpster"></i>--}}
-{{--                <span>ข่าวสาร</span>--}}
-{{--            </a>--}}
-{{--        </li>--}}
-{{--    @endif--}}
 </ul>

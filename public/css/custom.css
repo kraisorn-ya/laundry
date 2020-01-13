@@ -298,3 +298,19 @@
 
 /*END font table order confirm
 ----------------------*/
+
+.text-header {
+    color: black;
+    font-size: 20px;
+    font-family: 'Prompt', sans-serif;
+}
+
+/* width-order-details
+----------------------*/
+.text-details {
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
+
+/*END width-order-details
+----------------------*/
