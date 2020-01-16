@@ -24,7 +24,7 @@
 
 
                 <div class="card">
-                    <div class="card-header">Dashboard</div>
+                    <div class="card-header"></div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -32,7 +32,8 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
+                        <label>สวัสดีคุณ :</label>
+                        {{Auth::user()->first_name." ".Auth::user()->last_name }}
 {{--                        <img src="{{ asset('storage/'.Auth::user()->image) }}">--}}
 {{--                        {{ Auth::user()->image }}--}}
                     </div>

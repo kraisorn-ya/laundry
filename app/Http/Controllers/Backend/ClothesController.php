@@ -28,13 +28,11 @@ class ClothesController extends Controller
         $search = $request->search;
         if ($search == ""){
             $clothes = Clothes::query()
-                ->where('id', '!=', 1)
                 ->paginate(6);
             return view('admin.clothes.index',['clothes' => $clothes,'search' => $search]);
         }
         else{
             $clothes = Clothes::query()
-                ->where('id', '!=', 1)
                 ->where('name','LIKE','%'.$search.'%')
                 ->paginate(6);
             $clothes->appends($request->only('search'));

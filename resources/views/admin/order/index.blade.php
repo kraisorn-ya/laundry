@@ -4,25 +4,23 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-{{--                <div class="row">--}}
-{{--                    <div class="col-md-3">--}}
-{{--                        <a class="btn btn-outline-primary" href="{{ route('admin.order.create') }}"><i class="fas fa-pencil-alt">  สร้างบัญชีพนักงาน</i></a>--}}
-{{--                    </div>--}}
-{{--                    <div class="col">--}}
+                <div class="row">
+                    <div class="col-md-3 ">ลูกค้าเรียกใช้บริการ</div>
+                    <div class="col">
 
-{{--                    </div>--}}
-{{--                    <div class="col-md-3" style="padding-right: -20%">--}}
-{{--                        <form action="{{ route('admin.employee.search') }}" method="post" role="search">--}}
-{{--                            @csrf--}}
-{{--                            <div class="input-group">--}}
-{{--                                <input type="text" name="search" class="form-group" value="{{$search }}">--}}
-{{--                                <span class="input-group-prepend">--}}
-{{--                                    <button type="submit" class="btn btn-primary">Search</button>--}}
-{{--                                </span>--}}
-{{--                            </div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                    </div>
+                    <div class="col-md-3" style="padding-right: -20%">
+                        <form action="{{ route('admin.order.search') }}" method="post" role="search">
+                            @csrf
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-group" value="{{$search }}">
+                                <span class="input-group-prepend">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
                 @if(session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px">

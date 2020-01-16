@@ -8,6 +8,7 @@ use App\Http\Requests\EmployeeRequest;
 use App\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -48,7 +49,8 @@ class EmployeeController extends Controller
         else{
             $admins = Admin::query()
                 ->where('id', '!=', 1)
-                ->where('first_name','LIKE','%'.$search.'%')
+//                ->where('first_name','LIKE','%'.$search.'%')
+                ->where(DB::raw('concat(first_name," ",last_name)'),'LIKE','%'.$search.'%')
                 ->paginate(6);
             $admins->appends($request->only('search'));
             return view('admin.employee.index',compact('admins','search'));

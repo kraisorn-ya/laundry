@@ -78,6 +78,7 @@ Route::group([
         Route::get('{id}/articles/edit', 'Backend\ArticlesController@edit')->name('edit');
         Route::post('{id}/articles/update', 'Backend\ArticlesController@update')->name('update');
         Route::delete('{id}/articles/delete', 'Backend\ArticlesController@destroy')->name('delete');
+        Route::post('/search', 'Backend\ArticlesController@search')->name('search');
     });
     Route::group([
         'prefix' => 'article-category',
@@ -97,6 +98,7 @@ Route::group([
     ], function (){
         Route::get('/index', 'Backend\ServiceTypeController@index')->name('index');
         Route::get('/create', 'Backend\ServiceTypeController@create')->name('create');
+        Route::post('/search', 'Backend\ServiceTypeController@search')->name('search');
         Route::post('/create', 'Backend\ServiceTypeController@store')->name('store');
         Route::get('{id}/service-type/edit', 'Backend\ServiceTypeController@edit')->name('edit');
         Route::post('{id}/service-type/update', 'Backend\ServiceTypeController@update')->name('update');

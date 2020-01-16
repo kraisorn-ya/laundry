@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Edit Clothes') }}</div>
+                    <div class="card-header">{{ __('แก้ไขชื่อเสื้อผ้า') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.clothes.update',[array_get($data,'id')]) }}" style="padding: 40px">
@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="name" class="col-form-label text-md-right">{{ __('ชื่อประเภทเสื้อผ้า :') }}</label>
+                                    <label for="name" class="col-form-label text-md-right">{{ __('ชื่อเสื้อผ้า :') }}</label>
                                     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                                            name="name" value="{{ $data->name }}"  autofocus>
 

@@ -18,8 +18,9 @@ class ServiceTypeController extends Controller
 
     public function index()
     {
+        $search = "";
         $service_types = ServiceType::paginate(6);
-        return view('admin.service-type.index',compact('service_types'));
+        return view('admin.service-type.index',compact('service_types','search'));
     }
 
     public function create()
@@ -35,6 +36,7 @@ class ServiceTypeController extends Controller
         return redirect()->route('admin.service-type.index')->with('success','เพิ่มประเภทบริการ');
     }
 
+
     public function edit($id)
     {
         $service_type = ServiceType::find($id);
@@ -48,6 +50,24 @@ class ServiceTypeController extends Controller
         $service_type->name = $request->name;
         $service_type->update();
         return redirect()->route('admin.service-type.index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        if ($search == ""){
+            $service_types = ServiceType::query()
+                ->paginate(6);
+            return view('admin.service-type.index',compact('service_types','search'));
+        }
+        else
+        {
+            $service_types = ServiceType::query()
+                ->where('name','LIKE','%'.$search.'%')
+                ->paginate(6);
+            $service_types->appends($request->only('search'));
+            return view('admin.service-type.index',compact('service_types','search'));
+        }
     }
 
     public function destroy($id)

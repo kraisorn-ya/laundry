@@ -20,8 +20,9 @@ class ArticlesController extends Controller
 
     public function index()
     {
+        $search = "";
         $articles = Articles::paginate(6);
-        return view('admin.articles.index',compact('articles'));
+        return view('admin.articles.index',compact('articles','search'));
     }
 
     public function create()
@@ -80,5 +81,23 @@ class ArticlesController extends Controller
         $articles->delete();
         Storage::delete('public/'.$articles->image);
         return redirect()->route('admin.articles.index')->with('deleted','ลบประเภทข่าวสารเรียบร้อย');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        if ($search == ""){
+            $articles = Articles::query()
+                ->paginate(6);
+            return view('admin.articles.index',compact('articles','search'));
+        }
+        else
+        {
+            $articles = Articles::query()
+                ->where('title','LIKE','%'.$search.'%')
+                ->paginate(6);
+            $articles->appends($request->only('search'));
+            return view('admin.articles.index',compact('articles','search'));
+        }
     }
 }

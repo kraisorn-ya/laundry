@@ -21,10 +21,11 @@ class OrderController extends Controller
 
     public function index()
     {
+        $search = "";
         $orders = Order::query()
             ->where('order_status',0)
         ->paginate(6);
-        return view('admin.order.index', compact('orders'));
+        return view('admin.order.index', compact('orders', 'search'));
     }
 
     public function create(Request $request, $id)
@@ -33,6 +34,26 @@ class OrderController extends Controller
         $user = User::find($request->user_id);
         $serviceTypes = ServiceType::all();
         return view('admin.order.create', compact('serviceTypes','user','order'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        if ($search == ""){
+            $orders = Order::query()
+                ->where('order_status',0)
+                ->paginate(6);
+            return view('admin.order.index',compact('orders','search'));
+        }
+        else
+        {
+            $orders = Order::query()
+                ->where('order_status',0)
+                ->where('user_id','LIKE','%'.$search.'%')
+                ->paginate(6);
+            $orders->appends($request->only('search'));
+            return view('admin.order.index',compact('orders','search'));
+        }
     }
 
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Status;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -40,8 +41,8 @@ class UserController extends Controller
         }
         else{
             $users = User::query()
-                ->where('first_name','LIKE','%'.$search.'%')
-//                ->where('last_name','LIKE','%'.$search.'%')
+                ->where(DB::raw('concat(first_name," ",last_name)'),'LIKE','%'.$search.'%')
+//                ->where('first_name','LIKE','%'.$search.'%')
                 ->paginate(6);
             $users->appends($request->only('search'));
             return view('admin.users.index',compact('users','search'));

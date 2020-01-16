@@ -8,20 +8,20 @@
                     <div class="col-md-3">
                         <a class="btn btn-outline-primary" href="{{ route('admin.articles.create') }}"><i class="fas fa-pencil-alt">  เพิ่มข่าวสาร</i></a>
                     </div>
-{{--                    <div class="col">--}}
+                    <div class="col">
 
-{{--                    </div>--}}
-{{--                    <div class="col-md-3" style="padding-right: -20%">--}}
-{{--                        <form action="{{ route('admin.employee.search') }}" method="post" role="search">--}}
-{{--                            @csrf--}}
-{{--                            <div class="input-group">--}}
-{{--                                <input type="text" name="search" class="form-group" value="{{$search }}">--}}
-{{--                                <span class="input-group-prepend">--}}
-{{--                                    <button type="submit" class="btn btn-primary">Search</button>--}}
-{{--                                </span>--}}
-{{--                            </div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
+                    </div>
+                    <div class="col-md-3" style="padding-right: -20%">
+                        <form action="{{ route('admin.articles.search') }}" method="post" role="search">
+                            @csrf
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-group" value="{{$search }}">
+                                <span class="input-group-prepend">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 @if(session()->has('success'))

@@ -11,17 +11,17 @@
                     <div class="col">
 
                     </div>
-{{--                    <div class="col-md-3" style="padding-right: -20%">--}}
-{{--                        <form action="{{ route('admin.employee.search') }}" method="post" role="search">--}}
-{{--                            @csrf--}}
-{{--                            <div class="input-group">--}}
-{{--                                <input type="text" name="search" class="form-group" value="{{$search }}">--}}
-{{--                                <span class="input-group-prepend">--}}
-{{--                                    <button type="submit" class="btn btn-primary">Search</button>--}}
-{{--                                </span>--}}
-{{--                            </div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
+                    <div class="col-md-3" style="padding-right: -20%">
+                        <form action="{{ route('admin.service-type.search') }}" method="post" role="search">
+                            @csrf
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-group" value="{{$search }}">
+                                <span class="input-group-prepend">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 @if(session()->has('success'))

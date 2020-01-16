@@ -4,10 +4,10 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('users.service.index') }}">
         <div class="sidebar-brand-icon rotate-n-15">
-{{--            <i class="fas fa-laugh-wink"></i>--}}
-            <i class="fas fa-calendar"></i>
+            <i class="fas fa-laugh-wink"></i>
+{{--            <i class="fas fa-calendar"></i>--}}
         </div>
-        <div class="sidebar-brand-text mx-3">ใช้บริการ <sup></sup></div>
+        <div class="sidebar-brand-text mx-3">Laundry <sup></sup></div>
     </a>
 
     <!-- Divider -->
@@ -27,31 +27,31 @@
         Interface
     </div>
 
-    <hr class="sidebar-divider my-0">
+{{--    <hr class="sidebar-divider my-0">--}}
     @if(auth()->user()->status_id == 1)
     <li class="nav-item {{ Route::currentRouteName() == 'users.order.index' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.order.index') }}">
-            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-credit-card"></i>
             <span>ใช้บริการ</span></a>
     </li>
     @endif
     <hr class="sidebar-divider my-0">
-    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">
-        <a class="nav-link" href="{{ route('users.package.index') }}">
-            <i class="fas fa-shopping-cart"></i>
-            <span>แพ็คเกจ</span></a>
-    </li>
+{{--    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">--}}
+{{--        <a class="nav-link" href="{{ route('users.package.index') }}">--}}
+{{--            <i class="fas fa-shopping-cart"></i>--}}
+{{--            <span>แพ็คเกจ</span></a>--}}
+{{--    </li>--}}
     <hr class="sidebar-divider">
 
     <li class="nav-item {{ Route::currentRouteName() == 'users.order-details.index' || Route::currentRouteName() == 'users.order-details.details' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.order-details.index') }}">
-            <i class="fas fa-id-card"></i>
+            <i class="fas fa-envelope"></i>
             <span>รายการเสื้อผ้า</span></a>
     </li>
 
     <li class="nav-item {{ Route::currentRouteName() == 'users.all-order-details.index' || Route::currentRouteName() == 'users.all-order-details.details' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.all-order-details.index') }}">
-            <i class="fas fa-id-card"></i>
+            <i class="fa fa-book"></i>
             <span>รายการใช้บิรการทั้งหมด</span></a>
     </li>
 
@@ -67,15 +67,15 @@
             <span>แก้ไขข้อมูลส่วนตัว</span></a>
     </li>
 
-    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">
-        <a class="nav-link" href="{{ route('users.package.index') }}">
-            <i class="fas fa-shopping-cart"></i>
-            <span>แพ็คเกจ</span></a>
-    </li>
+{{--    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">--}}
+{{--        <a class="nav-link" href="{{ route('users.package.index') }}">--}}
+{{--            <i class="fas fa-shopping-cart"></i>--}}
+{{--            <span>แพ็คเกจ</span></a>--}}
+{{--    </li>--}}
 
-    <li class="nav-item ">
-        <a class="nav-link" href="#">
-            <i class="fas fa-bell"></i>
-            <span>แจ้งเตือน</span></a>
-    </li>
+{{--    <li class="nav-item ">--}}
+{{--        <a class="nav-link" href="#">--}}
+{{--            <i class="fas fa-bell"></i>--}}
+{{--            <span>แจ้งเตือน</span></a>--}}
+{{--    </li>--}}
 </ul>

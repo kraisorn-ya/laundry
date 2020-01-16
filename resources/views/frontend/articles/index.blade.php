@@ -59,9 +59,9 @@
                                                             <div class="card-body">
                                                                 <h5 class="card-title">{{ $article->title }}</h5>
                                                                 <p class="card-text">{!! $article->description !!}</p>
-                                                                <a href="{{route('laundry.articles.content',[$article->id])}}" class="btn-sm btn btn-readmore">Read More</a>
-                                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+{{--                                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
                                                             </div>
+                                                            <a href="{{route('laundry.articles.content',[$article->id])}}" class="btn-sm btn btn-readmore font-article" style="font-size: 18px; margin-left: 2%">อ่านเพิ่มเติม</a>
                                                         </div>
                                                     </div>
                                                 </div>

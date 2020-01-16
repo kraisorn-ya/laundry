@@ -263,13 +263,18 @@
     margin-right: 10px;
 }
 
+.font-article {
+    color: black;
+    font-family: 'Prompt', sans-serif;
+}
+
 /* end article
 --------------------------------*/
 
 .btn-readmore {
     background: #0000ff;
     border-radius: 20px;
-    color: white !important;
+    color: #080808 !important;
     border: 0;
     -webkit-transition: background 0.3s linear;
     -o-transition: background 0.3s linear;
