@@ -36,6 +36,7 @@ class ClothesRequest extends FormRequest
         return [
             'name.required' => 'กรุณากรอกชื่อเสื้อผ้า',
             'price.required' => 'กรุณาใส่ราคา(บาท)/ต่อชิ้น',
+            'price.numeric' => 'ต้องเป็นตัวเลขเท่านั้น',
         ];
     }
 }

@@ -1,4 +1,4 @@
-@extends('admin.layouts.main_dashboard')
+@extends('admin.layouts-admin.main_dashboard')
 @section('title', 'รายละเอียดการใช้บริการ')
 @section('content')
     <div class="container">
@@ -32,6 +32,7 @@
                             <th scope="col">ที่อยู่</th>
                             <th scope="col">เบอร์โทรศัพท์</th>
                             <th scope="col">วันที่ใช้บริการ</th>
+                            <th scope="col">ยอด</th>
                             <th scope="col">action</th>
                         </tr>
                         </thead>
@@ -43,6 +44,7 @@
                                 <td>{{ $order->address }}</td>
                                 <td>{{ $order->users->tel }}</td>
                                 <td>{{ $order->updated_at }}</td>
+                                <td>{{ $order->total_price }}</td>
                                 <td class="row">
                                     <form method="post" action="{{ route('admin.order-details.details', $order->id) }}">
                                         @csrf

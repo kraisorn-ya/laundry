@@ -1,4 +1,4 @@
-@extends('admin.layouts.main_dashboard')
+@extends('admin.layouts-admin.main_dashboard')
 
 @section('content')
     <div class="container">
@@ -177,7 +177,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         Save
                                     </button>
-                                    <a class="btn btn-danger" href="{{ route('admin.users.index') }}">Back</a>
+                                    <a class="btn btn-danger" href="{{ route('admin.employee.index') }}">Back</a>
                                 </div>
                             </div>
                         </form>

@@ -64,12 +64,13 @@ class PromotionController extends Controller
         $promotion->end_date = $request->end_date;
         $promotion->update();
 
-        return redirect()->route('admin.promotion.index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
+        return redirect()->route('admin.promotion.index')->with('edit','แก้ไขโปรโมชั่นเรียบร้อย');
     }
 
     public function destroy($id)
     {
         $promotion = Promotion::find($id);
+        dd($id);
         $promotion->delete();
         return redirect()->route('admin.promotion.index')->with('deleted','ลบโปรโมชั่นเรียบร้อย');
     }

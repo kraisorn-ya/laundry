@@ -1,4 +1,4 @@
-@extends('admin.layouts.main_dashboard')
+@extends('admin.layouts-admin.main_dashboard')
 @section('title', 'เรียกใช้บริการจากลูกค้า')
 @section('content')
     <div class="container">
@@ -9,13 +9,15 @@
                     <div class="col">
 
                     </div>
-                    <div class="col-md-3" style="padding-right: -20%">
+                    <div class="col-md-2" style="padding-right: -20%">
                         <form action="{{ route('admin.order.search') }}" method="post" role="search">
                             @csrf
                             <div class="input-group">
                                 <input type="text" name="search" class="form-group" value="{{$search }}">
                                 <span class="input-group-prepend">
-                                    <button type="submit" class="btn btn-primary">Search</button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-search"> Search</i>
+                                    </button>
                                 </span>
                             </div>
                         </form>
@@ -80,29 +82,9 @@
 {{--                                        <a class="btn btn-outline-info" href="{{ route('admin.order.create', $order->user_id) }}">--}}
 {{--                                            <i class="fas fa-user-edit">ยืนยันการใช้บริการ</i>--}}
 {{--                                        </a>--}}
-                                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-                                            <i class="fas fa-trash-alt"></i>
+                                        <button type="submit" class="btn btn-outline-danger" onclick="return deleletconfig()">
+                                            <i class="fas fa-trash-alt"></i>ลบใบสั่ง
                                         </button>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        ยืนยันการลบข้อมูล
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-danger">ยืนยัน</button>
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         {{ method_field('DELETE') }}
                                     </form>
                                 </td>
@@ -119,3 +101,17 @@
         </div>
     </div>
 @endsection
+@push('script')
+    <script>
+        function deleletconfig(){
+
+            var del=confirm("คุณแน่ใจหรือไม่ จะลบใบสั่งนี้");
+            if (del==true){
+                alert ("ลบเรียบร้อยแล้ว")
+            }else{
+                alert("ยกเลิกการลบ")
+            }
+            return del;
+        }
+    </script>
+@endpush

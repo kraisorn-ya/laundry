@@ -1,4 +1,4 @@
-@extends('admin.layouts.main_dashboard')
+@extends('admin.layouts-admin.main_dashboard')
 @section('title', 'Create Articles')
 @section('content')
     <div class="container">
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label >รูปโปรไฟล์</label>
+                                <label >รูปข่าวสาร</label>
                                 <div class="form-group">
                                     <div id="divShowImg">
                                         <img class="img-thumbnail" id="previewProduct" style="width: 160px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">

@@ -319,3 +319,15 @@
 
 /*END width-order-details
 ----------------------*/
+
+
+/*profile
+----------------------*/
+.topic-profile {
+    text-align: left;
+    color: red;
+    font-family: 'Prompt', sans-serif;
+    font-size: 40px;
+}
+/*END profile
+----------------------*/

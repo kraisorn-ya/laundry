@@ -11,6 +11,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
@@ -145,7 +146,7 @@ class OrderController extends Controller
     public function destroy($id)
     {
         $orders = Order::find($id);
-        if ($orders->image == null)
+        if ($orders->image != null)
         {
             Storage::delete('public/'.$orders->image);
         }

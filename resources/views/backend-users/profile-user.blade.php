@@ -23,11 +23,10 @@
                             <label class="topic-gray" style="margin-right: 1%">เบอร์โทร:</label> <label class="topic-black"> {{ $data->tel}}</label>
                             <br>
                             <label class="topic-gray" style="margin-right: 1%">สถานะ:</label> <label class="topic-black"> {{ $data->status->name}}</label>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer bg-transparent border-success">Footer</div>
+{{--                <div class="card-footer bg-transparent border-success">Footer</div>--}}
             </div>
         </div>
     </div>

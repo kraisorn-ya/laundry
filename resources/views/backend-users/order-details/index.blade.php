@@ -14,7 +14,7 @@
                             <th scope="col">ชื่อ</th>
                             <th scope="col">ที่อยู่</th>
                             <th scope="col">เบอร์โทรศัพท์</th>
-                            <th scope="col">ราคารวม</th>
+                            <th scope="col">ยอดที่ต้องชำระ</th>
                             <th scope="col">วันที่ใช้บริการ</th>
                             <th scope="col">action</th>
                         </tr>

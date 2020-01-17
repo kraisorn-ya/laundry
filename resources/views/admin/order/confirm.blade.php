@@ -1,4 +1,4 @@
-@extends('admin.layouts.main_dashboard')
+@extends('admin.layouts-admin.main_dashboard')
 @section('title', 'ยืนยันการใช้บริการ')
 @section('content')
     <div class="container">

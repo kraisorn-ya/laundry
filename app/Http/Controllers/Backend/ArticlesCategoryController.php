@@ -49,9 +49,8 @@ class ArticlesCategoryController extends Controller
 
     public function destroy($id)
     {
-        $article_category = ArticlesCategory::find($id);
-
-       $article_category->delete();
+         $article_category = ArticlesCategory::find($id);
+         $article_category->delete();
 
         return redirect()->route('admin.article-category.index')->with('deleted','ลบประเภทข่าวสารเรียบร้อย');
     }

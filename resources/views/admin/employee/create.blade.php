@@ -1,4 +1,4 @@
-@extends('admin.layouts.main_dashboard')
+@extends('admin.layouts-admin.main_dashboard')
 @section('title', 'Create Employee')
 @section('content')
     <div class="container">
@@ -200,7 +200,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        เพิ่มบัญชีผู้ใช้
+                                        เพิ่มบัญชีพนักงาน
                                     </button>
                                     <a class="btn btn-danger" href="{{ route('admin.employee.index') }}">กลับ</a>
                                 </div>

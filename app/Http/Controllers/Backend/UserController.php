@@ -66,7 +66,7 @@ class UserController extends Controller
             'status_id' => '1',
 
         ]);
-        return redirect('admin/users/index')->with('success','เพิ่มสมาชิกเรียบร้อย');
+        return redirect('admin/users/index')->with('success','เพิ่มบัญชีลูกค้าเรียบร้อย');
     }
 
     public function edit($id)
@@ -101,7 +101,7 @@ class UserController extends Controller
         }
 
         $user->update();
-        return redirect()->route('admin.users.index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
+        return redirect()->route('admin.users.index')->with('edit','แก้ไขข้อมูลลูกค้าเรียบร้อย');
     }
 
     public function destroy($id)
@@ -109,6 +109,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->forcedelete();
         Storage::delete('public/'.$user->image);
-        return redirect()->route('admin.users.index')->with('deleted','ลบพนักงานเรียบร้อย');
+        return redirect()->route('admin.users.index')->with('deleted','ลบบัญชีลูกค้าเรียบร้อย');
     }
 }

@@ -1,11 +1,11 @@
-@extends('admin.layouts.main_dashboard')
+@extends('admin.layouts-admin.main_dashboard')
 @section('title', 'Edit Users')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('แก้ไขข้อมูลผู้ใช้') }}</div>
+                    <div class="card-header">{{ __('แก้ไขข้อมูลลูกค้า') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.users.update',[array_get($data,'id')]) }}" style="padding: 40px" enctype="multipart/form-data">
                             @csrf

@@ -1,4 +1,4 @@
-@extends('admin.layouts.main_dashboard')
+@extends('admin.layouts-admin.main_dashboard')
 @section('title', 'Edit Articles')
 @section('content')
     <div class="container">
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>รูปโปร์ไฟล์</label>
+                                <label>รูปข่าวสาร</label>
                                 <div class="form-group">
                                     <div id="divShowImg">
                                         <a id="linkProduct"

@@ -72,15 +72,15 @@ class ArticlesController extends Controller
             $articles->image = ($request['image'])->store('uploads','public');
         }
         $articles->update();
-        return redirect()->route('admin.articles.index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
+        return redirect()->route('admin.articles.index')->with('edit','แก้ไขข่าวเรียบร้อย');
     }
 
     public function destroy($id)
     {
         $articles = Articles::find($id);
-        $articles->delete();
         Storage::delete('public/'.$articles->image);
-        return redirect()->route('admin.articles.index')->with('deleted','ลบประเภทข่าวสารเรียบร้อย');
+        $articles->delete();
+        return redirect()->route('admin.articles.index')->with('deleted','ลบข่าวเรียบร้อย');
     }
 
     public function search(Request $request)

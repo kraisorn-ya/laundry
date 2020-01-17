@@ -166,7 +166,7 @@ Route::get('/admin/service', function () {
 });
 
 Route::get('/admin/test', function () {
-    return view('admin.show.test');
+    return view('admin.show.admin');
 });
 
 //Route::get('/login', function () {
