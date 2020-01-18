@@ -34,7 +34,7 @@
     <body>
         @include('frontend.partials.header')
         @yield('content')
-        @include('frontend.layouts.script')
+        @include('register.layouts.script')
         @stack('script')
     </body>
 </html>
