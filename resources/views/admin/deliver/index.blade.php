@@ -9,19 +9,19 @@
                     <div class="col">
 
                     </div>
-{{--                    <div class="col-md-2" style="padding-right: -20%">--}}
-{{--                        <form action="{{ route('admin.order.search') }}" method="post" role="search">--}}
-{{--                            @csrf--}}
-{{--                            <div class="input-group">--}}
-{{--                                <input type="text" name="search" class="form-group" value="{{$search }}">--}}
-{{--                                <span class="input-group-prepend">--}}
-{{--                                    <button type="submit" class="btn btn-primary">--}}
-{{--                                        <i class="fas fa-search"> Search</i>--}}
-{{--                                    </button>--}}
-{{--                                </span>--}}
-{{--                            </div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
+                    <div class="col-md-2" style="padding-right: -20%">
+                        <form action="{{ route('admin.deliver.search') }}" method="post" role="search">
+                            @csrf
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-group" value="{{$search }}">
+                                <span class="input-group-prepend">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-search"> Search</i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 @if(session()->has('success'))
@@ -69,13 +69,13 @@
                                 <td>{{ $order->address }}</td>
                                 <td>{{ $order->users->tel }}</td>
                                 <td class="row">
-                                    <a href="{{route('admin.order.create',[$order->id])}}" class="btn btn-outline-info " title="Confirm Record" >
+                                    <a href="{{route('admin.deliver.create',[$order->id])}}" class="btn btn-outline-info " title="Confirm Record" >
                                         <i class="fa fa-shopping-cart"> ยืนยันการใช้บริการ </i>
                                     </a>
-{{--                                    <a class="btn btn-primary" href="{{ route('admin.order.detail', $order->id) }}" style="margin-left: 1%; margin-right: 1%">--}}
+{{--                                    <a class="btn btn-primary" href="{{ route('admin.deliver.detail', $order->id) }}" style="margin-left: 1%; margin-right: 1%">--}}
 {{--                                        <i class="fas fa-eye">Detail</i>--}}
 {{--                                    </a>--}}
-                                    <form method="post" action="{{ route('admin.order.delete', $order->id) }}">
+                                    <form method="post" action="{{ route('admin.deliver.delete', $order->id) }}">
                                         @csrf
                                         <button type="submit" class="btn btn-outline-danger" onclick="return deleletconfig()">
                                             <i class="fas fa-trash-alt"></i>ลบใบสั่ง

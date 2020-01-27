@@ -112,6 +112,8 @@ Route::group([
     ], function (){
         Route::get('/index', 'BackendUser\OrderDetailsController@index')->name('index');
         Route::get('{id}/details', 'BackendUser\OrderDetailsController@details')->name('details');
+        Route::get('{id}/pay', 'BackendUser\OrderDetailsController@pay')->name('pay');
+        Route::post('{id}/update', 'BackendUser\OrderDetailsController@update')->name('update');
 
     });
     Route::group([

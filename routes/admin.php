@@ -111,10 +111,26 @@ Route::group([
     ], function (){
         Route::get('index', 'Backend\OrderController@index')->name('index');
         Route::any('/search', 'Backend\OrderController@search')->name('search');
-        Route::post('{id}/order/create', 'Backend\OrderController@create')->name('create');
+        Route::get('{id}/order/create', 'Backend\OrderController@create')->name('create');
         Route::post('{id}/confirm', 'Backend\OrderController@confirm')->name('confirm');
         Route::post('{id}/confirm/update', 'Backend\OrderController@update')->name('update');
+        Route::get('{id}/order/detail', 'Backend\OrderController@detail')->name('detail');
         Route::delete('{id}/order/delete', 'Backend\OrderController@destroy')->name('delete');
+    });
+
+    Route::group([
+        'prefix' => 'order-status',
+        'as' => 'order-status.'
+    ], function (){
+        Route::get('index', 'Backend\OrderStatusController@index')->name('index');
+        Route::get('{id}/order-status/detail', 'Backend\OrderStatusController@detail')->name('detail');
+        Route::get('{id}/order-status/pay', 'Backend\OrderStatusController@pay')->name('pay');
+        Route::get('{id}/order-status/status', 'Backend\OrderStatusController@status')->name('status');
+        Route::post('{id}/order-status/update', 'Backend\OrderStatusController@update')->name('update');
+        Route::post('{id}/order-status/order-status', 'Backend\OrderStatusController@orderStatus')->name('orderStatus');
+        Route::post('{id}/order-status/send-status', 'Backend\OrderStatusController@sendStatus')->name('sendStatus');
+        Route::post('{id}/order-status/pay-status', 'Backend\OrderStatusController@payStatus')->name('payStatus');
+        Route::delete('{id}/order-status/delete', 'Backend\OrderStatusController@destroy')->name('delete');
     });
 
     Route::group([
@@ -152,12 +168,47 @@ Route::group([
         'as' => 'confirm-package.'
     ], function (){
         Route::get('/index', 'Backend\ConfirmPackage\ConfirmPackageController@index')->name('index');
-//        Route::get('/create', 'Backend\PackageController@create')->name('create');
-//        Route::post('/create', 'Backend\PackageController@store')->name('store');
-//        Route::get('{id}/package/edit', 'Backend\PackageController@edit')->name('edit');
-//        Route::put('{id}/package/update', 'Backend\PackageController@update')->name('update');
-//        Route::delete('{id}/package/delete', 'Backend\PackageController@destroy')->name('delete');
     });
+
+    Route::group([
+        'prefix' => 'deliver',
+        'as' => 'deliver.'
+    ], function (){
+        Route::get('index', 'Backend\Deliver\DeliverController@index')->name('index');
+        Route::any('/search', 'Backend\Deliver\DeliverController@search')->name('search');
+        Route::get('{id}/deliver/create', 'Backend\Deliver\DeliverController@create')->name('create');
+        Route::post('{id}/confirm', 'Backend\Deliver\DeliverController@confirm')->name('confirm');
+        Route::post('{id}/confirm/update', 'Backend\Deliver\DeliverController@update')->name('update');
+        Route::get('{id}/deliver/detail', 'Backend\Deliver\DeliverController@detail')->name('detail');
+        Route::delete('{id}/deliver/delete', 'Backend\Deliver\DeliverController@destroy')->name('delete');
+    });
+
+    Route::group([
+        'prefix' => 'manage-status',
+        'as' => 'manage-status.'
+    ], function (){
+        Route::get('index', 'Backend\Manage\ManageOrderStatusController@index')->name('index');
+        Route::get('{id}details', 'Backend\Manage\ManageOrderStatusController@details')->name('details');
+        Route::get('{id}/manage-status/pay', 'Backend\Manage\ManageOrderStatusController@pay')->name('pay');
+        Route::get('{id}/manage-status/status', 'Backend\Manage\ManageOrderStatusController@status')->name('status');
+        Route::post('{id}/manage-status/update', 'Backend\Manage\ManageOrderStatusController@update')->name('update');
+        Route::post('{id}/manage-status/order-status', 'Backend\Manage\ManageOrderStatusController@orderStatus')->name('orderStatus');
+        Route::post('{id}/manage-status/send-status', 'Backend\Manage\ManageOrderStatusController@sendStatus')->name('sendStatus');
+        Route::post('{id}/manage-status/pay-status', 'Backend\Manage\ManageOrderStatusController@payStatus')->name('payStatus');
+        Route::delete('{id}/manage-status/delete', 'Backend\Manage\ManageOrderStatusController@destroy')->name('delete');
+    });
+
+    Route::group([
+        'prefix' => 'order-success',
+        'as' => 'order-success.'
+    ], function (){
+        Route::get('index', 'Backend\Manage\OrderSuccessController@index')->name('index');
+        Route::get('{id}details', 'Backend\Manage\OrderSuccessController@details')->name('details');
+        Route::get('{id}customer', 'Backend\Manage\OrderSuccessController@dataCustomer')->name('dataCustomer');
+        Route::get('{id}/manage-status/pay', 'Backend\Manage\OrderSuccessController@pay')->name('pay');
+        Route::post('{id}/manage-status/order-status', 'Backend\Manage\OrderSuccessController@orderStatus')->name('orderStatus');
+    });
+
 });
 
 

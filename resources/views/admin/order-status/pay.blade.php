@@ -10,7 +10,6 @@
                     <div class="card-body">
                         <div class="form-group">
                             <div class="row">
-{{--                                <label for="pay" class="text-md-right">วิธีชำระ :</label>--}}
                                 <p>คุณ:  {{ $orders->users->first_name." ".$orders->users->last_name }}</p>
                             </div>
                         </div>
@@ -33,16 +32,22 @@
                             <div class="form-group">
                                 <div id="divShowImg">
                                     @if($orders->image)
-                                    <img class="img-thumbnail" id="previewProduct" style="width: 300px; height: 300px" src="{{ asset('storage/'.$orders->image) }}">
+                                        <img class="img-thumbnail" id="previewProduct" style="width: 300px; height: 300px" src="{{ asset('storage/'.$orders->image) }}">
                                     @elseif($orders->image == null)
-                                    <img class="img-thumbnail" id="previewProduct" style="width: 150px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
+                                        <img class="img-thumbnail" id="previewProduct" style="width: 150px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
                                     @endif
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row mb-5 offset-5">
-                            <a class="btn btn-danger" href="{{ route('admin.order.index') }}" style="height: 40px; width: 100px">กลับ</a>
+                            <form method="post" action="{{ route('admin.order-status.payStatus', $orders->id) }}">
+                                @csrf
+                                <button class="btn btn-success" type="submit" style="height: 40px;">
+                                    ยืนยันการชำระเงิน
+                                </button>
+                            </form>
+                            <a class="btn btn-danger" href="{{ route('admin.order-status.index') }}" style="height: 40px; width: 100px">ยังไม่ชำระ</a>
                         </div>
                     </div>
                 </div>

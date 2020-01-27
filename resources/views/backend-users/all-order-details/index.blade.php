@@ -11,9 +11,9 @@
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">ชื่อ</th>
-                            <th scope="col">ที่อยู่</th>
-                            <th scope="col">เบอร์โทรศัพท์</th>
+{{--                            <th scope="col">ชื่อ</th>--}}
+{{--                            <th scope="col">ที่อยู่</th>--}}
+{{--                            <th scope="col">เบอร์โทรศัพท์</th>--}}
                             <th scope="col">ยอด</th>
                             <th scope="col">วันที่ใช้บริการ</th>
                             <th scope="col">action</th>
@@ -23,9 +23,9 @@
                         @foreach($orders as $order)
                             <tr>
                                 <td scope="row">{{ $order->id }}</td>
-                                <td>{{ $order->users->first_name." ".$order->users->last_name }}</td>
-                                <td>{{ $order->address }}</td>
-                                <td>{{ $order->users->tel }}</td>
+{{--                                <td>{{ $order->users->first_name." ".$order->users->last_name }}</td>--}}
+{{--                                <td>{{ $order->address }}</td>--}}
+{{--                                <td>{{ $order->users->tel }}</td>--}}
                                 <td>{{ $order->total_price }}</td>
                                 <td>{{ $order->updated_at }}</td>
                                 <td class="row">

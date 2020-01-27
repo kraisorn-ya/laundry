@@ -70,7 +70,6 @@ class PromotionController extends Controller
     public function destroy($id)
     {
         $promotion = Promotion::find($id);
-        dd($id);
         $promotion->delete();
         return redirect()->route('admin.promotion.index')->with('deleted','ลบโปรโมชั่นเรียบร้อย');
     }

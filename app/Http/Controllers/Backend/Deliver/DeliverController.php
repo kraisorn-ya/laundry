@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\Deliver;
 
 use App\Clothes;
-use App\Http\Requests\OrderRequest;
 use App\Order;
 use App\OrderDetail;
-use App\Service;
 use App\ServiceType;
 use App\User;
 use Illuminate\Http\Request;
@@ -14,7 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class OrderController extends Controller
+class DeliverController extends Controller
 {
     public function __construct()
     {
@@ -27,14 +25,14 @@ class OrderController extends Controller
         $orders = Order::query()
             ->where('order_status',0)
             ->paginate(6);
-        return view('admin.order.index', compact('orders', 'search'));
+        return view('admin.deliver.index', compact('orders', 'search'));
     }
 
     public function create($id)
     {
         $order = Order::find($id);
         $serviceTypes = ServiceType::all();
-        return view('admin.order.create', compact('serviceTypes','order'));
+        return view('admin.deliver.create', compact('serviceTypes','order'));
     }
 
     public function search(Request $request)
@@ -44,7 +42,7 @@ class OrderController extends Controller
             $orders = Order::query()
                 ->where('order_status',0)
                 ->paginate(6);
-            return view('admin.order.index',compact('orders','search'));
+            return view('admin.deliver.index',compact('orders','search'));
         }
         else
         {
@@ -53,10 +51,9 @@ class OrderController extends Controller
                 ->where('user_id','LIKE','%'.$search.'%')
                 ->paginate(6);
             $orders->appends($request->only('search'));
-            return view('admin.order.index',compact('orders','search'));
+            return view('admin.deliver.index',compact('orders','search'));
         }
     }
-
 
     public function confirm(Request $request, $id)
     {
@@ -113,7 +110,7 @@ class OrderController extends Controller
             $sum_price+= $order_detail['clothe_total_price'];
         }
 //        dd($order_details);
-        return view('admin.order.confirm',compact('sum_qty','sum_price','order_details','user','order_id','order_date'));
+        return view('admin.deliver.confirm',compact('sum_qty','sum_price','order_details','user','order_id','order_date'));
     }
 
     public function update(Request $request, $id)
@@ -155,13 +152,13 @@ class OrderController extends Controller
             $order_details->clothes_total_price = $order_detail['clothe_total_price'];
             $order->order_details()->save($order_details);
         }
-        return redirect()->route('admin.order.index')->with('success','บันทึกรายการเรียบร้อย');
+        return redirect()->route('admin.deliver.index')->with('success','บันทึกรายการเรียบร้อย');
     }
 
     public function detail($id)
     {
         $orders = Order::find($id);
-        return view('admin.order.detail',compact('orders'));
+        return view('admin.deliver.detail',compact('orders'));
     }
 
     public function destroy($id)
@@ -174,6 +171,6 @@ class OrderController extends Controller
         $orders->delete();
 
 
-        return redirect()->route('admin.order.index')->with('deleted','ลบข้อมูลเรียกใช้บริการเรียบร้อย');
+        return redirect()->route('admin.deliver.index')->with('deleted','ลบข้อมูลเรียกใช้บริการเรียบร้อย');
     }
 }

@@ -19,7 +19,7 @@ class OrderDetailsDailyController extends Controller
     {
         $now = Carbon::now()->format('Y-m-d');
         $orders = Order::query()
-            ->where('order_status',1)
+            ->where('order_status',5)
 //            ->where('updated_at', '>=', $now.' 00:00:00')
 //            ->where('updated_at', '<=', $now.' 23:59:59')
             ->where('updated_at', '>=', $now.' 00:00:00')

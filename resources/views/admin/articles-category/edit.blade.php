@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('แก้ไขประเภทขบริการ') }}</div>
+                    <div class="card-header">{{ __('แก้ไขประเภทข่าวสาร') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.article-category.update',[array_get($service_type,'id')]) }}" style="padding: 40px" >

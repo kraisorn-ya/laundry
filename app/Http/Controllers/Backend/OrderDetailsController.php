@@ -17,7 +17,7 @@ class OrderDetailsController extends Controller
     public function index()
     {
        $orders = Order::query()
-           ->where('order_status','1')
+           ->where('order_status','5')
            ->paginate(6);
         return view('admin.order-details.index',compact('orders'));
     }

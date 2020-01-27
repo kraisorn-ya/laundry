@@ -6,13 +6,6 @@
             <div class="row">
                 <div class="card-header font-order col-md-4">คุณ {{ $user->first_name." ".$user->last_name  }}</div>
                 <div class="card-header font-order col-md-4">วันที่จะเสร็จ {{ $order_date  }}</div>
-{{--                @if($pay_status == 0)--}}
-{{--                <div class="card-header font-order col-md-4">สถานะชำระเงิน: ชำระปลายทาง</div>--}}
-{{--                @elseif($pay_status == 1)--}}
-{{--                <div class="card-header font-order col-md-4">สถานะชำระเงิน: ชำระแล้ว</div>--}}
-{{--                @elseif($pay_status == 2)--}}
-{{--                <div class="card-header font-order col-md-4">สถานะชำระเงิน: ค้างชำระ</div>--}}
-{{--                @endif--}}
             </div>
             <table class="table table-bordered">
                 <thead>
@@ -49,17 +42,16 @@
                 </tr>
             </table>
         </div>
-        <form method="POST" action="{{ route('admin.order.update',[$order_id])}}">
+        <form method="POST" action="{{ route('admin.deliver.update',[$order_id])}}">
             @csrf
             <?php $i = 0 ?>
-                @foreach($order_details as $order_detail)
-                    @foreach($order_detail as $key => $value)
-                        <input type="hidden" name="{{ $i }}[{{ $key }}]" value="{{ $value }}">
-                    @endforeach
-                   <?php $i++?>
+            @foreach($order_details as $order_detail)
+                @foreach($order_detail as $key => $value)
+                    <input type="hidden" name="{{ $i }}[{{ $key }}]" value="{{ $value }}">
                 @endforeach
+                <?php $i++?>
+            @endforeach
             <input name="date_completed" type="hidden" value="{{ $order_date  }}">
-{{--            <input name="pay_status" type="hidden" value="{{ $pay_status  }}">--}}
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">

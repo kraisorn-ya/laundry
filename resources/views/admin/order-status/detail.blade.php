@@ -1,5 +1,5 @@
-@extends('backend-users.layouts.main_dashboard')
-@section('title', 'รายการเสื้อผ้า')
+@extends('admin.layouts-admin.main_dashboard')
+@section('title', 'รายละเอียด')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -43,9 +43,8 @@
                     </table>
                 </div>
             </div>
-            <a class="ิbtn btn-primary text-center" style="width: 98%;height:30px; margin-top: 10px" href="{{ route('users.order-details.index') }}">กลับ</a>
+            <a class="ิbtn btn-primary text-center" style="width: 98%;height:30px; margin-top: 10px" href="{{ route('admin.order-status.index') }}">กลับ</a>
         </div>
     </div>
 
 @endsection
-

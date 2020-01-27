@@ -8,23 +8,8 @@
                     <div class="card-header">{{ __('ใช้บริการ') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('users.order.post') }}" style="padding: 40px" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('users.order.post') }}" style="padding: 40px">
                             @csrf
-{{--                            <div class="form-group">--}}
-{{--                                <label>ประเภทการใช้บริการ <span style="color:red">*</span></label>--}}
-{{--                                <select class="form-control" name="service_type_id">--}}
-{{--                                    <option selected disabled>กรุณาเลือกประเภทข่าวสาร</option>--}}
-{{--                                    @foreach ($service_types as $service_type)--}}
-{{--                                        <option--}}
-{{--                                                {{ (old("service_type_id") == $service_type->id ? "selected":"") }} value="{{ $service_type->id }}">{{ $service_type->name }}</option>--}}
-{{--                                    @endforeach--}}
-{{--                                </select>--}}
-{{--                                @if ($errors->has('service_type_id'))--}}
-{{--                                    <span style="color: rgba(226,20,17,0.77);font-size: 13px">--}}
-{{--                                            <strong>{{ $errors->first('service_type_id') }}</strong>--}}
-{{--                                        </span>--}}
-{{--                                @endif--}}
-{{--                            </div>--}}
                             <div class="box-body">
                                 <div class="form-group">
                                     <label>ที่อยู่ <span style="color:red">*</span></label>
@@ -39,33 +24,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="pay" class="text-md-right">  เลือกวิธีชำระ :</label>
-
-                                <select name="pay" class="form-control col-md-6" >
-                                    <option value="ชำระปลายทาง">ชำระปลายทาง</option>
-                                    <option value="ชำระด้วยการส่งสลิปการโอนเงิน">ชำระด้วยการส่งสลิปการโอนเงิน</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label >หากชำระด้วยการส่งสลิป กรุณาใส่รูปสลิป <span style="color:red">*</span></label>
-                                <div class="form-group">
-                                    <div id="divShowImg">
-                                        <img class="img-thumbnail" id="previewProduct" style="width: 160px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
-                                    </div>
-
-                                    @if ($errors->has('image'))
-                                        <span style="color: rgba(226,20,17,0.77);font-size: 13px">
-                                            <strong>{{ $errors->first('image') }}</strong>
-                                        </span>
-                                    @endif
-
-                                </div>
-                                <input type="file" accept="image/jpeg, image/png"  onchange="readProduct(this);" id="fileProduct"
-                                       name="image">
-                                <p class="help-block">
-                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
-                                    ขนาดไฟล์ไม่เกิน 1 MB <br>
-                                </p>
+                                <label for="pay" class="text-md-right">ชำระเงินโดยการส่งหลักฐานการโอนเงิน<span style="color: red">*</span></label>
                             </div>
 
                             <div class="form-group row mb-0">
@@ -83,19 +42,19 @@
         </div>
     </div>
 @endsection
-@push('script')
-    <script type="text/javascript">
+{{--@push('script')--}}
+{{--    <script type="text/javascript">--}}
 
-        function readProduct(input) {
-            if (input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#previewProduct').attr('src', e.target.result);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+{{--        function readProduct(input) {--}}
+{{--            if (input.files[0]) {--}}
+{{--                var reader = new FileReader();--}}
+{{--                reader.onload = function (e) {--}}
+{{--                    $('#previewProduct').attr('src', e.target.result);--}}
+{{--                };--}}
+{{--                reader.readAsDataURL(input.files[0]);--}}
+{{--            }--}}
+{{--        }--}}
 
-    </script>
+{{--    </script>--}}
 
-@endpush
+{{--@endpush--}}

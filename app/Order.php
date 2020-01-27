@@ -20,6 +20,9 @@ class Order extends Model
         'address',
         'pay',
         'image',
+        'pay_status',
+        'date_completed',
+        'send_status',
     ];
 
     public function users()

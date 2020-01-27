@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('status')->insert([
-            'name' => 'Normal',
+            'name' => 'ลูกค้า',
             'created_at' => now(),
             'updated_at' => now()
         ]);

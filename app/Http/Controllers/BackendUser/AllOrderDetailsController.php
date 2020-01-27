@@ -19,7 +19,7 @@ class AllOrderDetailsController extends Controller
         $users = Auth::user()->id;
         $orders = Order::query()
             ->where('user_id',$users)
-            ->where('order_status','1')
+            ->where('order_status','5')
             ->paginate(6);
         return view('backend-users.all-order-details.index',compact('orders'));
     }

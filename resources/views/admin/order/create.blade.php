@@ -2,10 +2,38 @@
 @section('title', 'รายการเสื้อผ้า')
 @section('content')
     <div class="container">
-        <form method="POST" action="{{ route('admin.order.confirm', [$user->id]) }}">
+        <form method="POST" action="{{ route('admin.order.confirm', [$order->user_id]) }}">
             @csrf
+            <div class="card-header row">
+                <div class="col-md-3" style="margin-left: 5%">
+                    <p style="font-size: 20px">คุณ: {{$order->users->first_name." ".$order->users->last_name }}</p>
+                </div>
+                <div class="form-row col-md-3" style="margin-left: 5%">
+                    <label>วันที่จะเสร็จ</label>
+                    <input type="date" name="date_completed" class="form-control" value="{{ $order->date_completed }}">
+
+                    @if ($errors->has('date_completed'))
+                        <span style="color: rgba(226,20,17,0.77);font-size: 13px">
+                                            <strong>{{ $errors->first('date_completed') }}</strong>
+                                        </span>
+                    @endif
+                </div>
+{{--                <div class="form-row col-md-3" style="margin-left: 5%">--}}
+{{--                    <label>สถานะชำระเงิน</label>--}}
+{{--                    <select class="form-control {{ $errors->has('pay_status') ? ' is-invalid' : '' }}" name="pay_status">--}}
+{{--                        <option selected disabled>เลือกสถาณะการชำระเงิน</option>--}}
+{{--                        <option value="0">ชำระปลายทาง</option>--}}
+{{--                        <option value="1">ชำระแล้ว</option>--}}
+{{--                        <option value="2">ค้างชำระ</option>--}}
+{{--                    </select>--}}
+{{--                    @if ($errors->has('pay_status'))--}}
+{{--                        <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $errors->first('pay_status') }}</strong>--}}
+{{--                                    </span>--}}
+{{--                    @endif--}}
+{{--                </div>--}}
+            </div>
         <div class="row" style="margin-left: 5%">
-            <h1>{{$user['first_name']." ".$user['last_name']." ".$user->status->name}}</h1>
             @foreach($serviceTypes as $serviceType)
                 <div class="col-sm-10">
                     <h4 class="font-order">{{ $serviceType->name }}</h4>

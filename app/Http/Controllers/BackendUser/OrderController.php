@@ -28,17 +28,18 @@ class OrderController extends Controller
         return view('backend-users.order.index', compact('service_types','users'));
     }
 
-    public function post(OrderRequest $request)
+    public function post(Request $request)
     {
         $orders = new Order;
         $orders->user_id = Auth::user()->id;
         $orders->address = $request->address;
-        $orders->pay = $request->pay;
+        $orders->pay_status = 0;
+//        $orders->pay = $request->pay;
         $orders->order_status = 0;
-        if ($request->image != null)
-        {
-            $orders->image = $request['image']->store('uploads','public');
-        }
+//        if ($request->image != null)
+//        {
+//            $orders->image = $request['image']->store('uploads','public');
+//        }
 //        dd($orders);
         $orders->save();
         return redirect()->route('home')->with('success','เรียกใช้บริการแล้ว');

@@ -1,18 +1,16 @@
 @extends('admin.layouts-admin.main_dashboard')
-@section('title', 'detail')
+@section('title', 'ข้อมูลลูกค้า')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('รายละเอียด') }}</div>
+                    <div class="card-header">{{ __('ข้อมูลลูกค้า') }}</div>
 
                     <div class="card-body">
                         <div class="form-group">
-                            <div class="row">
-{{--                                <label for="pay" class="text-md-right">วิธีชำระ :</label>--}}
-                                <p>คุณ:  {{ $orders->users->first_name." ".$orders->users->last_name }}</p>
-                            </div>
+                            <p>คุณ:  {{ $orders->users->first_name." ".$orders->users->last_name }}</p>
+                            <p>เบอร์โทร:  {{ $orders->users->tel}}</p>
                         </div>
                         <div class="box-body">
                             <div class="form-group">
@@ -24,25 +22,25 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <label for="pay" class="text-md-right">วิธีชำระ :</label>
-                                <p>  {{ $orders->pay }}</p>
+                                {{--                                <label for="pay" class="text-md-right">วิธีชำระ :</label>--}}
+                                {{--                                <p>  {{ $orders->pay }}</p>--}}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label >หากชำระด้วยการส่งสลิป กรุณาใส่รูปสลิป <span style="color:red">*</span></label>
+                            <label >หลักฐานชำระเงิน<span style="color:red">*</span></label>
                             <div class="form-group">
                                 <div id="divShowImg">
                                     @if($orders->image)
-                                    <img class="img-thumbnail" id="previewProduct" style="width: 300px; height: 300px" src="{{ asset('storage/'.$orders->image) }}">
+                                        <img class="img-thumbnail" id="previewProduct" style="width: 300px; height: 300px" src="{{ asset('storage/'.$orders->image) }}">
                                     @elseif($orders->image == null)
-                                    <img class="img-thumbnail" id="previewProduct" style="width: 150px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
+                                        <img class="img-thumbnail" id="previewProduct" style="width: 150px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
                                     @endif
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row mb-5 offset-5">
-                            <a class="btn btn-danger" href="{{ route('admin.order.index') }}" style="height: 40px; width: 100px">กลับ</a>
+                            <a class="btn btn-danger" href="{{ route('admin.order-success.index') }}" style="height: 40px; width: 100px">กลับ</a>
                         </div>
                     </div>
                 </div>

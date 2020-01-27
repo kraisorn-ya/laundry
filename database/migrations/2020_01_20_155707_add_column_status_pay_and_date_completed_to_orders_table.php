@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnToOrdersTable extends Migration
+class AddColumnStatusPayAndDateCompletedToOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class AddColumnToOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('address');
-            $table->string('pay')->nullable();
-            $table->string('image')->nullable();
+            $table->date('date_completed')->nullable();
+            $table->integer('pay_status')->nullable();
         });
     }
 
@@ -28,9 +27,8 @@ class AddColumnToOrdersTable extends Migration
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('address');
-            $table->string('pay')->nullable();
-            $table->string('image')->nullable();
+            $table->date('date_completed')->nullable();
+            $table->integer('pay_status')->nullable();
         });
     }
 }
