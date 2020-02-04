@@ -1,10 +1,10 @@
 @extends('backend-users.layouts.main_dashboard')
-@section('title', 'รายการใช้บริการทั้งหมด')
+@section('title', 'รายเอียดการใช้บริการทั้งหมด')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card-header text-header col-md-5">รายการเสื้อผ้า</div>
+                <div class="card-header text-header col-md-5">รายเอียดการใช้บริการทั้งหมด</div>
                 <div class="card" style="margin-top: 10px">
 
                     <table class="table">

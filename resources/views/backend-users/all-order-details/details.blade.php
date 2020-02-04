@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card-header text-header">ละเอียดเสื้อผ้า</div>
+                <div class="card-header text-header">รายละเอียดเสื้อผ้า</div>
                 <div class="card" style="margin-top: 10px">
 
                     <table class="table">

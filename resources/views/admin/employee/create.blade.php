@@ -26,10 +26,10 @@
                                 </div>
                                 <input  type="file" accept="image/jpeg, image/png"  onchange="readProduct(this);" id="fileProduct"
                                        name="image" value="{{ old('image') }}">
-                                <p class="help-block">
-                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
-                                    ขนาดไฟล์ไม่เกิน 1 MB <br>
-                                </p>
+{{--                                <p class="help-block">--}}
+{{--                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>--}}
+{{--                                    ขนาดไฟล์ไม่เกิน 1 MB <br>--}}
+{{--                                </p>--}}
 
                             </div>
 

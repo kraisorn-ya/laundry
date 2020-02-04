@@ -26,7 +26,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6">
                                     <button type="submit" class="btn btn-primary">
-                                        เพิ่ม
+                                        เพิ่มประเภทข่าวสาร
                                     </button>
                                     <a class="btn btn-danger" href="{{ route('admin.article-category.index') }}">ยกเลิก</a>
                                 </div>

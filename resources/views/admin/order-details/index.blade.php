@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card-header text-header col-md-5">รายงานทั้งหมด</div>
+                <div class="card-header text-header col-md-5">รายละเอียดการใช้บริการทั้งหมด</div>
 {{--                <div class="row">--}}
 
 {{--                    <div class="col">--}}

@@ -19,10 +19,10 @@
                     @endif
                 </div>
             </div>
-            <div class="row" style="margin-left: 5%">
+            <div class="row" style="margin-left: 5%; margin-top: 2%">
                 @foreach($serviceTypes as $serviceType)
                     <div class="col-sm-10">
-                        <h4 class="font-order">{{ $serviceType->name }}</h4>
+                        <h5 class="font-order">ประเภทบริการ: {{ $serviceType->name }}</h5>
                         <div class="card" style="margin-top: 2%">
                             <div class="card-header bg-info">
                                 <div class="row">

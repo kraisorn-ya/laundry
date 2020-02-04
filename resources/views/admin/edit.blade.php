@@ -1,5 +1,5 @@
 @extends('admin.layouts-admin.main_dashboard')
-
+@section('title', 'แก้ไขข้อมูลส่วน')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.update',[$data->id]) }}" style="padding: 40px" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group" style="margin-left: 40%">
                                 <label>รูปโปร์ไฟล์</label>
                                 <div class="form-group">
                                     <div id="divShowImg">
@@ -21,7 +21,7 @@
                                                  src="{{ ($data->image == 'NULL') ? 'https://via.placeholder.com/180x120.png?text=No%20Image'
                                      : asset('storage/'.$data->image) }}">
                                         </a>
-                                        <div style="margin-left: 8rem"><input class="btn btn-sm btn-warning " type="button" value="Clear" onclick="clearProduct()"></div>
+                                        <div style="margin-left: 8rem"><input class="btn btn-sm btn-outline-danger" type="button" value="Clear" onclick="clearProduct()"></div>
 
                                         @if ($errors->has('image'))
                                             <span style="color: rgba(226,20,17,0.77);font-size: 13px">
@@ -33,10 +33,10 @@
                                 </div>
                                 <input  type="file" accept="image/jpeg, image/png" onchange="readProduct(this);" id="fileProduct"
                                         name="image">
-                                <p class="help-block" style="font-size: 14px">
-                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
-                                    ขนาดไฟล์ไม่เกิน 1 MB <br>
-                                </p>
+{{--                                <p style="font-size: 14px">--}}
+{{--                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>--}}
+{{--                                    ขนาดไฟล์ไม่เกิน 1 MB <br>--}}
+{{--                                </p>--}}
                             </div>
 
                             <div class="form-row">
@@ -175,9 +175,9 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Save
+                                        บันทึก
                                     </button>
-                                    <a class="btn btn-danger" href="{{ route('admin.employee.index') }}">Back</a>
+                                    <a class="btn btn-danger" href="{{ route('admin.employee.index') }}">กลับ</a>
                                 </div>
                             </div>
                         </form>

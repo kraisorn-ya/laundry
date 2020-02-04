@@ -46,7 +46,7 @@ class OrderSuccessController extends Controller
         }
 
         $orders->update();
-        return redirect()->route('admin.order-success.index');
+        return redirect()->route('admin.order-success.index')->with('success','ส่งเสื้อผ้าให้ลูกค้าเรียบร้อยแล้ว');
     }
 
     public function sendStatus($id)

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card-header text-header col-md-5">รายงานต่อวัน</div>
+                <div class="card-header text-header col-md-5">รายละเอียดการใช้บริการรายวัน</div>
 
                 <div class="card" style="margin-top: 10px">
 
@@ -15,7 +15,7 @@
                             <th scope="col">ชื่อ</th>
                             <th scope="col">ที่อยู่</th>
                             <th scope="col">เบอร์โทรศัพท์</th>
-{{--                            <th scope="col">วันที่ใช้บริการ</th>--}}
+                            <th scope="col">ยอด</th>
                             <th scope="col">action</th>
                         </tr>
                         </thead>
@@ -26,7 +26,7 @@
                                 <td>{{ $order->users->first_name." ".$order->users->last_name }}</td>
                                 <td>{{ $order->address }}</td>
                                 <td>{{ $order->users->tel }}</td>
-{{--                                <td>{{ $order->updated_at }}</td>--}}
+                                <td>{{ $order->total_price }}</td>
                                 <td class="row">
                                     <a class="btn btn-primary" href="{{ route('admin.order-details-daily.details', $order->id) }}">
                                         <i class="fa fa-book">ดูรายละเอียด</i>

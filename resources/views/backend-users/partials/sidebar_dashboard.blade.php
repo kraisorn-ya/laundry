@@ -43,7 +43,8 @@
 {{--    </li>--}}
     <hr class="sidebar-divider">
 
-    <li class="nav-item {{ Route::currentRouteName() == 'users.order-details.index' || Route::currentRouteName() == 'users.order-details.details' ? 'active' : null }}">
+    <li class="nav-item {{ Route::currentRouteName() == 'users.order-details.index' || Route::currentRouteName() == 'users.order-details.details' ||
+    Route::currentRouteName() == 'users.order-details.pay' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.order-details.index') }}">
             <i class="fas fa-envelope"></i>
             <span>รายการเสื้อผ้า</span></a>
@@ -52,20 +53,20 @@
     <li class="nav-item {{ Route::currentRouteName() == 'users.all-order-details.index' || Route::currentRouteName() == 'users.all-order-details.details' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.all-order-details.index') }}">
             <i class="fa fa-book"></i>
-            <span>รายการใช้บิรการทั้งหมด</span></a>
+            <span>รายละเอียดการใช้บริการทั้งหมด</span></a>
     </li>
 
-    <li class="nav-item {{ Route::currentRouteName() == 'users.profile' ? 'active' : null }}">
-        <a class="nav-link" href="{{ route('users.profile') }}">
-            <i class="fas fa-id-card"></i>
-            <span>โปรไฟล์</span></a>
-    </li>
+{{--    <li class="nav-item {{ Route::currentRouteName() == 'users.profile' ? 'active' : null }}">--}}
+{{--        <a class="nav-link" href="{{ route('users.profile') }}">--}}
+{{--            <i class="fas fa-id-card"></i>--}}
+{{--            <span>โปรไฟล์</span></a>--}}
+{{--    </li>--}}
 
-    <li class="nav-item {{ Route::currentRouteName() == 'users.edit' ? 'active' : null }}">
-        <a class="nav-link" href="{{ route('users.edit') }}">
-            <i class="fas fa-edit"></i>
-            <span>แก้ไขข้อมูลส่วนตัว</span></a>
-    </li>
+{{--    <li class="nav-item {{ Route::currentRouteName() == 'users.edit' ? 'active' : null }}">--}}
+{{--        <a class="nav-link" href="{{ route('users.edit') }}">--}}
+{{--            <i class="fas fa-edit"></i>--}}
+{{--            <span>แก้ไขข้อมูลส่วนตัว</span></a>--}}
+{{--    </li>--}}
 
 {{--    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">--}}
 {{--        <a class="nav-link" href="{{ route('users.package.index') }}">--}}

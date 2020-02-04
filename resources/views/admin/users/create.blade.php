@@ -1,11 +1,11 @@
 @extends('admin.layouts-admin.main_dashboard')
-@section('title', 'Create Users')
+@section('title', 'Create Customer')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('สร้างบัญชีผู้ใช้') }}</div>
+                    <div class="card-header">{{ __('สร้างบัญชีลูกค้า') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.users.store') }}" enctype="multipart/form-data">
@@ -27,10 +27,10 @@
                                 </div>
                                 <input type="file" accept="image/jpeg, image/png"  onchange="readProduct(this);" id="fileProduct"
                                        name="image">
-                                <p class="help-block">
-                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
-                                    ขนาดไฟล์ไม่เกิน 1 MB <br>
-                                </p>
+{{--                                <p class="help-block">--}}
+{{--                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>--}}
+{{--                                    ขนาดไฟล์ไม่เกิน 1 MB <br>--}}
+{{--                                </p>--}}
 
                             </div>
                             <div class="form-row">
@@ -169,7 +169,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                       เพิ่มบัญชีผู้ใช้
+                                       เพิ่มบัญชีลูกค้า
                                     </button>
                                     <a class="btn btn-danger" href="{{ route('admin.users.index') }}">กลับ</a>
                                 </div>

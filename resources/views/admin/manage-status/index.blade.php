@@ -114,6 +114,13 @@
                                                 <i>ซักเสร็จรอการชำระเงิน</i>
                                             </button>
                                         </form>
+                                    @elseif($order->order_status == 3 & $order->pay_status == 2)
+                                        <form method="post" action="{{ route('admin.manage-status.orderStatus', $order->id) }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary">
+                                                <i>จัดส่งเสื้อผ้า</i>
+                                            </button>
+                                        </form>
                                     @endif
 
                                     @if($order->pay_status == 1)

@@ -1,11 +1,11 @@
 @extends('admin.layouts-admin.main_dashboard')
-@section('title', 'สถานะการใช้บริการ')
+@section('title', 'เตรียมส่งเสื้อผ้า')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-3 ">ลูกค้าเรียกใช้บริการ</div>
+                    <div class="col-md-3 ">เตรียมส่งเสื้อผ้า</div>
                     <div class="col">
 
                     </div>
@@ -19,24 +19,7 @@
                         </button>
                     </div>
                 @endif
-
-                @if(session()->has('deleted'))
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 20px">
-                        {{ session()->get('deleted') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endif
-                @if(session()->has('edit'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px">
-                        {{ session()->get('edit') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endif
-
+                
                 <div class="card" style="margin-top: 10px">
 
                     <table class="table">
@@ -101,14 +84,14 @@
 {{--                                @endif--}}
 
                                 <td class="row">
-                                    @if($order->order_status == 3 & $order->pay_status == 2)
-                                        <form method="post" action="{{ route('admin.order-success.orderStatus', $order->id) }}">
-                                            @csrf
-                                            <button type="submit" class="btn btn-primary">
-                                                <i>จัดส่งเสื้อผ้า</i>
-                                            </button>
-                                        </form>
-                                    @elseif($order->order_status == 4)
+{{--                                    @if($order->order_status == 3 & $order->pay_status == 2)--}}
+{{--                                        <form method="post" action="{{ route('admin.order-success.orderStatus', $order->id) }}">--}}
+{{--                                            @csrf--}}
+{{--                                            <button type="submit" class="btn btn-primary">--}}
+{{--                                                <i>จัดส่งเสื้อผ้า</i>--}}
+{{--                                            </button>--}}
+{{--                                        </form>--}}
+                                    @if($order->order_status == 4)
                                         <form method="post" action="{{ route('admin.order-success.orderStatus', $order->id) }}">
                                             @csrf
                                             <button type="submit" class="btn btn-success">
