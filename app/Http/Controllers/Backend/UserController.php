@@ -63,7 +63,6 @@ class UserController extends Controller
             'birthday' => $request['birthday'],
             'address' => $request['address'],
             'image' => $request['image']->store('uploads','public'),
-            'status_id' => '1',
 
         ]);
         return redirect('admin/users/index')->with('success','เพิ่มบัญชีลูกค้าเรียบร้อย');

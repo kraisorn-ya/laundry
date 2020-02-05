@@ -22,7 +22,6 @@
                             <br>
                             <label class="topic-gray" style="margin-right: 1%">เบอร์โทร:</label> <label class="topic-black"> {{ $data->tel}}</label>
                             <br>
-                            <label class="topic-gray" style="margin-right: 1%">สถานะ:</label> <label class="topic-black"> {{ $data->status->name}}</label>
                         </div>
                     </div>
                 </div>

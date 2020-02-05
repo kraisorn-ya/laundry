@@ -4,7 +4,24 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card-header text-header col-md-5">รายเอียดการใช้บริการทั้งหมด</div>
+                <div class=" text-header col-md-12">รายเอียดการใช้บริการทั้งหมด</div>
+
+                <form method="post" action="{{ route('users.all-order-details.search') }}" role="search">
+                    @csrf
+                    <div class="row" style="margin-top: 3%">
+                        <label style="margin-left: 1%; margin-right: 1%">เริ่มวันที่</label>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="dateStart" id="dateStart" value="{{$dateStart}}" />
+                        </div>
+                        <label style="margin-left: 1%; margin-right: 1%">ถึง</label>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="dateEnd" id="dateEnd" value="{{$dateEnd}}" />
+                        </div>
+                        <button class="btn btn-primary btn-sm" type="submit" style="height: 40px; margin-left: 10px">
+                            <i class="fas fa-search"> ค้นหา</i>
+                        </button>
+                    </div>
+                </form>
                 <div class="card" style="margin-top: 10px">
 
                     <table class="table">
@@ -46,4 +63,50 @@
         </div>
     </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
 
+        $(function(){
+
+            var startDateTextBox = $('#dateStart');
+            var endDateTextBox = $('#dateEnd');
+
+            startDateTextBox.datepicker({
+                dateFormat: 'dd-M-yy',
+                onClose: function(dateText, inst) {
+                    if (endDateTextBox.val() != '') {
+                        var testStartDate = startDateTextBox.datetimepicker('getDate');
+                        var testEndDate = endDateTextBox.datetimepicker('getDate');
+                        if (testStartDate > testEndDate)
+                            endDateTextBox.datetimepicker('setDate', testStartDate);
+                    }
+                    else {
+                        endDateTextBox.val(dateText);
+                    }
+                },
+                onSelect: function (selectedDateTime){
+                    endDateTextBox.datetimepicker('option', 'minDate', startDateTextBox.datetimepicker('getDate') );
+                }
+            });
+            endDateTextBox.datepicker({
+                dateFormat: 'dd-M-yy',
+                onClose: function(dateText, inst) {
+                    if (startDateTextBox.val() != '') {
+                        var testStartDate = startDateTextBox.datetimepicker('getDate');
+                        var testEndDate = endDateTextBox.datetimepicker('getDate');
+                        if (testStartDate > testEndDate)
+                            startDateTextBox.datetimepicker('setDate', testEndDate);
+                    }
+                    else {
+                        startDateTextBox.val(dateText);
+                    }
+                },
+                onSelect: function (selectedDateTime){
+                    startDateTextBox.datetimepicker('option', 'maxDate', endDateTextBox.datetimepicker('getDate') );
+                }
+            });
+
+        });
+
+    </script>
+@endpush

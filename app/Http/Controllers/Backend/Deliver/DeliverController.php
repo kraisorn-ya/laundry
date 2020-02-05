@@ -134,7 +134,6 @@ class DeliverController extends Controller
         $order->total_price = $sum_price;
         $order->total_qty = $sum_qty;
         $order->order_status = 1;
-        $order->send_status = 0;
         $order->date_completed = $date_completed;
 //        $order->pay_status = $pay_status;
         $order->update();

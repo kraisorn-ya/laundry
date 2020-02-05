@@ -122,7 +122,7 @@ Route::group([
     ], function (){
         Route::get('/index', 'BackendUser\AllOrderDetailsController@index')->name('index');
         Route::get('{id}/details', 'BackendUser\AllOrderDetailsController@details')->name('details');
-
+        Route::any('/search', 'BackendUser\AllOrderDetailsController@search')->name('search');
     });
 });
 

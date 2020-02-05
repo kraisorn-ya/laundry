@@ -34,13 +34,8 @@ class OrderController extends Controller
         $orders->user_id = Auth::user()->id;
         $orders->address = $request->address;
         $orders->pay_status = 0;
-//        $orders->pay = $request->pay;
         $orders->order_status = 0;
-//        if ($request->image != null)
-//        {
-//            $orders->image = $request['image']->store('uploads','public');
-//        }
-//        dd($orders);
+
         $orders->save();
         return redirect()->route('home')->with('success','เรียกใช้บริการแล้ว');
     }

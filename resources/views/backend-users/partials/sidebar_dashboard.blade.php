@@ -28,13 +28,11 @@
     </div>
 
 {{--    <hr class="sidebar-divider my-0">--}}
-    @if(auth()->user()->status_id == 1)
     <li class="nav-item {{ Route::currentRouteName() == 'users.order.index' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.order.index') }}">
             <i class="fas fa-credit-card"></i>
             <span>เรียกใช้บริการ</span></a>
     </li>
-    @endif
     <hr class="sidebar-divider my-0">
 {{--    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">--}}
 {{--        <a class="nav-link" href="{{ route('users.package.index') }}">--}}
@@ -49,7 +47,9 @@
             <i class="fas fa-envelope"></i>
             <span>รายการเสื้อผ้า</span>
             <?php
+            $users = Auth::user()->id;
             $orders = \App\Order::query()
+                ->where('user_id',$users)
                 ->where('order_status','!=','0')
                 ->where('order_status','!=','5')
                 ->get();
@@ -63,7 +63,8 @@
         </a>
     </li>
 
-    <li class="nav-item {{ Route::currentRouteName() == 'users.all-order-details.index' || Route::currentRouteName() == 'users.all-order-details.details' ? 'active' : null }}">
+    <li class="nav-item {{ Route::currentRouteName() == 'users.all-order-details.index' || Route::currentRouteName() == 'users.all-order-details.details' ||
+    Route::currentRouteName() == 'users.all-order-details.search' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.all-order-details.index') }}">
             <i class="fa fa-book"></i>
             <span>รายละเอียดการใช้บริการทั้งหมด</span></a>
