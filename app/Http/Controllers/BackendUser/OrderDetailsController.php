@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackendUser;
 
+use App\Http\Requests\PayRequest;
 use App\Order;
 use App\OrderDetail;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class OrderDetailsController extends Controller
         $users = Auth::user()->id;
         $orders = Order::query()
             ->where('user_id',$users)
-//            ->where('order_status','!=','0')
+            ->where('order_status','!=','0')
             ->where('order_status','!=','5')
             ->orderBy('updated_at','desc')
 //            ->limit(1)
@@ -42,13 +43,13 @@ class OrderDetailsController extends Controller
         return view('backend-users.order-details.pay',compact('orders'));
     }
 
-    public function update(Request $request, $id)
+    public function update(PayRequest $request, $id)
     {
         $orders = Order::find($id);
         $orders->image = $request['image']->store('uploads','public');
         $orders->pay_status = 1;
         $orders->update();
 
-        return redirect()->route('users.order-details.index')->with('success','ชำระเงินเรียบร้อย');
+        return redirect()->route('users.order-details.index')->with('success','ส่งหลักฐานการโอนเงิน รอการตรวจสอบจากพนักงาน');
     }
 }

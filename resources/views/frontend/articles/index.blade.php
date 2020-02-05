@@ -17,41 +17,46 @@
                                     <div class="col-md-10">
 
                                         <div class=" mb4 float-left" style="margin-top: 30px;">
-                                            <h1>News</h1>
+                                            <h1>ข่าวสาร</h1>
                                         </div>
 
                                         <div class="category-menu d-flex pull-right" style="margin-top: 47px;">
-                                            <div class="category-text">
+                                            <div class="category-text row">
                                                 Category:
-                                            </div>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn btn-category  dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-                                                    @if(request()->segment(3) != null)
-                                                        {{ $category->name }}
-                                                    @else
-                                                        all
-                                                    @endif
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                                    <a class="dropdown-item" href="{{ route('laundry.articles.index',['name' => null ]) }}">All</a>
-                                                    @foreach($categories as $category)
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('laundry.articles.index',['name' => $category->name]) }}">
+                                                <div class="dropdown" style="margin-top: -4%">
+                                                    <button type="button" class="btn btn-category  dropdown-toggle"
+                                                            id="dropdownMenuOffset" data-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false"
+                                                            data-offset="10,20">
+                                                        @if(request()->segment(3) != null)
                                                             {{ $category->name }}
-                                                        </a>
-                                                    @endforeach
-                                                    <a class="dropdown-item" href="#"></a>
+                                                        @else
+                                                            all
+                                                        @endif
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('laundry.articles.index',['name' => null ]) }}">All</a>
+                                                        @foreach($categories as $category)
+                                                            <a class="dropdown-item"
+                                                               href="{{ route('laundry.articles.index',['name' => $category->name]) }}">
+                                                                {{ $category->name }}
+                                                            </a>
+                                                        @endforeach
+                                                        <a class="dropdown-item" href="#"></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="article">
                                             @foreach($articles as $article)
-                                                <div class="card mb-3" >
+                                                <div class="card mb-3">
                                                     <div class="row no-gutters">
                                                         <div class="col-md-4">
                                                             <a href="{{route('laundry.articles.content',[$article->id])}}">
-                                                                <img src="{{ asset('storage/'.$article->image) }}" class="card-img" alt="...">
+                                                                <img src="{{ asset('storage/'.$article->image) }}"
+                                                                     class="card-img" alt="...">
                                                             </a>
 
                                                         </div>
@@ -59,9 +64,11 @@
                                                             <div class="card-body">
                                                                 <h5 class="card-title">{{ $article->title }}</h5>
                                                                 <p class="card-text">{!! $article->description !!}</p>
-{{--                                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
+                                                                {{--                                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
                                                             </div>
-                                                            <a href="{{route('laundry.articles.content',[$article->id])}}" class="btn-sm btn btn-readmore font-article" style="font-size: 18px; margin-left: 2%">อ่านเพิ่มเติม</a>
+                                                            <a href="{{route('laundry.articles.content',[$article->id])}}"
+                                                               class="btn-sm btn btn-readmore font-article"
+                                                               style="font-size: 18px; margin-left: 2%">อ่านเพิ่มเติม</a>
                                                         </div>
                                                     </div>
                                                 </div>

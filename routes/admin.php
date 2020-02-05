@@ -193,6 +193,7 @@ Route::group([
         Route::get('{id}/manage-status/status', 'Backend\Manage\ManageOrderStatusController@status')->name('status');
         Route::post('{id}/manage-status/update', 'Backend\Manage\ManageOrderStatusController@update')->name('update');
         Route::post('{id}/manage-status/order-status', 'Backend\Manage\ManageOrderStatusController@orderStatus')->name('orderStatus');
+        Route::post('{id}/manage-status/deliver', 'Backend\Manage\ManageOrderStatusController@deliverStatus')->name('deliverStatus');
         Route::post('{id}/manage-status/send-status', 'Backend\Manage\ManageOrderStatusController@sendStatus')->name('sendStatus');
         Route::post('{id}/manage-status/pay-status', 'Backend\Manage\ManageOrderStatusController@payStatus')->name('payStatus');
         Route::delete('{id}/manage-status/delete', 'Backend\Manage\ManageOrderStatusController@destroy')->name('delete');

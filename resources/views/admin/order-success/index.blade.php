@@ -19,7 +19,7 @@
                         </button>
                     </div>
                 @endif
-                
+
                 <div class="card" style="margin-top: 10px">
 
                     <table class="table">
@@ -27,11 +27,8 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">ชื่อ</th>
-                            {{--                            <th scope="col">ที่อยู่</th>--}}
-                            {{--                            <th scope="col">เบอร์โทรศัพท์</th>--}}
                             <th scope="col">สถานะ</th>
                             <th scope="col">สถานะชำระเงิน</th>
-{{--                            <th scope="col">สถานะจัดส่ง</th>--}}
                             <th scope="col">action</th>
                         </tr>
                         </thead>
@@ -40,8 +37,6 @@
                             <tr>
                                 <td scope="row">{{ $order->id }}</td>
                                 <td>{{ $order->users->first_name." ".$order->users->last_name }}</td>
-                                {{--                                <td>{{ $order->address }}</td>--}}
-                                {{--                                <td>{{ $order->users->tel }}</td>--}}
 
                                 @if($order->order_status == 0)
                                     <td>กำลังไปรับเสื้อผ้า</td>
@@ -57,18 +52,6 @@
                                     <td>เสร็จสิ้น</td>
                                 @endif
 
-{{--                                @if($order->order_status == 0)--}}
-{{--                                    <td>กำลังไปรับเสื้อผ้า</td>--}}
-{{--                                @elseif($order->order_status == 1)--}}
-{{--                                    <td>รับเสื้อผ้าเรียบร้อย</td>--}}
-{{--                                @elseif($order->order_status == 2)--}}
-{{--                                    <td>กำลังดำเนินการ</td>--}}
-{{--                                @elseif($order->order_status == 3)--}}
-{{--                                    <td>ซักเสร็จแล้วรอชำระเงิน</td>--}}
-{{--                                @elseif($order->order_status == 4)--}}
-{{--                                    <td>เสร็จสิ้น</td>--}}
-{{--                                @endif--}}
-
                                 @if($order->pay_status == 0)
                                     <td>ยังไม่ชำระ</td>
                                 @elseif($order->pay_status == 1)
@@ -76,21 +59,7 @@
                                 @elseif($order->pay_status == 2)
                                     <td>ชำระแล้ว</td>
                                 @endif
-
-{{--                                @if($order->send_status == 0)--}}
-{{--                                    <td>ยังไม่จัดส่งเสื้อผ้า</td>--}}
-{{--                                @elseif($order->send_status == 1)--}}
-{{--                                    <td>จัดส่งเสื้อผ้า</td>--}}
-{{--                                @endif--}}
-
                                 <td class="row">
-{{--                                    @if($order->order_status == 3 & $order->pay_status == 2)--}}
-{{--                                        <form method="post" action="{{ route('admin.order-success.orderStatus', $order->id) }}">--}}
-{{--                                            @csrf--}}
-{{--                                            <button type="submit" class="btn btn-primary">--}}
-{{--                                                <i>จัดส่งเสื้อผ้า</i>--}}
-{{--                                            </button>--}}
-{{--                                        </form>--}}
                                     @if($order->order_status == 4)
                                         <form method="post" action="{{ route('admin.order-success.orderStatus', $order->id) }}">
                                             @csrf

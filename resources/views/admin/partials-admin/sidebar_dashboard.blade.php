@@ -130,6 +130,19 @@
                         Route::currentRouteName() == 'admin.manage-status.details' ? 'active' : null }}">
                         <i class="fas fa-edit"></i>
                         <p>จัดการสถานะใช้บริการ</p>
+                        <?php
+                        $orders = \App\Order::query()
+                            ->where('order_status','!=','0')
+                            ->where('order_status','!=','4')
+                            ->where('order_status','!=','5')
+                            ->get();
+                        $noti_order = count($orders);
+                        ?>
+                        <span>
+                        @if( $noti_order != null)
+                                <span class="badge badge-danger">{{ $noti_order }}</span>
+                        @endif
+                        </span>
                     </a>
                 </li>
             @endif
@@ -216,6 +229,17 @@
                     Route::currentRouteName() == 'admin.deliver.search' || Route::currentRouteName() == 'admin.deliver.detail' ? 'active' : null }}">
                         <i class="fas fa-clipboard-list"></i>
                         <p>บริการลูกค้า</p>
+                        <?php
+                        $orders = \App\Order::query()
+                            ->where('order_status','0')
+                            ->get();
+                        $noti_order = count($orders);
+                        ?>
+                        <span>
+                        @if( $noti_order != null)
+                                <span class="badge badge-danger">{{ $noti_order }}</span>
+                        @endif
+                        </span>
                     </a>
                 </li>
             @endif
@@ -226,6 +250,18 @@
                     Route::currentRouteName() == 'admin.order-success.dataCustomer' || Route::currentRouteName() == 'admin.order-success.details' ? 'active' : null }}">
                         <i class="fas fa-car"></i>
                         <p>เตรียมส่งเสื้อผ้า</p>
+                        <?php
+                        $orders = \App\Order::query()
+                            ->where('order_status','!=','0')
+                            ->where('order_status','=','4')
+                            ->get();
+                        $noti_order = count($orders);
+                        ?>
+                        <span>
+                        @if( $noti_order != null)
+                                <span class="badge badge-danger">{{ $noti_order }}</span>
+                        @endif
+                        </span>
                     </a>
                 </li>
             @endif

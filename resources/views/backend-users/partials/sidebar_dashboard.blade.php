@@ -32,7 +32,7 @@
     <li class="nav-item {{ Route::currentRouteName() == 'users.order.index' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.order.index') }}">
             <i class="fas fa-credit-card"></i>
-            <span>ใช้บริการ</span></a>
+            <span>เรียกใช้บริการ</span></a>
     </li>
     @endif
     <hr class="sidebar-divider my-0">
@@ -47,7 +47,20 @@
     Route::currentRouteName() == 'users.order-details.pay' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.order-details.index') }}">
             <i class="fas fa-envelope"></i>
-            <span>รายการเสื้อผ้า</span></a>
+            <span>รายการเสื้อผ้า</span>
+            <?php
+            $orders = \App\Order::query()
+                ->where('order_status','!=','0')
+                ->where('order_status','!=','5')
+                ->get();
+            $noti_order = count($orders);
+            ?>
+            <span>
+        @if( $noti_order != null)
+                    <span class="badge badge-danger">{{ $noti_order }}</span>
+                @endif
+         </span>
+        </a>
     </li>
 
     <li class="nav-item {{ Route::currentRouteName() == 'users.all-order-details.index' || Route::currentRouteName() == 'users.all-order-details.details' ? 'active' : null }}">

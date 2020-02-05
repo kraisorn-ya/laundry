@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('ใช้บริการ') }}</div>
+                    <div class="card-header">{{ __('เรียกใช้บริการ') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('users.order.post') }}" style="padding: 40px">
@@ -30,7 +30,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        ใช้บริการ
+                                        เรียกใช้บริการ
                                     </button>
                                     <a class="btn btn-danger" href="{{ route('home') }}">ยกเลิก</a>
                                 </div>

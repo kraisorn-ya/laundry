@@ -22,8 +22,8 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                {{--                                <label for="pay" class="text-md-right">วิธีชำระ :</label>--}}
-                                {{--                                <p>  {{ $orders->pay }}</p>--}}
+{{--                                                                <label for="pay" class="text-md-right">วิธีชำระ :</label>--}}
+{{--                                                                <p>  {{ $orders->pay }}</p>--}}
                             </div>
                         </div>
                         <div class="form-group">

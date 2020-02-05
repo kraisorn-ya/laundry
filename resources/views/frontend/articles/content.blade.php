@@ -18,10 +18,11 @@
                                 <p style="font-weight: bold;color: black" >{!! $article->short_description   !!} </p>
                                 <p>{!! $article->description   !!} </p>
                             </div>
-
+                        </div>
+                        <div class="col-md-5 offset-5">
+                            <a class="btn btn-danger" href="{{ route('laundry.articles.index') }}" style="width: 150px; margin-top: -30%">กลับ</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

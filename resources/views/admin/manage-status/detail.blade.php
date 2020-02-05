@@ -33,7 +33,7 @@
                         <tr class="bg-dark">
                             <td colspan="4"></td>
                             <td class="text-details">จำนวนรวม</td>
-                            <td class="text-details">ราคาสุทธิ</td>
+                            <td class="text-details">ราคารวมทั้งหมด</td>
                         </tr>
                         <tr>
                             <td colspan="4"></td>

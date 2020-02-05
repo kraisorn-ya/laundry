@@ -33,7 +33,7 @@
                 <tr class="bg-info">
                     <th scope="row" colspan="3" class="font-order"></th>
                     <td class="font-order">จำนวนรวม</td>
-                    <td class="font-order">ราคาสุทธิ</td>
+                    <td class="font-order">ราคารวมทั้งหมด</td>
                 </tr>
                 <tr>
                     <th scope="row" colspan="3" class="font-order"></th>
@@ -57,6 +57,7 @@
                     <button type="submit" class="btn btn-primary">
                         บันทึกรายการ
                     </button>
+                    <a  href="#" class="btn btn-danger" onclick="history.go(-1)">กลับ</a>
                 </div>
             </div>
         </form>

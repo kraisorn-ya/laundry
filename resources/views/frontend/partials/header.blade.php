@@ -16,9 +16,9 @@
 {{--                <li><a href="#services">โปรโมชั่น</a></li>--}}
                 {{--<li><a href="#portfolio">Portfolio</a></li>--}}
 {{--                <li><a href="#contact">ติดต่อเรา</a></li>--}}
-                <li><a class="{{ Route::currentRouteName() == 'laundry.articles.index' ? 'active' : null }}" href="{{ route('laundry.articles.index')}}" >ข่าวสาร</a></li>
-                <li><a class="{{ Route::currentRouteName() == 'laundry.service-charge.index' ? 'active' : null }}" href="{{ route('laundry.service-charge.index2')}}" >ค่าบริการ</a></li>
-                <li><a class="{{ Route::currentRouteName() == 'laundry.contact-us.index'||Route::currentRouteName() == 'laundry.articles.content' ? 'active' : null }}" href="{{ route('laundry.contact-us.index') }}">ติดต่อเรา</a></li>
+                <li><a class="{{ Route::currentRouteName() == 'laundry.articles.index' || Route::currentRouteName() == 'laundry.articles.content' ? 'active' : null }}" href="{{ route('laundry.articles.index')}}" >ข่าวสาร</a></li>
+                <li><a class="{{ Route::currentRouteName() == 'laundry.service-charge.index2' ? 'active' : null }}" href="{{ route('laundry.service-charge.index2')}}" >ค่าบริการ</a></li>
+                <li><a class="{{ Route::currentRouteName() == 'laundry.contact-us.index' ||Route::currentRouteName() == 'laundry.contact-us.content' ? 'active' : null }}" href="{{ route('laundry.contact-us.index') }}">ติดต่อเรา</a></li>
                 <li><a class="{{ Route::currentRouteName() == 'register' ? 'active' : null }}" href="{{ route('register') }}">สมัครสมาชิก</a></li>
                 {{--<li><a href="#contact">เข้าสู่ระบบ</a></li>--}}
                 @if (Route::has('login'))

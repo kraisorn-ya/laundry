@@ -19,6 +19,7 @@ class ManageOrderStatusController extends Controller
     {
         $orders = Order::query()
             ->where('order_status','!=',0)
+            ->where('order_status','!=',4)
             ->where('order_status','!=',5)
             ->paginate(6);
         return view('admin.manage-status.index',compact('orders'));
@@ -54,11 +55,18 @@ class ManageOrderStatusController extends Controller
         elseif ($orders->order_status == 2){
             $orders->order_status = 3;
         }
-        elseif ($orders->order_status == 3){
+        $orders->update();
+        return redirect()->route('admin.manage-status.index');
+    }
+
+    public function deliverStatus($id)
+    {
+        $orders = Order::find($id);
+        if ($orders->order_status == 3){
             $orders->order_status = 4;
         }
         $orders->update();
-        return redirect()->route('admin.manage-status.index');
+        return redirect()->route('admin.manage-status.index')->with('success','แจ้งเตือนพนักงานรับ-ส่ง ไปส่งเสื้อผ้าของคุณ:'." ".$orders->users->first_name." ".$orders->users->last_name);
     }
 
     public function sendStatus($id)
@@ -76,7 +84,7 @@ class ManageOrderStatusController extends Controller
         $orders->pay_status = 2;
         $orders->update();
 
-        return redirect()->route('admin.manage-status.index');
+        return redirect()->route('admin.manage-status.index')->with('success','ยืนยันการชำระเงิน');
     }
 
     public function details($id)

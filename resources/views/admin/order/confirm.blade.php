@@ -65,6 +65,7 @@
                     <button type="submit" class="btn btn-primary">
                         บันทึกรายการ
                     </button>
+                    <a  href="#" class="btn btn-danger" onclick="history.go(-1)">กลับ</a>
                 </div>
             </div>
         </form>

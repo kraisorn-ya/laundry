@@ -18,7 +18,7 @@ class OrderSuccessController extends Controller
     {
         $orders = Order::query()
             ->where('order_status','!=',0)
-            ->where('order_status','!=',5)
+            ->where('order_status','=',4)
             ->paginate(6);
         return view('admin.order-success.index',compact('orders'));
     }
