@@ -5,7 +5,7 @@
         <div class="card">
             <div class="row">
                 <div class="card-header font-order col-md-4">คุณ {{ $user->first_name." ".$user->last_name  }}</div>
-                <div class="card-header font-order col-md-4">วันที่จะเสร็จ {{ $order_date  }}</div>
+                <div class="card-header font-order col-md-4">วันที่เสร็จ {{ $order_date  }}</div>
             </div>
             <table class="table table-bordered">
                 <thead>

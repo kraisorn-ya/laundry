@@ -1,5 +1,5 @@
 @extends('backend-users.layouts.main_dashboard')
-@section('title', 'ใช้บริการ')
+@section('title', 'เรียกใช้บริการ')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

@@ -9,7 +9,7 @@
                     <p style="font-size: 20px">คุณ: {{$order->users->first_name." ".$order->users->last_name }}</p>
                 </div>
                 <div class="form-row col-md-3" style="margin-left: 5%">
-                    <label>วันที่จะเสร็จ</label>
+                    <label>วันที่เสร็จ</label>
                     <input type="date" name="date_completed" class="form-control" value="{{ $order->date_completed }}">
 
                     @if ($errors->has('date_completed'))
@@ -53,7 +53,7 @@
                                             <p class="text-color-black">{{ $clothe->price }}</p>
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="number" class="form-control text-color-black" name="clothe_qty_{{$clothe->id}}">
+                                            <input type="number" min="1" class="form-control text-color-black" name="clothe_qty_{{$clothe->id}}">
                                         </div>
                                     </div>
                                     <input type="hidden" name="clothe_name_{{$clothe->id}}" value="{{$clothe->name}}">
