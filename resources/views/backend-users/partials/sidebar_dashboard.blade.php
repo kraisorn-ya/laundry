@@ -33,6 +33,13 @@
             <i class="fas fa-credit-card"></i>
             <span>เรียกใช้บริการ</span></a>
     </li>
+
+    <li class="nav-item {{ Route::currentRouteName() == 'users.order.service' ? 'active' : null }}">
+        <a class="nav-link" href="{{ route('users.order.service') }}">
+            <i class="fas fa-credit-card"></i>
+            <span>เรียกใช้บริการ1</span></a>
+    </li>
+
     <hr class="sidebar-divider my-0">
 {{--    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">--}}
 {{--        <a class="nav-link" href="{{ route('users.package.index') }}">--}}

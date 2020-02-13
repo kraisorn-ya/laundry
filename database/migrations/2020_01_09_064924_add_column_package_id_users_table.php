@@ -26,7 +26,7 @@ class AddColumnPackageIdUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('package_id');
+            $table->dropColumn('package_id');
         });
     }
 }

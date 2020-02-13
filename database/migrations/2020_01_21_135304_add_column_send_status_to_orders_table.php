@@ -26,7 +26,7 @@ class AddColumnSendStatusToOrdersTable extends Migration
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->integer('send_status')->nullable();
+            $table->dropColumn('send_status')->nullable();
         });
     }
 }

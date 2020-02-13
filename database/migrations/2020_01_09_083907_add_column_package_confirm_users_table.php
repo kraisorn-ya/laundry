@@ -26,7 +26,7 @@ class AddColumnPackageConfirmUsersTable extends Migration
     public function down()
     {
         Schema::table('users',function (Blueprint $table){
-            $table->integer('confirm_package');
+            $table->dropColumn('confirm_package');
         });
     }
 }

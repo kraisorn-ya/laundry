@@ -109,7 +109,6 @@ class DeliverController extends Controller
             $sum_qty+= $order_detail['clothe_qty'];
             $sum_price+= $order_detail['clothe_total_price'];
         }
-//        dd($order_details);
         return view('admin.deliver.confirm',compact('sum_qty','sum_price','order_details','user','order_id','order_date'));
     }
 
@@ -137,8 +136,6 @@ class DeliverController extends Controller
         $order->date_completed = $date_completed;
 //        $order->pay_status = $pay_status;
         $order->update();
-
-
 
         foreach ($orders as $order_detail)
         {

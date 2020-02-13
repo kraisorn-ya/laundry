@@ -28,9 +28,9 @@ class AddColumnToOrdersTable extends Migration
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('address');
-            $table->string('pay')->nullable();
-            $table->string('image')->nullable();
+            $table->dropColumn('address');
+            $table->dropColumn('pay')->nullable();
+            $table->dropColumn('image')->nullable();
         });
     }
 }

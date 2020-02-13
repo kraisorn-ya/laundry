@@ -26,7 +26,7 @@ class AddColumnServiceTypeIdToOrderDetailsTable extends Migration
     public function down()
     {
         Schema::table('order_details', function (Blueprint $table) {
-            $table->integer('service_type_id')->index();
+            $table->dropColumn('service_type_id')->index();
         });
     }
 }

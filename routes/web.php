@@ -103,7 +103,9 @@ Route::group([
     ], function (){
         Route::get('/', 'BackendUser\OrderController@index')->name('index');
         Route::post('/order', 'BackendUser\OrderController@post')->name('post');
-
+        Route::get('/service', 'BackendUser\OrderController@service')->name('service');
+        Route::post('/confirm', 'BackendUser\OrderController@confirm')->name('confirm');
+        Route::post('/confirm/store', 'BackendUser\OrderController@store')->name('store');
     });
 
     Route::group([

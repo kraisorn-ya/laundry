@@ -27,8 +27,8 @@ class AddColumnStatusPayAndDateCompletedToOrdersTable extends Migration
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->date('date_completed')->nullable();
-            $table->integer('pay_status')->nullable();
+            $table->dropColumn('date_completed')->nullable();
+            $table->dropColumn('pay_status')->nullable();
         });
     }
 }

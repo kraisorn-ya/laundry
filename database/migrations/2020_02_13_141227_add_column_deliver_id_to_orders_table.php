@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddComlumnServiceTypeIdToClothesTable extends Migration
+class AddColumnDeliverIdToOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddComlumnServiceTypeIdToClothesTable extends Migration
      */
     public function up()
     {
-        Schema::table('clothes', function (Blueprint $table) {
-            $table->integer('service_type_id');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->integer('deliver_id')->index()->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddComlumnServiceTypeIdToClothesTable extends Migration
      */
     public function down()
     {
-        Schema::table('clothes', function (Blueprint $table) {
-            $table->dropColumn('service_type_id');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('deliver_id');
         });
     }
 }
