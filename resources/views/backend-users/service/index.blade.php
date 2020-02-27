@@ -1,9 +1,8 @@
 @extends('backend-users.layouts.main_dashboard')
-@section('title', 'ใบสั่ง')
+@section('title', 'รายการเสื้อผ้า')
 @section('content')
     <div class="container">
         <div class="row">
-
             @foreach($service_types as $service_type)
             <div class="col-sm-6">
                 <h4 class="text-color-black">{{ $service_type->name }}</h4>
@@ -45,5 +44,4 @@
             </div>
             @endforeach
     </div>
-
 @endsection

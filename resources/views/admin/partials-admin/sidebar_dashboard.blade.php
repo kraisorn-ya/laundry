@@ -221,7 +221,6 @@
 {{--                </li>--}}
 {{--            @endif--}}
 
-
             @if(auth()->user()->role_id == 3)
                 <li class="nav-item">
                     <a href="{{ route('admin.deliver.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.deliver.index' || Route::currentRouteName() == 'admin.deliver.create' ||
@@ -239,6 +238,27 @@
                         @if( $noti_order != null)
                                 <span class="badge badge-danger">{{ $noti_order }}</span>
                         @endif
+                        </span>
+                    </a>
+                </li>
+            @endif
+
+            @if(auth()->user()->role_id == 3)
+                <li class="nav-item">
+                    <a href="{{ route('admin.confirm-order.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.confirm-order.index'
+                    || Route::currentRouteName() == 'admin.confirm-order.confirm' ? 'active' : null }}">
+                        <i class="fas fa-clipboard-list"></i>
+                        <p>ยืนยันรายการ</p>
+                        <?php
+                        $orders = \App\Order::query()
+                            ->where('order_status','0')
+                            ->get();
+                        $noti_order = count($orders);
+                        ?>
+                        <span>
+                        @if( $noti_order != null)
+                                <span class="badge badge-danger">{{ $noti_order }}</span>
+                            @endif
                         </span>
                     </a>
                 </li>

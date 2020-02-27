@@ -210,6 +210,15 @@ Route::group([
         Route::post('{id}/manage-status/order-status', 'Backend\Manage\OrderSuccessController@orderStatus')->name('orderStatus');
     });
 
+    Route::group([
+        'prefix' => 'confirm-order',
+        'as' => 'confirm-order.'
+    ], function (){
+        Route::get('index', 'Backend\Deliver\ConfirmOrderController@index')->name('index');
+        Route::get('{id}confirm', 'Backend\Deliver\ConfirmOrderController@confirm')->name('confirm');
+        Route::put('edit', 'Backend\Deliver\ConfirmOrderController@edit')->name('edit');
+        Route::delete('{id}confirm/delete', 'Backend\Deliver\ConfirmOrderController@destroy')->name('delete');
+    });
 });
 
 

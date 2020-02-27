@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-3 ">ลูกค้าเรียกใช้บริการ</div>
+                    <div class="col-md-3 ">รายการเสื้อผ้าของลูกค้า</div>
                     <div class="col">
 
                     </div>
@@ -56,16 +56,16 @@
                                 <td>{{ $order->address }}</td>
                                 <td>{{ $order->users->tel }}</td>
                                 <td class="row">
-                                    <a href="{{route('admin.deliver.create',[$order->id])}}" class="btn btn-outline-info " title="Confirm Record" style="margin-right: 1%">
-                                        <i class="fa fa-shopping-cart"> ยืนยันการใช้บริการ </i>
+                                    <a href="{{route('admin.confirm-order.confirm',[$order->id])}}" class="btn btn-outline-info " title="Confirm Record" style="margin-right: 1%">
+                                        <i class="fa fa-shopping-cart"> ยืนยันรายการเสื้อผ้า </i>
                                     </a>
-                                    <form method="post" action="{{ route('admin.deliver.delete', $order->id) }}">
-                                        @csrf
-                                        <button type="submit" class="btn btn-outline-danger" onclick="return deleletconfig()">
-                                            <i class="fas fa-trash-alt"></i>ลบใบสั่ง
-                                        </button>
-                                        {{ method_field('DELETE') }}
-                                    </form>
+{{--                                    <form method="post" action="{{ route('admin.deliver.delete', $order->id) }}">--}}
+{{--                                        @csrf--}}
+{{--                                        <button type="submit" class="btn btn-outline-danger" onclick="return deleletconfig()">--}}
+{{--                                            <i class="fas fa-trash-alt"></i>ลบใบสั่ง--}}
+{{--                                        </button>--}}
+{{--                                        {{ method_field('DELETE') }}--}}
+{{--                                    </form>--}}
                                 </td>
 
                             </tr>
