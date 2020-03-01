@@ -13,25 +13,36 @@
                             <p>ยอดที่ต้องชำระ {{ $orders->total_price }}</p>
                             <label>กรุณาใส่หลักฐานการโอนเงิน<span style="color: red">*</span></label>
                             <div class="form-group">
-                                <div id="divShowImg">
-                                    <img class="img-thumbnail" id="previewProduct" style="width: 160px; height: 160px"
-                                         src="https://via.placeholder.com/180x120.png?text=No%20Image">
-                                </div>
+                                <label >หากชำระด้วยการส่งสลิป กรุณาใส่รูปสลิป <span style="color:red">*</span></label>
+                                <div class="form-group">
+                                    <div id="divShowImg">
+                                        @if($orders->image)
+                                            <img class="img-thumbnail" id="previewProduct" style="width: 160px; height: 160px" src="{{ asset('storage/'.$orders->image) }}">
+                                        @elseif($orders->image == null)
+                                            <div class="form-group">
+                                                <div id="divShowImg">
+                                                    <img class="img-thumbnail" id="previewProduct" style="width: 160px; height: 160px"
+                                                         src="https://via.placeholder.com/180x120.png?text=No%20Image">
+                                                </div>
 
-                                @if ($errors->has('image'))
-                                    <span style="color: rgba(226,20,17,0.77);font-size: 13px">
+                                                @if ($errors->has('image'))
+                                                    <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                                             <strong>{{ $errors->first('image') }}</strong>
                                         </span>
-                                @endif
+                                                @endif
 
+                                            </div>
+                                            <input type="file" accept="image/jpeg, image/png" onchange="readProduct(this);"
+                                                   id="fileProduct"
+                                                   name="image" value="{{ old('image') }}">
+                                            <p class="help-block">
+                                                ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
+                                                ขนาดไฟล์ไม่เกิน 1 MB <br>
+                                            </p>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
-                            <input type="file" accept="image/jpeg, image/png" onchange="readProduct(this);"
-                                   id="fileProduct"
-                                   name="image" value="{{ old('image') }}">
-                            <p class="help-block">
-                                ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
-                                ขนาดไฟล์ไม่เกิน 1 MB <br>
-                            </p>
 
                         </div>
 

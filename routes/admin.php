@@ -218,6 +218,20 @@ Route::group([
         Route::get('{id}confirm', 'Backend\Deliver\ConfirmOrderController@confirm')->name('confirm');
         Route::put('edit', 'Backend\Deliver\ConfirmOrderController@edit')->name('edit');
         Route::delete('{id}confirm/delete', 'Backend\Deliver\ConfirmOrderController@destroy')->name('delete');
+        Route::put('{id}confirm/orderStatus', 'Backend\Deliver\ConfirmOrderController@orderStatus')->name('orderStatus');
+        Route::delete('{id}/delete-order', 'Backend\Deliver\ConfirmOrderController@destroyOrder')->name('deleteOrder');
+    });
+
+    Route::group([
+        'prefix' => 'emp-confirm-order',
+        'as' => 'emp-confirm-order.'
+    ], function (){
+        Route::get('index', 'Backend\EmpConfirm\EmpConfirmController@index')->name('index');
+        Route::get('{id}confirm', 'Backend\EmpConfirm\EmpConfirmController@confirm')->name('confirm');
+        Route::put('edit', 'Backend\EmpConfirm\EmpConfirmController@edit')->name('edit');
+        Route::delete('{id}confirm/delete', 'Backend\EmpConfirm\EmpConfirmController@destroy')->name('delete');
+        Route::put('{id}confirm/orderStatus', 'Backend\EmpConfirm\EmpConfirmController@orderStatus')->name('orderStatus');
+//        Route::delete('{id}/deleteOrder', 'Backend\EmpConfirm\EmpConfirmController@destroyOrder')->name('destroyOrder');
     });
 });
 

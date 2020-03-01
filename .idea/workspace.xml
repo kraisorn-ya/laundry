@@ -20,14 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56a98e04-bb23-40ad-b03e-7b0e2a2fb5e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/project2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/Deliver/ConfirmOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/Deliver/ConfirmOrderController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/Deliver/DeliverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/Deliver/DeliverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/deliver-confirm/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/deliver-confirm-order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/deliver-confirm-order/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/deliver-confirm-order/confirm.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/deliver-confirm-order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/deliver-confirm-order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/manage-status/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/manage-status/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/partials-admin/sidebar_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials-admin/sidebar_dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-users/order-details/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-users/order-details/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-users/order-details/pay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-users/order-details/pay.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-users/order/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-users/order/confirm.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-users/order/service.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-users/order/service.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-users/service/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-users/service/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +161,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../projectcs-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -319,7 +323,10 @@
       <workItem from="1582164561423" duration="9635000" />
       <workItem from="1582256509674" duration="599000" />
       <workItem from="1582702815296" duration="20869000" />
-      <workItem from="1582783688930" duration="666000" />
+      <workItem from="1582783688930" duration="12253000" />
+      <workItem from="1582812272095" duration="9472000" />
+      <workItem from="1582858304852" duration="14529000" />
+      <workItem from="1583072324189" duration="6619000" />
     </task>
     <servers />
   </component>
@@ -338,14 +345,14 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582712114413">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1583079163824">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1582712114413" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1582128996070">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1583079163824" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1583077292348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1582128996070" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1583077292348" />
     <state x="184" y="4" key="SettingsEditor" timestamp="1582035899172">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

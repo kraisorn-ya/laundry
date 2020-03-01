@@ -125,6 +125,27 @@
 
             @if(auth()->user()->role_id == 2)
                 <li class="nav-item">
+                    <a href="{{ route('admin.emp-confirm-order.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.emp-confirm-order.index'
+                    || Route::currentRouteName() == 'admin.emp-confirm-order.confirm' ? 'active' : null }}">
+                        <i class="fas fa-clipboard-list"></i>
+                        <p>ยืนยันรายการ</p>
+                        <?php
+                        $orders = \App\Order::query()
+                            ->where('order_status','1')
+                            ->get();
+                        $noti_order = count($orders);
+                        ?>
+                        <span>
+                        @if( $noti_order != null)
+                                <span class="badge badge-danger">{{ $noti_order }}</span>
+                            @endif
+                        </span>
+                    </a>
+                </li>
+            @endif
+
+            @if(auth()->user()->role_id == 2)
+                <li class="nav-item">
                     <a href="{{ route('admin.manage-status.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.manage-status.index' || Route::currentRouteName() == 'admin.manage-status.status' ||
                         Route::currentRouteName() == 'admin.manage-status.update' || Route::currentRouteName() == 'admin.manage-status.pay' || Route::currentRouteName() == 'admin.manage-status.delete' ||
                         Route::currentRouteName() == 'admin.manage-status.details' ? 'active' : null }}">
@@ -177,15 +198,6 @@
 
             @if(auth()->user()->role_id == 2)
             <li class="nav-header">Front END</li>
-{{--            <li class="nav-item">--}}
-{{--                <a href="pages/calendar.html" class="nav-link">--}}
-{{--                    <i class="nav-icon far fa-calendar-alt"></i>--}}
-{{--                    <p>--}}
-{{--                        Calendar--}}
-{{--                        <span class="badge badge-info right">2</span>--}}
-{{--                    </p>--}}
-{{--                </a>--}}
-{{--            </li>--}}
             <li class="nav-item">
                 <a href="{{ route('admin.article-category.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.article-category.index' || Route::currentRouteName() == 'admin.article-category.create' ||
                  Route::currentRouteName() == 'admin.article-category.edit' ? 'active' : null }}">

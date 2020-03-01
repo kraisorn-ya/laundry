@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Deliver;
+namespace App\Http\Controllers\Backend\EmpConfirm;
 
+use App\Http\Requests\EmpConfirm\EmpConfirmRequest;
 use App\Order;
 use App\OrderDetail;
-use App\ServiceType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ConfirmOrderController extends Controller
+class EmpConfirmController extends Controller
 {
     public function __construct()
     {
@@ -18,9 +18,9 @@ class ConfirmOrderController extends Controller
     public function index()
     {
         $orders = Order::query()
-            ->where('order_status',0)
+            ->where('order_status',1)
             ->paginate(6);
-        return view('admin.deliver-confirm-order.index', compact('orders'));
+        return view('admin.emp-confirm-order.index', compact('orders'));
     }
 
     public function confirm($id)
@@ -29,7 +29,7 @@ class ConfirmOrderController extends Controller
         $order_details = OrderDetail::query()
             ->where('order_id',$id)
             ->get();
-        return view('admin.deliver-confirm-order.confirm', compact('orders','order_details'));
+        return view('admin.emp-confirm-order.confirm', compact('orders','order_details'));
     }
     public function edit(Request $request)
     {
@@ -65,26 +65,35 @@ class ConfirmOrderController extends Controller
         $orderDetail->update();
 
         $order = Order::find($order_id);
-        $order->deliver_id = auth()->user()->id;
+        $order->admin_id = auth()->user()->id;
         $order->total_qty = $sum_qty;
         $order->total_price = $current_total_price;
         $order->update();
 
-        return redirect()->route('admin.confirm-order.confirm',[$order_id])->with('edit','แก้ไข'." ".$orderDetail->clothes->name);
+        return redirect()->route('admin.emp-confirm-order.confirm',[$order_id])->with('edit','แก้ไข'." ".$orderDetail->clothes->name);
     }
 
-    public function orderStatus($id)
+    public function orderStatus($id, Request $request)
     {
+        $this->validate($request, [
+            'date_completed' => 'required',
+        ], [], [
+            'date_completed' => 'วันที่เสร็จ',
+        ]);
+
+        $date_completed = $request->date_completed;
         $order = Order::find($id);
-        $order->order_status = 1;
+        $order->admin_id = auth()->user()->id;
+        $order->order_status = 2;
+        $order->date_completed = $date_completed;
         $order->update();
 
         define('LINE_API',"https://notify-api.line.me/api/notify");
         $token = "bKrbgXDDt7wPBFvcMpqVS8a5o9Ucdxls3IoW8cpizTJ";
-        $str = "รับรายการเสื้อผ้าเรียบร้อยแล้ว";
+        $str = "ทางร้านกำลังดำเนินการซักเสื้อผ้าของลูกค้ารหัส"." ".$order->user_id;
         $res = $this->notify_message($str,$token);
 
-        return redirect()->route('admin.confirm-order.index')->with('success','รับเสื้อผ้าของลูกค้าเรียบร้อยแล้ว');
+        return redirect()->route('admin.emp-confirm-order.index')->with('success','ดำเนินการซักเสื้อผ้า');
     }
 
     public function destroy($id)
@@ -104,34 +113,12 @@ class ConfirmOrderController extends Controller
         $order = Order::find($order_id);
         $order->total_qty = $total_qty;
         $order->total_price = $total_price;
-        $order->deliver_id = auth()->user()->id;
+        $order->admin_id = auth()->user()->id;
         $order->update();
 
         $order_details->delete();
 
-        return redirect()->route('admin.confirm-order.confirm',[$order_id])->with('deleted','ลบรายการ'." ".$order_details->clothes->name);
-    }
-    public function destroyOrder($id)
-    {
-        $order = Order::find($id);
-
-        $order_details = OrderDetail::query()
-            ->where('order_id',$id)
-            ->get();
-        foreach ($order_details as $order_detail)
-        {
-            $orderDatail = OrderDetail::find($order_detail->id);
-
-            $orderDatail->delete();
-        }
-        $order->delete();
-
-        define('LINE_API',"https://notify-api.line.me/api/notify");
-        $token = "bKrbgXDDt7wPBFvcMpqVS8a5o9Ucdxls3IoW8cpizTJ";
-        $str = "ลบการเรียกใช้บริการของลุูกค้ารหัส :".$order->user_id;
-        $res = $this->notify_message($str,$token);
-
-        return redirect()->route('admin.confirm-order.index')->with('deleted', 'ลบการเรียกใช้บริการเรียบร้อย');
+        return redirect()->route('admin.emp-confirm-order.confirm',[$order_id])->with('deleted','ลบรายการ'." ".$order_details->clothes->name);
     }
 
     public function notify_message($message,$token)

@@ -5,17 +5,27 @@
         <form method="POST" action="{{ route('users.order.confirm') }}">
             @csrf
             <div class="row" style="margin-left: 5%; margin-top: 2%">
-                <div class="box-body">
+                <div class="row col-md-12">
                     <p>คุณ: {{ Auth::user()->first_name." ".Auth::user()->last_name }}</p>
-                    <div class="form-group">
+                    <div class="col-md-4">
                         <label>ที่อยู่ <span style="color:red">*</span></label>
                         <textarea class="form-control"  name="address"
                                   placeholder="กรอกที่อยู่"
-                                  rows="4" style="width: 850px">{{ Auth::user()->address }}</textarea>
+                                  rows="4" style="width: 300px; margin-left: -50%">{{ Auth::user()->address }}</textarea>
                         @if ($errors->has('address'))
                             <span style="color: rgba(226,20,17,0.77);font-size: 13px">
                                             <strong>{{ $errors->first('address') }}</strong>
                                         </span>
+                        @endif
+                    </div>
+                    <div class="box-body col">
+                        <p style="font-size: 25px">วิธีชำระเงิน:</p>
+                        <input type="radio" name="payment" value="0">  ชำระปลายทาง<br>
+                        <input type="radio" name="payment" value="1">  ชำระโดยการส่งหลักฐานการโอนเงิน<br>
+                        @if ($errors->has('payment'))
+                            <span style="color: rgba(226,20,17,0.77);font-size: 13px">
+                           <strong>{{ $errors->first('payment') }}</strong>
+                        </span>
                         @endif
                     </div>
                 </div>

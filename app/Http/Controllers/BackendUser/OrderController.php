@@ -50,7 +50,13 @@ class OrderController extends Controller
 
     public function confirm(Request $request)
     {
+        $this->validate($request, [
+            'payment' => 'required',
+        ], [], [
+            'payment' => 'วิธีการชำระเงิน',
+        ]);
         $address = $request->address;
+        $payment = $request->payment;
         $orders = $request->all();
         $service_types = ServiceType::all();
         $order_details = [];
@@ -89,7 +95,7 @@ class OrderController extends Controller
             $sum_qty+= $order_detail['clothe_qty'];
             $sum_price+= $order_detail['clothe_total_price'];
         }
-        return view('backend-users.order.confirm',compact('sum_qty','sum_price','order_details','address'));
+        return view('backend-users.order.confirm',compact('sum_qty','sum_price','order_details','address','payment'));
     }
 
     public function store(Request $request)
@@ -99,7 +105,9 @@ class OrderController extends Controller
         $sum_price = 0;
         $orders = $request->all();
         $address = $request->address;
+        $payment = $request->payment;
         array_shift($orders);
+        array_pop($orders);
         array_pop($orders);
         foreach($orders as $data)
         {
@@ -111,6 +119,7 @@ class OrderController extends Controller
         $order->total_qty = $sum_qty;
         $order->order_status = 0;
         $order->address = $address;
+        $order->payment = $payment;
         $order->save();
 
         foreach ($orders as $order_detail)
@@ -124,6 +133,34 @@ class OrderController extends Controller
             $order_details->clothes_total_price = $order_detail['clothe_total_price'];
             $order->order_details()->save($order_details);
         }
+
+        define('LINE_API',"https://notify-api.line.me/api/notify");
+        $token = "bKrbgXDDt7wPBFvcMpqVS8a5o9Ucdxls3IoW8cpizTJ";
+        $str = "ลูกค้า ID :".auth()->user()->id." เรียกใช้บริการ";
+        $res = $this->notify_message($str,$token);
+        print_r($res);
+
+
         return redirect()->route('home')->with('success','บันทึกรายการเรียบร้อย');
+    }
+
+    public function notify_message($message,$token)
+    {
+        $queryData = array('message' => $message);
+        $queryData = http_build_query($queryData,'','&');
+        $headerOptions = array(
+            'http' => array(
+                'method' => 'POST',
+                'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
+                    ."Authorization: Bearer ".$token."\r\n"
+                    ."Content-Length: ".strlen($queryData)."\r\n"
+                    ,'content' => $queryData
+            ),
+        );
+        $context = stream_context_create($headerOptions);
+        file_get_contents(LINE_API,FALSE,$context);
+//        $result = file_get_contents(LINE_API,FALSE,$context);
+//        $res = json_decode($result);
+//        return $res;
     }
 }

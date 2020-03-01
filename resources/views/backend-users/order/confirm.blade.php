@@ -5,7 +5,12 @@
         <div class="card">
             <div class="row">
                 <div class="card-header font-order col-md-4">คุณ {{ Auth::user()->first_name." ".Auth::user()->last_name  }}</div>
-                <div class="card-header font-order col">ที่อยู่ {{ $address  }}</div>
+                <div class="card-header font-order col-md-3">ที่อยู่ {{ $address  }}</div>
+                @if($payment == 0)
+                <div class="card-header font-order col">วิธีการชำระเงิน: ชำระปลายทาง</div>
+                @elseif($payment == 1)
+                <div class="card-header font-order col">วิธีการชำระเงิน: ชำระโดยการส่งหลักฐานการโอนเงิน</div>
+                @endif
             </div>
             <table class="table table-bordered">
                 <thead>
@@ -52,6 +57,7 @@
                 <?php $i++?>
             @endforeach
             <input name="address" type="hidden" value="{{ $address  }}">
+            <input name="payment" type="hidden" value="{{ $payment  }}">
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">

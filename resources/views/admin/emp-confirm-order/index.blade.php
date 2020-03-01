@@ -1,5 +1,5 @@
 @extends('admin.layouts-admin.main_dashboard')
-@section('title', 'เรียกใช้บริการจากลูกค้า')
+@section('title', 'ยืนยันรายการเสื้อผ้า')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -56,16 +56,16 @@
                                 <td>{{ $order->address }}</td>
                                 <td>{{ $order->users->tel }}</td>
                                 <td class="row">
-                                    <a href="{{route('admin.confirm-order.confirm',[$order->id])}}" class="btn btn-outline-info " title="Confirm Record" style="margin-right: 1%">
-                                        <i class="fa fa-shopping-cart"> ยืนยันรายการเสื้อผ้า </i>
-                                    </a>
-                                    <form method="post" action="{{ route('admin.confirm-order.deleteOrder',[$order->id]) }}">
-                                        @csrf
-                                        <button type="submit" class="btn btn-outline-danger" onclick="return deleletconfig()">
-                                            <i class="fas fa-trash-alt"></i>ลบใบสั่ง
-                                        </button>
-                                        {{ method_field('DELETE') }}
-                                    </form>
+                                <a href="{{route('admin.emp-confirm-order.confirm',[$order->id])}}" class="btn btn-outline-info " title="Confirm Record" style="margin-right: 1%">
+                                  <i class="fa fa-shopping-cart"> ยืนยันรายการเสื้อผ้า </i>
+                                </a>
+{{--                                                                        <form method="post" action="{{ route('admin.deliver.delete', $order->id) }}">--}}
+{{--                                                                            @csrf--}}
+{{--                                    <button type="submit" class="btn btn-outline-danger" onclick="return deleletconfig()">--}}
+{{--                                        <i class="fas fa-trash-alt"></i>ลบใบสั่ง--}}
+{{--                                    </button>--}}
+{{--                                                                            {{ method_field('DELETE') }}--}}
+{{--                                                                        </form>--}}
                                 </td>
 
                             </tr>

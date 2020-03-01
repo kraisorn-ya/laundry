@@ -3,9 +3,8 @@
 @section('content')
     <div class="container">
         <div class="card">
-            <div class="row">
+            <div class="row col-md-12">
                 <div class="card-header font-order col-md-4">รายการเสื้อผ้าของคุณ: {{ $orders->users->first_name." ".$orders->users->last_name  }}</div>
-{{--                <div class="card-header font-order col-md-4">วันที่เสร็จ {{ $order_date  }}</div>--}}
             </div>
             @if(session()->has('edit'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 20px">
@@ -38,7 +37,7 @@
                     <th scope="col" class="font-order"></th>
                 </tr>
                 </thead>
-<!--                --><?php //$i = 1; ?>
+                <!--                --><?php //$i = 1; ?>
                 @foreach($order_details as $order_detail)
                     <tbody>
                     <tr>
@@ -46,7 +45,7 @@
                         <td class="font-order">{{ $order_detail->service_type->name }}</td>
                         <td class="font-order">{{ $order_detail->clothes['name'] }}</td>
                         <td class="font-order">{{ $order_detail->clothes['price'] }}</td>
-                        <form method="post" action="{{ route('admin.confirm-order.edit') }}">
+                        <form method="post" action="{{ route('admin.emp-confirm-order.edit') }}">
                             @csrf
                             <td class="font-order" width="100px">
                                 <input name="clothes_qty" type="number" min="1" class="form-control" value="{{ $order_detail->clothes_qty }}">
@@ -67,7 +66,7 @@
                             @method('put')
                         </form>
                         <td class="font-order">
-                            <form method="post" action="{{ route('admin.confirm-order.delete', $order_detail->id) }}">
+                            <form method="post" action="{{ route('admin.emp-confirm-order.delete', $order_detail->id) }}">
                                 @csrf
                                 <div class="col">
                                     <button type="submit" class="btn btn-outline-danger" onclick="return deleletconfig()">
@@ -78,7 +77,7 @@
                             </form>
                         </td>
                     </tr>
-<!--                    --><?php //$i++ ?>
+                    <!--                    --><?php //$i++ ?>
                     </tbody>
                 @endforeach
                 <tr class="bg-info">
@@ -95,14 +94,23 @@
                 </tr>
             </table>
         </div>
-        <form method = "post" action="{{ route('admin.confirm-order.orderStatus',[$orders->id]) }}">
+        <form method = "post" action="{{ route('admin.emp-confirm-order.orderStatus',[$orders->id]) }}">
             @csrf
             <div class="form-group row mb-0 col-md-12">
-                <div class="col-md-12 offset-md-4">
+                <div class="col-md-4">
+                    <label>วันที่เสร็จ :</label>
+                    <input class="form-control" type="date" name="date_completed" value="{{ $orders->date_completed }}">
+                    @if ($errors->has('date_completed'))
+                        <span style="color: rgba(226,20,17,0.77);font-size: 13px">
+                           <strong>{{ $errors->first('date_completed') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-8 offset-md-4">
                     <button type="submit" class="btn btn-primary">
                         ยืนยันรายการเสื้อผ้า
                     </button>
-                    <a class="btn btn-danger" href="{{ route('admin.confirm-order.index') }}">กลับ</a>
+                    <a class="btn btn-danger" href="{{ route('admin.emp-confirm-order.index') }}">กลับ</a>
                 </div>
             </div>
             @method('put')

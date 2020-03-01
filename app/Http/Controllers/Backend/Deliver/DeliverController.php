@@ -157,7 +157,6 @@ class DeliverController extends Controller
         }
         $orders->delete();
 
-
         return redirect()->route('admin.deliver.index')->with('deleted', 'ลบข้อมูลเรียกใช้บริการเรียบร้อย');
     }
 }
