@@ -20,11 +20,11 @@
                     </div>
                     <div class="box-body col">
                         <p style="font-size: 25px">วิธีชำระเงิน:</p>
-                        <input type="radio" name="payment" value="0">  ชำระปลายทาง<br>
-                        <input type="radio" name="payment" value="1">  ชำระโดยการส่งหลักฐานการโอนเงิน<br>
-                        @if ($errors->has('payment'))
+                        <input type="radio" name="pay_status" value="0">  ชำระปลายทาง<br>
+                        <input type="radio" name="pay_status" value="1">  ชำระโดยการส่งหลักฐานการโอนเงิน<br>
+                        @if ($errors->has('pay_status'))
                             <span style="color: rgba(226,20,17,0.77);font-size: 13px">
-                           <strong>{{ $errors->first('payment') }}</strong>
+                           <strong>{{ $errors->first('pay_status') }}</strong>
                         </span>
                         @endif
                     </div>

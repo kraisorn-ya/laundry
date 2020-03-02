@@ -31,7 +31,7 @@
 {{--                            <th scope="col">เบอร์โทรศัพท์</th>--}}
                             <th scope="col">สถานะ</th>
                             <th scope="col">สถานะชำระเงิน</th>
-                            <th scope="col">วิธีการชำระเงิน</th>
+{{--                            <th scope="col">วิธีการชำระเงิน</th>--}}
                             <th scope="col">action</th>
                         </tr>
                         </thead>
@@ -57,35 +57,37 @@
                                 @endif
 
                                 @if($order->pay_status == 0)
-                                    <td>ยังไม่ชำระ</td>
+                                    <td>ชำระปลายทาง</td>
                                 @elseif($order->pay_status == 1)
-                                    <td>รอการตรวจสอบการชำระ</td>
+                                    <td>ยังไม่ชำระ</td>
                                 @elseif($order->pay_status == 2)
+                                    <td>รอการตรวจสอบการชำระเงิน</td>
+                                @elseif($order->pay_status == 3)
                                     <td>ชำระแล้ว</td>
                                 @endif
 
-                                @if($order->payment == 0)
-                                    <td>ชำระปลายทาง</td>
-                                @elseif($order->payment == 1)
-                                    <td>ชำระโดยการส่ง<br>หลักฐานการโอนเงิน</td>
-                                @endif
+{{--                                @if($order->payment == 0)--}}
+{{--                                    <td>ชำระปลายทาง</td>--}}
+{{--                                @elseif($order->payment == 1)--}}
+{{--                                    <td>ชำระโดยการส่ง<br>หลักฐานการโอนเงิน</td>--}}
+{{--                                @endif--}}
 
                                 <td class="row">
-                                    @if($order->order_status == 1)
-                                        <form method="post" action="{{ route('admin.manage-status.orderStatus', $order->id) }}">
-                                            @csrf
-                                            <button type="submit" class="btn btn-info">
-                                                <i>กำลังดำเนินการ</i>
-                                            </button>
-                                        </form>
-                                    @elseif($order->order_status == 2 || $order->payment = 0)
+                                    @if($order->order_status == 2)
                                         <form method="post" action="{{ route('admin.manage-status.orderStatus', $order->id) }}">
                                             @csrf
                                             <button type="submit" class="btn btn-warning">
                                                 <i>ซักเสร็จรอการชำระเงิน</i>
                                             </button>
                                         </form>
-                                    @elseif($order->order_status == 3 & $order->pay_status == 2)
+                                    @elseif($order->order_status == 3 && $order->pay_status == 3)
+                                        <form method="post" action="{{ route('admin.manage-status.deliverStatus', $order->id) }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary">
+                                                <i>จัดส่งเสื้อผ้า</i>
+                                            </button>
+                                        </form>
+                                    @elseif($order->order_status == 3 && $order->pay_status == 0)
                                         <form method="post" action="{{ route('admin.manage-status.deliverStatus', $order->id) }}">
                                             @csrf
                                             <button type="submit" class="btn btn-primary">
@@ -94,7 +96,7 @@
                                         </form>
                                     @endif
 
-                                    @if($order->pay_status == 1 && $order->payment == 1)
+                                    @if($order->pay_status == 2)
                                     <a class="btn btn-primary" href="{{ route('admin.manage-status.pay', $order->id) }}" style="margin-left: 1%; margin-right: 1%">
                                         <i> ดูหลักฐานชำระเงิน</i>
                                     </a>

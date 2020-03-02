@@ -19,6 +19,7 @@ class ManageOrderStatusController extends Controller
     {
         $orders = Order::query()
             ->where('order_status','!=',0)
+            ->where('order_status','!=',1)
             ->where('order_status','!=',4)
             ->where('order_status','!=',5)
             ->paginate(6);
@@ -49,10 +50,7 @@ class ManageOrderStatusController extends Controller
     public function orderStatus($id)
     {
         $orders = Order::find($id);
-        if ($orders->order_status == 1){
-            $orders->order_status = 2;
-        }
-        elseif ($orders->order_status == 2){
+        if ($orders->order_status == 2){
             $orders->order_status = 3;
         }
         $orders->update();
@@ -66,6 +64,12 @@ class ManageOrderStatusController extends Controller
             $orders->order_status = 4;
         }
         $orders->update();
+
+        define('LINE_API',"https://notify-api.line.me/api/notify");
+        $token = "bKrbgXDDt7wPBFvcMpqVS8a5o9Ucdxls3IoW8cpizTJ";
+        $str = "เตรียมส่งเสื้อผ้าของลูกค้ารหัส :".$orders->user_id;
+        $res = $this->notify_message($str,$token);
+
         return redirect()->route('admin.manage-status.index')->with('success','แจ้งเตือนพนักงานรับ-ส่ง ไปส่งเสื้อผ้าของคุณ:'." ".$orders->users->first_name." ".$orders->users->last_name);
     }
 
@@ -81,8 +85,13 @@ class ManageOrderStatusController extends Controller
     public function payStatus($id)
     {
         $orders = Order::find($id);
-        $orders->pay_status = 2;
+        $orders->pay_status = 3;
         $orders->update();
+
+        define('LINE_API',"https://notify-api.line.me/api/notify");
+        $token = "bKrbgXDDt7wPBFvcMpqVS8a5o9Ucdxls3IoW8cpizTJ";
+        $str = "ยืนยันการชำระเงินของลูกค้ารหัส :".$orders->user_id." เรียบร้อย";
+        $res = $this->notify_message($str,$token);
 
         return redirect()->route('admin.manage-status.index')->with('success','ยืนยันการชำระเงิน');
     }
@@ -107,5 +116,25 @@ class ManageOrderStatusController extends Controller
 
 
         return redirect()->route('admin.manage-status.index')->with('deleted','ลบข้อมูลเรียกใช้บริการเรียบร้อย');
+    }
+
+    public function notify_message($message,$token)
+    {
+        $queryData = array('message' => $message);
+        $queryData = http_build_query($queryData,'','&');
+        $headerOptions = array(
+            'http' => array(
+                'method' => 'POST',
+                'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
+                    ."Authorization: Bearer ".$token."\r\n"
+                    ."Content-Length: ".strlen($queryData)."\r\n"
+            ,'content' => $queryData
+            ),
+        );
+        $context = stream_context_create($headerOptions);
+        file_get_contents(LINE_API,FALSE,$context);
+//        $result = file_get_contents(LINE_API,FALSE,$context);
+//        $res = json_decode($result);
+//        return $res;
     }
 }

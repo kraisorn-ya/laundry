@@ -25,7 +25,7 @@
                             <th scope="col">ยอดที่ต้องชำระ</th>
                             <th scope="col">สถานะ</th>
                             <th scope="col">สถานะชำระเงิน</th>
-                            <th scope="col">วิธีการชำระเงิน</th>
+{{--                            <th scope="col">วิธีการชำระเงิน</th>--}}
                             <th scope="col">action</th>
                         </tr>
                         </thead>
@@ -52,18 +52,20 @@
                                 @endif
 
                                 @if($order->pay_status == 0)
-                                    <td>ยังไม่ชำระ</td>
+                                    <td>ชำระปลายทาง</td>
                                 @elseif($order->pay_status == 1)
-                                    <td>รอการตรวจสอบการชำระ</td>
+                                    <td>ยังไม่ชำระ</td>
                                 @elseif($order->pay_status == 2)
+                                    <td>รอการตรวจสอบการชำระเงิน</td>
+                                @elseif($order->pay_status == 3)
                                     <td>ชำระแล้ว</td>
                                 @endif
 
-                                @if($order->payment == 0)
-                                    <td>ชำระปลายทาง</td>
-                                @elseif($order->payment == 1)
-                                    <td>ชำระโดยการส่ง<br>หลักฐานการโอนเงิน</td>
-                                @endif
+{{--                                @if($order->payment == 0)--}}
+{{--                                    <td>ชำระปลายทาง</td>--}}
+{{--                                @elseif($order->payment == 1)--}}
+{{--                                    <td>ชำระโดยการส่ง<br>หลักฐานการโอนเงิน</td>--}}
+{{--                                @endif--}}
 
 {{--                                @if($order->send_status == null)--}}
 {{--                                    <td></td>--}}
@@ -78,7 +80,7 @@
                                     <a class="btn btn-primary" href="{{ route('users.order-details.details', $order->id) }}">
                                         <i class="fa fa-book"> ดูรายละเอียด</i>
                                     </a>
-                                    @if($order->payment != 0)
+                                    @if($order->pay_status == 1)
                                     <a class="btn btn-info" href="{{ route('users.order-details.pay', $order->id) }}">
                                         <i class="fab fa-amazon-pay"></i>
                                     </a>

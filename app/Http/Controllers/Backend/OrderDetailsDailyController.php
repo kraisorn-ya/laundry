@@ -20,12 +20,15 @@ class OrderDetailsDailyController extends Controller
         $now = Carbon::now()->format('Y-m-d');
         $orders = Order::query()
             ->where('order_status',5)
-//            ->where('updated_at', '>=', $now.' 00:00:00')
-//            ->where('updated_at', '<=', $now.' 23:59:59')
             ->where('updated_at', '>=', $now.' 00:00:00')
             ->where('updated_at', '<=', $now.' 23:59:59')
             ->paginate(6);
-        return view('admin.order-details-daily.index', compact('orders'));
+        $sumToday = Order::query()
+            ->where('order_status',5)
+            ->where('updated_at', '>=', $now.' 00:00:00')
+            ->where('updated_at', '<=', $now.' 23:59:59')
+            ->get();
+        return view('admin.order-details-daily.index', compact('orders','sumToday'));
     }
 
     public function details($id)

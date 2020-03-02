@@ -30,6 +30,7 @@ class AdminController extends Controller
             ->get();
         $sum = Order::query()
             ->orderBy('created_at','desc')
+            ->where('order_status','5')
             ->get();
         $users = User::all();
         return view('admin.home', compact('users','sumtodays','sum'));

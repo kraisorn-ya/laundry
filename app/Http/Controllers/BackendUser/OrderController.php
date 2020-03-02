@@ -50,13 +50,14 @@ class OrderController extends Controller
 
     public function confirm(Request $request)
     {
+
         $this->validate($request, [
-            'payment' => 'required',
+            'pay_status' => 'required',
         ], [], [
-            'payment' => 'วิธีการชำระเงิน',
+            'pay_status' => 'วิธีการชำระเงิน',
         ]);
         $address = $request->address;
-        $payment = $request->payment;
+        $pay_status = $request->pay_status;
         $orders = $request->all();
         $service_types = ServiceType::all();
         $order_details = [];
@@ -95,7 +96,7 @@ class OrderController extends Controller
             $sum_qty+= $order_detail['clothe_qty'];
             $sum_price+= $order_detail['clothe_total_price'];
         }
-        return view('backend-users.order.confirm',compact('sum_qty','sum_price','order_details','address','payment'));
+        return view('backend-users.order.confirm',compact('sum_qty','sum_price','order_details','address','pay_status'));
     }
 
     public function store(Request $request)
@@ -105,7 +106,7 @@ class OrderController extends Controller
         $sum_price = 0;
         $orders = $request->all();
         $address = $request->address;
-        $payment = $request->payment;
+        $pay_status = $request->pay_status;
         array_shift($orders);
         array_pop($orders);
         array_pop($orders);
@@ -119,7 +120,7 @@ class OrderController extends Controller
         $order->total_qty = $sum_qty;
         $order->order_status = 0;
         $order->address = $address;
-        $order->payment = $payment;
+        $order->pay_status = $pay_status;
         $order->save();
 
         foreach ($orders as $order_detail)

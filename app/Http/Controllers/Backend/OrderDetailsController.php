@@ -22,7 +22,10 @@ class OrderDetailsController extends Controller
         $orders = Order::query()
            ->where('order_status','5')
            ->paginate(6);
-        return view('admin.order-details.index',compact('orders','dateStart','dateEnd'));
+        $sum = Order::query()
+            ->where('order_status','5')
+            ->get();
+        return view('admin.order-details.index',compact('orders','dateStart','dateEnd','sum'));
     }
 
     public function details($id)

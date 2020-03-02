@@ -53,10 +53,12 @@
                                 @endif
 
                                 @if($order->pay_status == 0)
-                                    <td>ยังไม่ชำระ</td>
+                                    <td>ชำระปลายทาง</td>
                                 @elseif($order->pay_status == 1)
-                                    <td>รอการตรวจสอบการชำระ</td>
+                                    <td>ยังไม่ชำระ</td>
                                 @elseif($order->pay_status == 2)
+                                    <td>รอการตรวจสอบการชำระเงิน</td>
+                                @elseif($order->pay_status == 3)
                                     <td>ชำระแล้ว</td>
                                 @endif
                                 <td class="row">

@@ -154,6 +154,7 @@
                         <?php
                         $orders = \App\Order::query()
                             ->where('order_status','!=','0')
+                            ->where('order_status','!=','1')
                             ->where('order_status','!=','4')
                             ->where('order_status','!=','5')
                             ->get();
@@ -233,27 +234,28 @@
 {{--                </li>--}}
 {{--            @endif--}}
 
-            @if(auth()->user()->role_id == 3)
-                <li class="nav-item">
-                    <a href="{{ route('admin.deliver.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.deliver.index' || Route::currentRouteName() == 'admin.deliver.create' ||
-                    Route::currentRouteName() == 'admin.deliver.delete' || Route::currentRouteName() == 'admin.deliver.confirm' ||
-                    Route::currentRouteName() == 'admin.deliver.search' || Route::currentRouteName() == 'admin.deliver.detail' ? 'active' : null }}">
-                        <i class="fas fa-clipboard-list"></i>
-                        <p>บริการลูกค้า</p>
-                        <?php
-                        $orders = \App\Order::query()
-                            ->where('order_status','0')
-                            ->get();
-                        $noti_order = count($orders);
-                        ?>
-                        <span>
-                        @if( $noti_order != null)
-                                <span class="badge badge-danger">{{ $noti_order }}</span>
-                        @endif
-                        </span>
-                    </a>
-                </li>
-            @endif
+{{--            @if(auth()->user()->role_id == 3)--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{ route('admin.deliver.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.deliver.index' || Route::currentRouteName() == 'admin.deliver.create' ||--}}
+{{--                    Route::currentRouteName() == 'admin.deliver.delete' || Route::currentRouteName() == 'admin.deliver.confirm' ||--}}
+{{--                    Route::currentRouteName() == 'admin.deliver.search' || Route::currentRouteName() == 'admin.deliver.detail' ? 'active' : null }}">--}}
+{{--                        <i class="fas fa-clipboard-list"></i>--}}
+{{--                        <p>บริการลูกค้า</p>--}}
+{{--                        <?php--}}
+{{--                        $orders = \App\Order::query()--}}
+{{--                            ->where('order_status','0')--}}
+{{--                            ->get();--}}
+{{--                        $noti_order = count($orders);--}}
+{{--                        ?>--}}
+{{--                        <span>--}}
+{{--                        @if( $noti_order != null)--}}
+{{--                                <span class="badge badge-danger">{{ $noti_order }}</span>--}}
+{{--                        @endif--}}
+{{--                        </span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--            @endif--}}
+
 
             @if(auth()->user()->role_id == 3)
                 <li class="nav-item">

@@ -21,18 +21,22 @@
   <component name="ChangeListManager">
     <list default="true" id="56a98e04-bb23-40ad-b03e-7b0e2a2fb5e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/Deliver/ConfirmOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/Deliver/ConfirmOrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/Deliver/DeliverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/Deliver/DeliverController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/Manage/ManageOrderStatusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/Manage/ManageOrderStatusController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/Manage/OrderSuccessController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/Manage/OrderSuccessController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderDetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderDetailsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderDetailsDailyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderDetailsDailyController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/deliver-confirm-order/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/deliver-confirm-order/confirm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/deliver-confirm-order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/deliver-confirm-order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/OrderDetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/OrderDetailsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/manage-status/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/manage-status/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/order-details-daily/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order-details-daily/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/order-details/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order-details/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/order-success/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order-success/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/partials-admin/sidebar_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials-admin/sidebar_dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-users/order-details/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-users/order-details/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-users/order-details/pay.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-users/order-details/pay.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-users/order/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-users/order/confirm.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-users/order/service.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-users/order/service.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-users/partials/sidebar_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-users/partials/sidebar_dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +162,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -326,7 +331,9 @@
       <workItem from="1582783688930" duration="12253000" />
       <workItem from="1582812272095" duration="9472000" />
       <workItem from="1582858304852" duration="14529000" />
-      <workItem from="1583072324189" duration="6619000" />
+      <workItem from="1583072324189" duration="9640000" />
+      <workItem from="1583086806214" duration="2504000" />
+      <workItem from="1583131285672" duration="7468000" />
     </task>
     <servers />
   </component>

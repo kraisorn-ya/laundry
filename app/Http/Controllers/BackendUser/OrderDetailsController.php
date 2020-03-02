@@ -47,9 +47,34 @@ class OrderDetailsController extends Controller
     {
         $orders = Order::find($id);
         $orders->image = $request['image']->store('uploads','public');
-        $orders->pay_status = 1;
+        $orders->pay_status = 2;
         $orders->update();
 
+        define('LINE_API',"https://notify-api.line.me/api/notify");
+        $token = "bKrbgXDDt7wPBFvcMpqVS8a5o9Ucdxls3IoW8cpizTJ";
+        $str = "ลูกค้ารหัส: "." ".$orders->user_id." "."ส่งหลักฐานการโอนการแล้ว กรุณาตรวจสอบการโอนเงิน";
+        $res = $this->notify_message($str,$token);
+
         return redirect()->route('users.order-details.index')->with('success','ส่งหลักฐานการโอนเงิน รอการตรวจสอบจากพนักงาน');
+    }
+
+    public function notify_message($message,$token)
+    {
+        $queryData = array('message' => $message);
+        $queryData = http_build_query($queryData,'','&');
+        $headerOptions = array(
+            'http' => array(
+                'method' => 'POST',
+                'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
+                    ."Authorization: Bearer ".$token."\r\n"
+                    ."Content-Length: ".strlen($queryData)."\r\n"
+            ,'content' => $queryData
+            ),
+        );
+        $context = stream_context_create($headerOptions);
+        file_get_contents(LINE_API,FALSE,$context);
+//        $result = file_get_contents(LINE_API,FALSE,$context);
+//        $res = json_decode($result);
+//        return $res;
     }
 }
