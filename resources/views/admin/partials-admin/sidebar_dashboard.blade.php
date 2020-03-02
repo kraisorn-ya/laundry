@@ -68,61 +68,6 @@
                 </li>
             @endif
 
-{{--            @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{ route('admin.package.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.package.index' || Route::currentRouteName() == 'admin.package.create' ||--}}
-{{--                    Route::currentRouteName() == 'admin.package.edit' ? 'active' : null }}">--}}
-{{--                        <i class="nav-icon fas fa-dumpster"></i>--}}
-{{--                        <p>แพ็คเกจ</p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @endif--}}
-
-{{--            @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 2)--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{ route('admin.confirm-package.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.confirm-package.index' || Route::currentRouteName() == 'admin.confirm-package.create' ||--}}
-{{--                     Route::currentRouteName() == 'admin.confirm-package.edit' ? 'active' : null }}">--}}
-{{--                        <i class="nav-icon fas fa-dumpster"></i>--}}
-{{--                        <p>ยืนยันการซื้อแพ็คเกจ</p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @endif--}}
-
-{{--            @if(auth()->user()->role_id == 1)--}}
-{{--            <li class="nav-item has-treeview {{ Route::currentRouteName() == 'admin.order.index' || Route::currentRouteName() == 'admin.order.create' ||--}}
-{{--            Route::currentRouteName() == 'admin.order.delete' || Route::currentRouteName() == 'admin.order.confirm' || Route::currentRouteName() == 'admin.order.search' ||--}}
-{{--            Route::currentRouteName() == 'admin.order.detail' || Route::currentRouteName() == 'admin.order-status.index' || Route::currentRouteName() == 'admin.order-status.status' ||--}}
-{{--            Route::currentRouteName() == 'admin.order-status.update' || Route::currentRouteName() == 'admin.order-status.detail' || Route::currentRouteName() == 'admin.order-status.delete' ? 'menu-open' : null }}">--}}
-{{--                <a href="#" class="nav-link {{ Route::currentRouteName() == 'admin.order.index' || Route::currentRouteName() == 'admin.order.create' ||--}}
-{{--            Route::currentRouteName() == 'admin.order.delete' || Route::currentRouteName() == 'admin.order.confirm' ||--}}
-{{--            Route::currentRouteName() == 'admin.order.search' || Route::currentRouteName() == 'admin.order.detail' || Route::currentRouteName() == 'admin.order-status.index' ||--}}
-{{--            Route::currentRouteName() == 'admin.order-status.status' || Route::currentRouteName() == 'admin.order-status.update' || Route::currentRouteName() == 'admin.order-status.detail' ||--}}
-{{--            Route::currentRouteName() == 'admin.order-status.delete' ? 'active' : null }}">--}}
-{{--                    <i class="nav-icon fas fa-calendar-alt "></i>--}}
-{{--                    <p>--}}
-{{--                        บริการลูกค้า--}}
-{{--                        <i class="fas fas fa-angle-left right"></i>--}}
-{{--                    </p>--}}
-{{--                </a>--}}
-{{--                <ul class="nav nav-treeview">--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a href="{{ route('admin.order.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.order.index' || Route::currentRouteName() == 'admin.order.create' ||--}}
-{{--                    Route::currentRouteName() == 'admin.order.delete' || Route::currentRouteName() == 'admin.order.confirm' ||--}}
-{{--                    Route::currentRouteName() == 'admin.order.search' || Route::currentRouteName() == 'admin.order.detail' ? 'active' : null }}">--}}
-{{--                            <i class=" nav-icon"></i>--}}
-{{--                            <p>บริการของลูกค้า</p>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a href="{{ route('admin.order-status.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.order-status.index' || Route::currentRouteName() == 'admin.order-status.status' ||--}}
-{{--                        Route::currentRouteName() == 'admin.order-status.update' || Route::currentRouteName() == 'admin.order-status.detail' || Route::currentRouteName() == 'admin.order-status.delete' ? 'active' : null }}">--}}
-{{--                            <p>จัดการสถานะใช้บริการ</p>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            @endif--}}
-
             @if(auth()->user()->role_id == 2)
                 <li class="nav-item">
                     <a href="{{ route('admin.emp-confirm-order.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.emp-confirm-order.index'
@@ -221,41 +166,6 @@
                 </a>
             </li>
             @endif
-
-{{--            @if(auth()->user()->role_id == 1)--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{ route('admin.promotion.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.promotion.index' || Route::currentRouteName() == 'admin.promotion.create' ||--}}
-{{--                        Route::currentRouteName() == 'admin.promotion.edit' ? 'active' : null }}">--}}
-{{--                        <i class="nav-icon  fas fa-dumpster"></i>--}}
-{{--                        <p>--}}
-{{--                            โปรโมชั่น--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @endif--}}
-
-{{--            @if(auth()->user()->role_id == 3)--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{ route('admin.deliver.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.deliver.index' || Route::currentRouteName() == 'admin.deliver.create' ||--}}
-{{--                    Route::currentRouteName() == 'admin.deliver.delete' || Route::currentRouteName() == 'admin.deliver.confirm' ||--}}
-{{--                    Route::currentRouteName() == 'admin.deliver.search' || Route::currentRouteName() == 'admin.deliver.detail' ? 'active' : null }}">--}}
-{{--                        <i class="fas fa-clipboard-list"></i>--}}
-{{--                        <p>บริการลูกค้า</p>--}}
-{{--                        <?php--}}
-{{--                        $orders = \App\Order::query()--}}
-{{--                            ->where('order_status','0')--}}
-{{--                            ->get();--}}
-{{--                        $noti_order = count($orders);--}}
-{{--                        ?>--}}
-{{--                        <span>--}}
-{{--                        @if( $noti_order != null)--}}
-{{--                                <span class="badge badge-danger">{{ $noti_order }}</span>--}}
-{{--                        @endif--}}
-{{--                        </span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @endif--}}
-
 
             @if(auth()->user()->role_id == 3)
                 <li class="nav-item">

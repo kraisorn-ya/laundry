@@ -57,15 +57,6 @@ class Admin extends Authenticatable
         return $this->hasMany(Articles::class);
     }
 
-    public function promotion()
-    {
-        return $this->hasMany(Promotion::class);
-    }
-    public function services()
-    {
-        return $this->hasMany(Server::class);
-    }
-
     public function orders()
     {
         return $this->hasMany(Order::class);

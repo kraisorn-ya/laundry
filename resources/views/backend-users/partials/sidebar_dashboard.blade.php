@@ -27,13 +27,6 @@
         Interface
     </div>
 
-{{--    <hr class="sidebar-divider my-0">--}}
-{{--    <li class="nav-item {{ Route::currentRouteName() == 'users.order.index' ? 'active' : null }}">--}}
-{{--        <a class="nav-link" href="{{ route('users.order.index') }}">--}}
-{{--            <i class="fas fa-credit-card"></i>--}}
-{{--            <span>เรียกใช้บริการ</span></a>--}}
-{{--    </li>--}}
-
     <li class="nav-item {{ Route::currentRouteName() == 'users.order.service' ? 'active' : null }}">
         <a class="nav-link" href="{{ route('users.order.service') }}">
             <i class="fas fa-credit-card"></i>
@@ -41,11 +34,6 @@
     </li>
 
     <hr class="sidebar-divider my-0">
-{{--    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">--}}
-{{--        <a class="nav-link" href="{{ route('users.package.index') }}">--}}
-{{--            <i class="fas fa-shopping-cart"></i>--}}
-{{--            <span>แพ็คเกจ</span></a>--}}
-{{--    </li>--}}
     <hr class="sidebar-divider">
 
     <li class="nav-item {{ Route::currentRouteName() == 'users.order-details.index' || Route::currentRouteName() == 'users.order-details.details' ||
@@ -77,27 +65,4 @@
             <span>รายละเอียดการใช้บริการทั้งหมด</span></a>
     </li>
 
-{{--    <li class="nav-item {{ Route::currentRouteName() == 'users.profile' ? 'active' : null }}">--}}
-{{--        <a class="nav-link" href="{{ route('users.profile') }}">--}}
-{{--            <i class="fas fa-id-card"></i>--}}
-{{--            <span>โปรไฟล์</span></a>--}}
-{{--    </li>--}}
-
-{{--    <li class="nav-item {{ Route::currentRouteName() == 'users.edit' ? 'active' : null }}">--}}
-{{--        <a class="nav-link" href="{{ route('users.edit') }}">--}}
-{{--            <i class="fas fa-edit"></i>--}}
-{{--            <span>แก้ไขข้อมูลส่วนตัว</span></a>--}}
-{{--    </li>--}}
-
-{{--    <li class="nav-item {{ Route::currentRouteName() == 'users.package.index' ? 'active' : null }}">--}}
-{{--        <a class="nav-link" href="{{ route('users.package.index') }}">--}}
-{{--            <i class="fas fa-shopping-cart"></i>--}}
-{{--            <span>แพ็คเกจ</span></a>--}}
-{{--    </li>--}}
-
-{{--    <li class="nav-item ">--}}
-{{--        <a class="nav-link" href="#">--}}
-{{--            <i class="fas fa-bell"></i>--}}
-{{--            <span>แจ้งเตือน</span></a>--}}
-{{--    </li>--}}
 </ul>

@@ -31,7 +31,7 @@
                             <div class="form-group">
                                 <div id="divShowImg">
                                     @if($orders->image)
-                                        <img class="img-thumbnail" id="previewProduct" style="width: 300px; height: 300px" src="{{ asset('storage/'.$orders->image) }}">
+                                        <img class="img-thumbnail" id="previewProduct" style="width: 160px; height: 160px" src="{{ asset('storage/'.$orders->image) }}">
                                     @elseif($orders->image == null)
                                         <img class="img-thumbnail" id="previewProduct" style="width: 150px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
                                     @endif

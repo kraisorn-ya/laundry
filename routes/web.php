@@ -22,15 +22,8 @@ Route::get('/home', function () {
 Route::get('/index', function () {
     return view('index');
 });
-Route::get('/index2', function () {
-    return view('index2');
-});
-Route::get('/index3', function () {
-    return view('index3');
-});
 
 Route::get('/index4/articles', 'Frontend\FrontEndController@articles')->name('articles');
-
 
 
 //});
@@ -61,16 +54,8 @@ Route::group([
         'as' => 'service-charge.'
     ], function (){
         Route::get('/', 'Frontend\ServiceChargeController@index')->name('index');
-        Route::get('/index2', 'Frontend\ServiceChargeController@index2')->name('index2');
     });
 
-//    Route::group([
-//        'prefix' => 'promotion',
-//        'as' => 'promotion.'
-//    ], function (){
-//        Route::get('/index', 'BackendUser\BackendUserController@index')->name('index');
-//        Route::post('{id}/update', 'BackendUser\BackendUserController@update')->name('update');
-//    });
 });
 
 Route::group([
@@ -82,27 +67,9 @@ Route::group([
     Route::post('{id}/update', 'BackendUser\BackendUserController@update')->name('update');
 
     Route::group([
-        'prefix' => 'service',
-        'as' => 'service.'
-    ], function (){
-        Route::get('/', 'BackendUser\ServiceController@index')->name('index');
-    });
-
-    Route::group([
-        'prefix' => 'package',
-        'as' => 'package.'
-    ], function (){
-        Route::get('/', 'BackendUser\PackageController@index')->name('index');
-        Route::post('/package', 'BackendUser\PackageController@buy')->name('buy');
-
-    });
-
-    Route::group([
         'prefix' => 'order',
         'as' => 'order.'
     ], function (){
-        Route::get('/', 'BackendUser\OrderController@index')->name('index');
-        Route::post('/order', 'BackendUser\OrderController@post')->name('post');
         Route::get('/service', 'BackendUser\OrderController@service')->name('service');
         Route::post('/confirm', 'BackendUser\OrderController@confirm')->name('confirm');
         Route::post('/confirm/store', 'BackendUser\OrderController@store')->name('store');

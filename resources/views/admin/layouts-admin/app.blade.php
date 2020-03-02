@@ -107,7 +107,7 @@
         @yield('content')
     </main>
 </div>
-    @include('admin.layouts.script')
+    @include('admin.layouts-admin.script')
 {{--    @stack('script')--}}
 </body>
 </html>

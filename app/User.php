@@ -30,9 +30,6 @@ class User extends Authenticatable
         'birthday',
         'address',
         'image',
-        'status_id',
-        'package_id',
-        'confirm_package',
     ];
 
     /**
@@ -43,21 +40,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function status()
-    {
-        return $this->belongsTo(Status::class);
-    }
-
-    public function package()
-    {
-        return $this->belongsTo(Package::class);
-    }
-
-    public function services()
-    {
-        return $this->hasMany(Service::class);
-    }
 
     public function orders()
     {

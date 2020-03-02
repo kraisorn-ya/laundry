@@ -26,20 +26,6 @@ class ManageOrderStatusController extends Controller
         return view('admin.manage-status.index',compact('orders'));
     }
 
-    public function status($id)
-    {
-        $orders = Order::find($id);
-        return view('admin.manage-status.status',compact('orders'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $orders = Order::find($id);
-        $orders->order_status = $request->order_status;
-        $orders->update();
-
-        return redirect()->route('admin.manage-status.index')->with('success','แก้ไขสถานะเสร็จสิ้น');
-    }
 
     public function pay($id)
     {
@@ -72,16 +58,7 @@ class ManageOrderStatusController extends Controller
 
         return redirect()->route('admin.manage-status.index')->with('success','แจ้งเตือนพนักงานรับ-ส่ง ไปส่งเสื้อผ้าของคุณ:'." ".$orders->users->first_name." ".$orders->users->last_name);
     }
-
-    public function sendStatus($id)
-    {
-        $orders = Order::find($id);
-        $orders->send_status = 1;
-        $orders->update();
-
-        return redirect()->route('admin.manage-status.index');
-    }
-
+    
     public function payStatus($id)
     {
         $orders = Order::find($id);
@@ -103,19 +80,6 @@ class ManageOrderStatusController extends Controller
             ->get();
 
         return view('admin.manage-status.detail',compact('order_details'));
-    }
-
-    public function destroy($id)
-    {
-        $orders = Order::find($id);
-        if ($orders->image != null)
-        {
-            Storage::delete('public/'.$orders->image);
-        }
-        $orders->delete();
-
-
-        return redirect()->route('admin.manage-status.index')->with('deleted','ลบข้อมูลเรียกใช้บริการเรียบร้อย');
     }
 
     public function notify_message($message,$token)

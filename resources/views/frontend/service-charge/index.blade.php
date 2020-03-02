@@ -4,93 +4,119 @@
 @section('content')
     <section id="intro">
         <div class="container">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-12">
 
-            <header class="section-header">
-                <h3>ค่าบริการ</h3>
-                <p></p>
-            </header>
+                        <h1 class="text-center text-white-th"> ค่าบริการ</h1>
+                        <div class="card">
+                            <div class="card-body ">
 
-            <div class="row about-container" style="margin-top: -7%">
+                                <div class="row">
+                                    <div class="col"></div>
+                                    <div class="col-md-10">
 
-                <div class="col-lg-6 content order-lg-1 order-2">
-                    <p class="text-white-25">{{ array_get($service_type,'0.name') }}
-{{--                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore--}}
-{{--                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut--}}
-{{--                        aliquip ex ea commodo consequat.--}}
-                    </p>
+                                        <div class=" mb4 float-left" style="margin-top: 30px;">
+                                            <h1>ค่าบริการ</h1>
+                                        </div>
 
-                    <div class="text-white-th icon-box wow fadeInUp">
-                        <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-                        <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                        <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
-                            cum soluta nobis est eligendi</p>
+                                        {{--                                        <div class="category-menu d-flex pull-right" style="margin-top: 47px;">--}}
+                                        {{--                                            <div class="category-text">--}}
+                                        {{--                                                Category:--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                            <div class="dropdown">--}}
+                                        {{--                                                <button type="button" class="btn btn-category  dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">--}}
+                                        {{--                                                    @if(request()->segment(3) != null)--}}
+                                        {{--                                                        {{ $service_type->name }}--}}
+                                        {{--                                                    @else--}}
+                                        {{--                                                        all--}}
+                                        {{--                                                    @endif--}}
+                                        {{--                                                </button>--}}
+                                        {{--                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">--}}
+                                        {{--                                                    <a class="dropdown-item" href="{{ route('laundry.service-charge.index2',['name' => null ]) }}">All</a>--}}
+                                        {{--                                                    @foreach($service_types as $service_type)--}}
+                                        {{--                                                        <a class="dropdown-item"--}}
+                                        {{--                                                           href="{{ route('laundry.service-charge.index2',['name' => $service_type->name]) }}">--}}
+                                        {{--                                                            {{ $service_type->name }}--}}
+                                        {{--                                                        </a>--}}
+                                        {{--                                                    @endforeach--}}
+                                        {{--                                                    <a class="dropdown-item" href="#"></a>--}}
+                                        {{--                                                </div>--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                        </div>--}}
+
+                                        <div class="article">
+                                            @foreach($service_types as $service_type)
+                                                <h5 class="card-title">{{ $service_type->name }}</h5>
+                                                <div class="card mb-3" >
+                                                    <div class="row no-gutters">
+                                                        {{--                                                        <div class="col-md-4">--}}
+                                                        {{--                                                            <a href="{{route('laundry.articles.content',[$article->id])}}">--}}
+                                                        {{--                                                                <img src="{{ asset('storage/'.$article->image) }}" class="card-img" alt="...">--}}
+                                                        {{--                                                            </a>--}}
+
+                                                        {{--                                                        </div>--}}
+                                                        <div class="col-md-12">
+                                                            <div class="card-header">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 text-color-black">
+                                                                        ชื่อเสื้อผ้า
+                                                                    </div>
+                                                                    <div class="col-md-4 text-color-black">
+                                                                        ราคา/ต่อชิ้น(บาท)
+                                                                    </div>
+                                                                    {{--                                                                    <div class="col-md-3 text-color-black">--}}
+                                                                    {{--                                                                        จำนวน--}}
+                                                                    {{--                                                                    </div>--}}
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                {{--                                                                <div class="card-body">--}}
+                                                                <?php
+                                                                $clothes = \App\Clothes::query()
+                                                                    ->where('service_type_id',$service_type->id)
+                                                                    ->get();
+                                                                ?>
+                                                                @foreach($clothes as $clothe)
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <p>{{ $clothe->name }}</p>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <p>{{ $clothe->price }}</p>
+                                                                        </div>
+                                                                        {{--                                                                            <div class="col-md-2">--}}
+                                                                        {{--                                                                                <input class="form-control" type="number">--}}
+                                                                        {{--                                                                            </div>--}}
+                                                                    </div>
+                                                                @endforeach
+
+                                                            </div>
+                                                            {{--                                                            </div>--}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+
+                                        <!-- Pagination -->
+                                            {{--                                            <div class="col-md-12">--}}
+                                            {{--                                                <ul class="pagination justify-content-center" href="#">--}}
+                                            {{--                                                    {{ $articles->links() }}--}}
+                                            {{--                                                </ul>--}}
+                                            {{--                                            </div>--}}
+                                        </div>
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
                     </div>
-
-                    <div class="text-white-th icon-box wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="icon"><i class="fa fa-photo"></i></div>
-                        <h4 class="title"><a href="">Magni Dolores</a></h4>
-                        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum</p>
-                    </div>
-
-                    <div class="text-white-th icon-box wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="icon"><i class="fa fa-bar-chart"></i></div>
-                        <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                        <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat tarad limino ata</p>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
-{{--                    <img src="{{ asset('newbiz/img/about-img.svg') }}" class="img-fluid" alt="">--}}
-                    <img src="{{ asset('img/laundry2.jpg') }}" class="img-fluid img-resize" alt="">
                 </div>
             </div>
-
-            <div class="row about-extra">
-                <div class="col-lg-6 wow fadeInUp">
-                    <img src="{{ asset('newbiz/img/about-extra-1.svg') }}" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-                    <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
-                    <p>
-                        Ipsum in aspernatur ut possimus sint. Quia omnis est occaecati possimus ea. Quas molestiae
-                        perspiciatis occaecati qui rerum. Deleniti quod porro sed quisquam saepe. Numquam mollitia
-                        recusandae non ad at et a.
-                    </p>
-                    <p>
-                        Ad vitae recusandae odit possimus. Quaerat cum ipsum corrupti. Odit qui asperiores ea corporis
-                        deserunt veritatis quidem expedita perferendis. Qui rerum eligendi ex doloribus quia sit. Porro
-                        rerum eum eum.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row about-extra">
-                <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
-                    <img src="{{ asset('newbiz/img/about-extra-2.svg') }}" class="img-fluid" alt="">
-                </div>
-
-                <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
-                    <h4>Neque saepe temporibus repellat ea ipsum et. Id vel et quia tempora facere reprehenderit.</h4>
-                    <p>
-                        Delectus alias ut incidunt delectus nam placeat in consequatur. Sed cupiditate quia ea quis.
-                        Voluptas nemo qui aut distinctio. Cumque fugit earum est quam officiis numquam. Ducimus corporis
-                        autem at blanditiis beatae incidunt sunt.
-                    </p>
-                    <p>
-                        Voluptas saepe natus quidem blanditiis. Non sunt impedit voluptas mollitia beatae. Qui esse
-                        molestias. Laudantium libero nisi vitae debitis. Dolorem cupiditate est perferendis iusto.
-                    </p>
-                    <p>
-                        Eum quia in. Magni quas ipsum a. Quis ex voluptatem inventore sint quia modi. Numquam est aut fuga
-                        mollitia exercitationem nam accusantium provident quia.
-                    </p>
-                </div>
-
-            </div>
-
         </div>
-    </section><!-- #about -->
+    </section>
+
 @endsection

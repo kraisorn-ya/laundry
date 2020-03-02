@@ -66,11 +66,6 @@
                                     <td>ชำระแล้ว</td>
                                 @endif
 
-{{--                                @if($order->payment == 0)--}}
-{{--                                    <td>ชำระปลายทาง</td>--}}
-{{--                                @elseif($order->payment == 1)--}}
-{{--                                    <td>ชำระโดยการส่ง<br>หลักฐานการโอนเงิน</td>--}}
-{{--                                @endif--}}
 
                                 <td class="row">
                                     @if($order->order_status == 2)
@@ -102,14 +97,6 @@
                                     </a>
                                     @endif
 
-{{--                                    @if($order->send_status == 0 & $order->pay_status == 2)--}}
-{{--                                        <form method="post" action="{{ route('admin.manage-status.sendStatus', $order->id) }}">--}}
-{{--                                            @csrf--}}
-{{--                                            <button type="submit" class="btn btn-success">--}}
-{{--                                                จัดส่ง--}}
-{{--                                            </button>--}}
-{{--                                        </form>--}}
-{{--                                    @endif--}}
                                     <a class="btn btn-outline-info" href="{{ route('admin.manage-status.details', $order->id) }}">
                                         ดูรายละเอียด
                                     </a>

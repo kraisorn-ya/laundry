@@ -18,8 +18,4 @@ class ArticlesCategory extends Model
         return $this->hasMany(Articles::class);
     }
 
-//    public function promotion()
-//    {
-//        return $this->hasMany(Promotion::class);
-//    }
 }
