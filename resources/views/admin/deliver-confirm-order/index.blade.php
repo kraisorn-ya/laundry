@@ -1,5 +1,5 @@
 @extends('admin.layouts-admin.main_dashboard')
-@section('title', 'เรียกใช้บริการจากลูกค้า')
+@section('title', 'รายการเสื้อผ้าของลูกค้า')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

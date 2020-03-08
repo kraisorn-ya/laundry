@@ -58,7 +58,7 @@ class ManageOrderStatusController extends Controller
 
         return redirect()->route('admin.manage-status.index')->with('success','แจ้งเตือนพนักงานรับ-ส่ง ไปส่งเสื้อผ้าของคุณ:'." ".$orders->users->first_name." ".$orders->users->last_name);
     }
-    
+
     public function payStatus($id)
     {
         $orders = Order::find($id);

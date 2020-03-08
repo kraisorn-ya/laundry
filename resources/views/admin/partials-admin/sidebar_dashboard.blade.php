@@ -73,7 +73,7 @@
                     <a href="{{ route('admin.emp-confirm-order.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.emp-confirm-order.index'
                     || Route::currentRouteName() == 'admin.emp-confirm-order.confirm' ? 'active' : null }}">
                         <i class="fas fa-clipboard-list"></i>
-                        <p>ยืนยันรายการ</p>
+                        <p>ยืนยันรายการเสื้อผ้า</p>
                         <?php
                         $orders = \App\Order::query()
                             ->where('order_status','1')
@@ -172,7 +172,7 @@
                     <a href="{{ route('admin.confirm-order.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.confirm-order.index'
                     || Route::currentRouteName() == 'admin.confirm-order.confirm' ? 'active' : null }}">
                         <i class="fas fa-clipboard-list"></i>
-                        <p>ยืนยันรายการ</p>
+                        <p>รายการเสื้อผ้า</p>
                         <?php
                         $orders = \App\Order::query()
                             ->where('order_status','0')

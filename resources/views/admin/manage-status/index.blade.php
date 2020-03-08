@@ -85,7 +85,7 @@
                                     @elseif($order->order_status == 3 && $order->pay_status == 0)
                                         <form method="post" action="{{ route('admin.manage-status.deliverStatus', $order->id) }}">
                                             @csrf
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn btn-primary" onclick="return deleletconfig()">
                                                 <i>จัดส่งเสื้อผ้า</i>
                                             </button>
                                         </form>
@@ -114,3 +114,17 @@
         </div>
     </div>
 @endsection
+@push('script')
+    <script>
+        function deleletconfig(){
+
+            var del=confirm("แจ้งเตือนไปยังพนักงานรับ-ส่ง");
+            if (del==true){
+                alert ("แจ้งเตือน")
+            }else{
+                alert("ยกเลิก")
+            }
+            return del;
+        }
+    </script>
+@endpush

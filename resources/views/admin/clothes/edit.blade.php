@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('แก้ไขชื่อเสื้อผ้า') }}</div>
+                    <div class="card-header">{{ __('แก้ไขข้อมูลเสื้อผ้า') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.clothes.update',[array_get($data,'id')]) }}" style="padding: 40px">

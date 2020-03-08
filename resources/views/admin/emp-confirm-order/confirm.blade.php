@@ -58,7 +58,7 @@
                             <td class="font-order">{{ $order_detail['clothes_total_price'] }}</td>
                             <td width="50px">
                                 <div class="col">
-                                    <button type="submit" class="btn btn-outline-danger">
+                                    <button type="submit" class="btn btn-outline-info">
                                         <i class="fas fa-trash">แก้ไข</i>
                                     </button>
                                 </div>
